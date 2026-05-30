@@ -1,0 +1,47 @@
+
+================ DAILY REPORT ================
+
+Date: 2026-05-28
+
+Total Sessions: 39
+
+----------------------------------------------
+PRODUCTIVITY ANALYSIS
+----------------------------------------------
+
+Productive Sessions   : 35
+Entertainment Sessions: 0
+Idle Sessions         : 0
+Productivity Score    : 89.74 %
+
+----------------------------------------------
+PROJECT BREAKDOWN
+----------------------------------------------
+
+Project Name
+Browser Work    22
+Development     13
+Other            4
+
+----------------------------------------------
+APPLICATION USAGE
+----------------------------------------------
+
+App Name
+activity_log.csv - task-1 - Visual Studio Code                                                                             12
+System Workflow Integration - Google Chrome                                                                                 8
+Daily Productivity Report - 2026-05-28 - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome     3
+Productivity Dashboard and 4 more pages - Personal - Microsoft​ Edge                                                        2
+Modular Architecture Advice - Google Chrome                                                                                 2
+Task Manager                                                                                                                2
+ChatGPT - Google Chrome                                                                                                     2
+Tracker Shutdown                                                                                                            1
+Google Chrome                                                                                                               1
+New Tab - Google Chrome                                                                                                     1
+Dr.N.G.P. Institute of Technology Mail - Google Chrome                                                                      1
+Inbox (2,288) - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome                              1
+Inbox (2,287) - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome                              1
+Desktop - File Explorer                                                                                                     1
+● shutdown_popup.py - task-1 - Visual Studio Code                                                                           1
+
+==============================================

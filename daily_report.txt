@@ -1,0 +1,105 @@
+
+================ DAILY REPORT ================
+
+Date: 2026-05-28
+
+Total Sessions: 895
+
+----------------------------------------------
+PRODUCTIVITY ANALYSIS
+----------------------------------------------
+
+Productive Sessions   : 649
+Entertainment Sessions: 0
+Idle Sessions         : 6
+Productivity Score    : 72.51 %
+
+----------------------------------------------
+PROJECT BREAKDOWN
+----------------------------------------------
+
+Project Name
+Browser Work     328
+Development      309
+Other            240
+Communication     12
+IDLE               6
+
+----------------------------------------------
+APPLICATION USAGE
+----------------------------------------------
+
+App Name
+Python Project Timesheet Tracker - Google Chrome                                                                                          200
+activity_log.csv - task-1 - Visual Studio Code                                                                                             96
+start_tracker.py - task-1 - Visual Studio Code                                                                                             68
+dashboard.py - task-1 - Visual Studio Code                                                                                                 67
+Daily Timesheet Report - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome                                    31
+Task Switching                                                                                                                             26
+● dashboard.py - task-1 - Visual Studio Code                                                                                               26
+Project Progress Update - Google Chrome                                                                                                    18
+Task Scheduler                                                                                                                             17
+● start_tracker.py - task-1 - Visual Studio Code                                                                                           17
+daily_report_sender.py - task-1 - Visual Studio Code                                                                                       17
+Productivity Dashboard and 3 more pages - Personal - Microsoft​ Edge                                                                       17
+Modular Architecture Advice - Google Chrome                                                                                                17
+Email Sending Fix - Google Chrome                                                                                                          16
+Task View                                                                                                                                  14
+WhatsApp                                                                                                                                   13
+tk                                                                                                                                         13
+Productivity Dashboard and 2 more pages - Personal - Microsoft​ Edge                                                                       13
+Tracker Shutdown                                                                                                                           11
+Productivity Dashboard - Personal - Microsoft​ Edge                                                                                        11
+Windows Default Lock Screen                                                                                                                10
+Streamlit and 1 more page - Personal - Microsoft​ Edge                                                                                      9
+Productivity Dashboard and 1 more page - Personal - Microsoft​ Edge                                                                         8
+Inbox (2,285) - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome                                              7
+Activity Tracker Properties (Local Computer)                                                                                                6
+Streamlit and 2 more pages - Personal - Microsoft​ Edge                                                                                     6
+Streamlit and 3 more pages - Personal - Microsoft​ Edge                                                                                     6
+Task Manager                                                                                                                                6
+Edit Action                                                                                                                                 5
+No Application                                                                                                                              4
+Auto Start Tracker Setup - Google Chrome                                                                                                    4
+Python Internship Project - Google Chrome                                                                                                   3
+start_tracker.bat - task-1 - Visual Studio Code                                                                                             3
+Mail - DevopsTeam - Outlook - Google Chrome                                                                                                 3
+New Tab - Google Chrome                                                                                                                     3
+Untitled - Notepad                                                                                                                          3
+*Untitled - Notepad                                                                                                                         3
+kambaa task-1.txt - Notepad                                                                                                                 3
+Program Manager                                                                                                                             3
+email_sender.py - task-1 - Visual Studio Code                                                                                               3
+C:\Users\KAVYA SRI K\AppData\Local\Programs\Python\Python313\python.exe                                                                     2
+Dr.N.G.P. Institute of Technology Mail - Google Chrome                                                                                      2
+Snipping Tool Overlay                                                                                                                       2
+Search                                                                                                                                      2
+Save as                                                                                                                                     2
+● daily_report_sender.py - task-1 - Visual Studio Code                                                                                      2
+UnlockingWindow                                                                                                                             2
+IDLE                                                                                                                                        2
+Streamlit - Personal - Microsoft​ Edge                                                                                                      2
+● main.py - task-1 - Visual Studio Code                                                                                                     2
+activity_log. - task-1 - Visual Studio Code                                                                                                 1
+Tracker Output Explanation - Google Chrome                                                                                                  1
+database.py - task-1 - Visual Studio Code                                                                                                   1
+daily_report.xlsx - task-1 - Visual Studio Code                                                                                             1
+C:\WINDOWS\system32\cmd.exe                                                                                                                 1
+Command Prompt                                                                                                                              1
+Notepad                                                                                                                                     1
+*initialAdminPassword - Notepad                                                                                                             1
+start_tracker.py -- Visual Studio Code                                                                                                      1
+Untitled - Personal - Microsoft​ Edge                                                                                                       1
+Google Chrome                                                                                                                               1
+Inbox (2,287) - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome                                              1
+Inbox (2,286) - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome                                              1
+🏆 “Congratulations Kavya sri K , You Did It!” — Soon? - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome      1
+daily_report.txt - task-1 - Visual Studio Code                                                                                              1
+*kambaa task-1.txt - Notepad                                                                                                                1
+● report_generator.py - task-1 - Visual Studio Code                                                                                         1
+ChatGPT - Google Chrome                                                                                                                     1
+Modular Architecture Implementation - Google Chrome                                                                                         1
+report_generator.py - task-1 - Visual Studio Code                                                                                           1
+Extension: Save Typing - task-1 - Visual Studio Code                                                                                        1
+
+==============================================

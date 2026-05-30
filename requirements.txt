@@ -1,0 +1,7 @@
+psutil
+pywin32
+schedule
+pandas
+openpyxl
+yagmail
+plyer
