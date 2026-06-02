@@ -1,0 +1,393 @@
+{% extends 'base.html' %}
+{% block title %}Reports Management{% endblock %}
+{% block content %}
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
+  }
+  .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .terminal-preview {
+    background-color: #1e1e2f;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .preview-tab-btn {
+    border-radius: 6px;
+    margin-right: 8px;
+    font-weight: 500;
+  }
+  .download-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.2s ease;
+  }
+  .download-card:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: scale(1.02);
+  }
+</style>
+
+<div class="container-fluid py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold text-dark mb-0">Reports Management</h2>
+      <p class="text-muted mb-0">View, generate, download, and preview automated productivity reports</p>
+    </div>
+    <div>
+      <button class="btn btn-primary d-flex align-items-center shadow-sm" id="btn-generate-report" style="background:#2563eb; color:#ffffff; padding: 10px 20px;">
+        <i class="bi bi-gear-wide-connected me-2" id="spinner-icon"></i>
+        <span id="btn-text">Generate Report</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Summary Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 h-100 card-hover">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon-circle bg-primary text-white me-3">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+          </div>
+          <div>
+            <h6 class="text-muted mb-1">Total Reports</h6>
+            <h4 class="fw-bold mb-0" id="val-total-reports">--</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 h-100 card-hover">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon-circle bg-success text-white me-3">
+            <i class="bi bi-calendar-check-fill"></i>
+          </div>
+          <div>
+            <h6 class="text-muted mb-1">Unique Report Days</h6>
+            <h4 class="fw-bold mb-0" id="val-unique-days">--</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 h-100 card-hover">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon-circle bg-warning text-white me-3">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <div>
+            <h6 class="text-muted mb-1">Last Generated</h6>
+            <h4 class="fw-bold mb-0" id="val-last-generated" style="font-size: 0.95rem;">--</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 h-100 card-hover">
+        <div class="card-body d-flex align-items-center">
+          <div class="icon-circle bg-info text-white me-3">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <div>
+            <h6 class="text-muted mb-1">Report Status</h6>
+            <h4 class="fw-bold mb-0" id="val-status">--</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mb-4">
+    <!-- SECTION 2 & 3: Latest Report & Download Center -->
+    <div class="col-lg-5">
+      <!-- SECTION 2: Latest Report Details -->
+      <div class="card shadow-sm border-0 mb-4 h-50">
+        <div class="card-header bg-white py-3 border-0">
+          <h5 class="mb-0 fw-semibold text-dark"><i class="bi bi-file-earmark-check-fill me-2 text-success"></i>Latest Report</h5>
+        </div>
+        <div class="card-body py-1">
+          <ul class="list-group list-group-flush border-0">
+            <li class="list-group-item d-flex justify-content-between align-items-center py-2 bg-transparent">
+              <span class="text-muted">Report Name</span>
+              <span class="fw-bold" id="latest-name">--</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-2 bg-transparent">
+              <span class="text-muted">Generated Date</span>
+              <span class="fw-bold" id="latest-date">--</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-2 bg-transparent">
+              <span class="text-muted">File Type</span>
+              <span class="fw-bold" id="latest-type">--</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-2 bg-transparent">
+              <span class="text-muted">File Size</span>
+              <span class="fw-bold" id="latest-size">--</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Download Center -->
+      <div class="card shadow-sm border-0 h-50">
+        <div class="card-header bg-white py-3 border-0">
+          <h5 class="mb-0 fw-semibold text-dark"><i class="bi bi-cloud-arrow-down-fill me-2 text-primary"></i>Download Center</h5>
+        </div>
+        <div class="card-body pt-1">
+          <div class="row g-2">
+            <div class="col-6">
+              <a href="/download/excel" class="d-block text-decoration-none download-card p-3 text-center">
+                <i class="bi bi-file-earmark-excel-fill text-success fs-3 d-block mb-1"></i>
+                <span class="fw-semibold text-dark d-block" style="font-size: 0.85rem;">Excel Report</span>
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="/download/text" class="d-block text-decoration-none download-card p-3 text-center">
+                <i class="bi bi-file-earmark-text-fill text-secondary fs-3 d-block mb-1"></i>
+                <span class="fw-semibold text-dark d-block" style="font-size: 0.85rem;">Text Report</span>
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="/download/activity-log" class="d-block text-decoration-none download-card p-3 text-center">
+                <i class="bi bi-filetype-csv text-info fs-3 d-block mb-1"></i>
+                <span class="fw-semibold text-dark d-block" style="font-size: 0.85rem;">Activity Log CSV</span>
+              </a>
+            </div>
+            <div class="col-6">
+              <a href="/download/app-usage" class="d-block text-decoration-none download-card p-3 text-center">
+                <i class="bi bi-hourglass-split text-warning fs-3 d-block mb-1"></i>
+                <span class="fw-semibold text-dark d-block" style="font-size: 0.85rem;">App Usage CSV</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Report Preview -->
+    <div class="col-lg-7">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-0">
+          <h5 class="mb-0 fw-semibold text-dark"><i class="bi bi-eye-fill me-2 text-warning"></i>Report Preview</h5>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-primary active btn-sm preview-tab-btn" id="btn-tab-text">Text Preview</button>
+            <button type="button" class="btn btn-outline-success btn-sm preview-tab-btn" id="btn-tab-excel">Excel Preview</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="preview-text-block">
+            <pre class="terminal-preview" id="raw-report-preview">Loading text report preview...</pre>
+          </div>
+          <div id="preview-excel-block" style="display: none;">
+            <div class="table-responsive" style="max-height: 380px; overflow-y: auto;">
+              <table class="table table-hover table-sm text-dark align-middle" id="excel-preview-table">
+                <thead class="table-light">
+                  <tr>
+                    <th>Project Name</th>
+                    <th>App Name</th>
+                    <th>Start Time</th>
+                    <th>Duration (s)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Report History -->
+  <div class="row g-4 mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3 border-0">
+          <h5 class="mb-0 fw-semibold text-dark"><i class="bi bi-clock-history me-2 text-dark"></i>Generated Reports History</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle text-dark" id="reports-history-table" style="width:100%">
+              <thead class="table-light">
+                <tr>
+                  <th>Report Name</th>
+                  <th>Generated Date</th>
+                  <th>Report Type</th>
+                  <th>Size</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let table = null;
+
+  // Format duration: convert seconds to HH:MM format
+  function formatDuration(seconds) {
+    const totalMinutes = Math.round(seconds / 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
+  }
+
+  function loadReportsData() {
+    $.getJSON('/api/reports-list', function(data) {
+      if (data.error) {
+        console.error("Reports API error:", data.error);
+        return;
+      }
+
+      // Populate Stats
+      $('#val-total-reports').text(data.stats.total_reports);
+      $('#val-unique-days').text(data.stats.unique_days);
+      $('#val-last-generated').text(data.stats.last_generated_time);
+      $('#val-status').html('<span class="badge bg-success">Active</span>');
+
+      // Populate Latest Details
+      $('#latest-name').text(data.latest.filename);
+      $('#latest-date').text(data.latest.date);
+      $('#latest-type').text(data.latest.type);
+      $('#latest-size').text(data.latest.size);
+
+      // Populate Text Preview
+      $('#raw-report-preview').text(data.latest.text_preview);
+
+      // Populate Excel Preview Table
+      const excelTbody = $('#excel-preview-table tbody');
+      excelTbody.empty();
+      if (data.latest.excel_preview && data.latest.excel_preview.length > 0) {
+        data.latest.excel_preview.forEach(row => {
+          excelTbody.append(`
+            <tr>
+              <td><span class="badge bg-secondary">${row['Project Name'] || 'Other'}</span></td>
+              <td>${row['App Name']}</td>
+              <td>${row['Start Time']}</td>
+              <td>${formatDuration(parseFloat(row['Duration']))}</td>
+            </tr>
+          `);
+        });
+      } else {
+        excelTbody.append('<tr><td colspan="4" class="text-center text-muted py-3">No spreadsheet data available</td></tr>');
+      }
+
+      // Populate DataTable
+      if (table) {
+        table.destroy();
+      }
+
+      const historyTbody = $('#reports-history-table tbody');
+      historyTbody.empty();
+      if (data.reports && data.reports.length > 0) {
+        data.reports.forEach(r => {
+          const isExcel = r.filename.endsWith('.xlsx');
+          const downloadUrl = isExcel ? '/download/excel' : '/download/text';
+          const icon = isExcel ? 'bi-file-earmark-excel-fill text-success' : 'bi-file-earmark-text-fill text-secondary';
+          
+          historyTbody.append(`
+            <tr>
+              <td><i class="bi ${icon} me-2"></i><strong>${r.filename}</strong></td>
+              <td>${r.gen_time}</td>
+              <td>${r.type}</td>
+              <td>${r.size}</td>
+              <td>
+                <a href="${downloadUrl}" class="btn btn-sm btn-outline-primary py-1 px-2">
+                  <i class="bi bi-download me-1"></i>Download
+                </a>
+              </td>
+            </tr>
+          `);
+        });
+      }
+
+      table = $('#reports-history-table').DataTable({
+        pageLength: 10,
+        order: [[1, 'desc']], // Sort by date column descending
+        columnDefs: [
+          { orderable: false, targets: 4 } // Disable sorting on Action column
+        ]
+      });
+    });
+  }
+
+  $(document).ready(function() {
+    loadReportsData();
+
+    // Toggle Preview Tabs
+    $('#btn-tab-text').click(function() {
+      $(this).addClass('active');
+      $('#btn-tab-excel').removeClass('active');
+      $('#preview-text-block').show();
+      $('#preview-excel-block').hide();
+    });
+
+    $('#btn-tab-excel').click(function() {
+      $(this).addClass('active');
+      $('#btn-tab-text').removeClass('active');
+      $('#preview-excel-block').show();
+      $('#preview-text-block').hide();
+    });
+
+    // Generate Report Trigger
+    $('#btn-generate-report').click(function() {
+      const btn = $(this);
+      const icon = $('#spinner-icon');
+      const text = $('#btn-text');
+
+      btn.prop('disabled', true);
+      icon.addClass('bi-spin').removeClass('bi-gear-wide-connected').addClass('bi-arrow-repeat');
+      text.text('Generating...');
+
+      // Add CSS animation for spinning icon
+      const style = $('<style>.bi-spin { animation: spin 1s linear infinite; } @keyframes spin { 100% { transform: rotate(360deg); } }</style>');
+      $('html > head').append(style);
+
+      $.post('/api/generate-report', function(response) {
+        loadReportsData();
+        alert('Report Generated Successfully!');
+      }).fail(function(xhr) {
+        const err = xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error';
+        alert('Report Generation Failed: ' + err);
+      }).always(function() {
+        btn.prop('disabled', false);
+        icon.removeClass('bi-spin').addClass('bi-gear-wide-connected').removeClass('bi-arrow-repeat');
+        text.text('Generate Report');
+        style.remove();
+      });
+    });
+
+    // Auto-refresh every 30 seconds
+    setInterval(loadReportsData, 30000);
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}Activity Log{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <!-- Header -->
+  <h2 class="mb-4 text-center">Activity Log</h2>
+
+  <!-- Summary Cards -->
+  <div class="row mb-4" id="summary-cards">
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h6 class="card-title text-muted">Total Records</h6>
+          <p class="card-text display-6" id="total-records">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h6 class="card-title text-muted">Total Work Time</h6>
+          <p class="card-text display-6" id="total-work-time">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h6 class="card-title text-muted">Productive Time</h6>
+          <p class="card-text display-6" id="productive-time">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h6 class="card-title text-muted">Idle Time</h6>
+          <p class="card-text display-6" id="idle-time">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="row mb-3 g-2 align-items-end" id="filter-row">
+    <div class="col-md-3">
+      <label class="form-label">Project</label>
+      <select class="form-select" id="project-filter">
+        <option value="All">All</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Date Range</label>
+      <select class="form-select" id="date-filter">
+        <option value="">All</option>
+        <option value="today">Today</option>
+        <option value="last7">Last 7 Days</option>
+        <option value="last30">Last 30 Days</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+    <div class="col-md-3 d-none" id="custom-date-container">
+      <label class="form-label">Custom Range</label>
+      <div class="input-group">
+        <input type="date" class="form-control" id="date-start">
+        <input type="date" class="form-control" id="date-end">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary w-100" id="export-csv">Export CSV</button>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-success w-100" id="export-excel">Export Excel</button>
+    </div>
+  </div>
+
+  <!-- Activity Table -->
+  <div class="table-responsive">
+    <table class="table table-striped" id="activity-table" style="width:100%">
+      <thead class="table-dark">
+        <tr>
+          <th>Project Name</th>
+          <th>App Name</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Duration (s)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/activity_log.js') }}"></script>
+{% endblock %}

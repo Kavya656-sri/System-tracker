@@ -80,6 +80,8 @@ def generate_report():
 
             "Development",
             "Browser Work",
+            "Google Chrome",
+            "Microsoft Edge",
             "Office Work",
             "Communication"
 

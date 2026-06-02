@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+
+.venv/
+
+activity_log.csv
+email_status.json
+
+charts/
+reports/
+
+build/
+dist/

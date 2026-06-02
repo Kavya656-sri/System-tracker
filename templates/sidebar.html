@@ -1,0 +1,24 @@
+<!-- Standardized Sidebar Component -->
+<div class="bg-dark border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading text-white py-4 px-3">Dashboard</div>
+  <div class="list-group list-group-flush">
+    <a href="{{ url_for('overview') }}" class="list-group-item list-group-item-action bg-dark text-white">
+      <i class="bi bi-speedometer2 me-2"></i>Overview
+    </a>
+    <a href="{{ url_for('activity_log_page') }}" class="list-group-item list-group-item-action bg-dark text-white">
+      <i class="bi bi-activity me-2"></i>Activity Log
+    </a>
+    <a href="{{ url_for('productivity') }}" class="list-group-item list-group-item-action bg-dark text-white">
+      <i class="bi bi-graph-up-arrow me-2"></i>Productivity
+    </a>
+    <a href="{{ url_for('email_verification') }}" class="list-group-item list-group-item-action bg-dark text-white">
+      <i class="bi bi-envelope-paper me-2"></i>Email Verification
+    </a>
+    <a href="{{ url_for('application_usage') }}" class="list-group-item list-group-item-action bg-dark text-white">
+      <i class="bi bi-app-indicator me-2"></i>Application Usage
+    </a>
+    <a href="{{ url_for('reports') }}" class="list-group-item list-group-item-action bg-dark text-white">
+      <i class="bi bi-file-earmark-text me-2"></i>Reports
+    </a>
+  </div>
+</div>

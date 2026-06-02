@@ -290,10 +290,61 @@ def get_idle_time():
 # ==========================================
 # PROJECT DETECTION
 # ==========================================
+CODING_TOOLS = [
+    "visual studio code",
+    "antigravity ide",
+    "cursor",
+    "codex",
+    "firo",
+    "vscode",
+]
+
+
+def normalize_window_title(window_title):
+
+    return (
+        str(window_title)
+        .replace("Ã¢â€”Â ", "")
+        .replace("Ã¢â‚¬â€¹", "")
+        .replace("\u200b", "")
+        .strip()
+    )
+
+
+def is_file_name(value):
+
+    _, ext = os.path.splitext(value.strip())
+
+    return bool(ext)
+
+
+def extract_coding_project(window_title):
+
+    clean_title = normalize_window_title(window_title)
+    parts = [part.strip() for part in clean_title.split(" - ") if part.strip()]
+
+    for index, part in enumerate(parts):
+        if any(tool in part.lower() for tool in CODING_TOOLS):
+            for candidate in reversed(parts[:index]):
+                if not is_file_name(candidate):
+                    return candidate
+
+            return None
+
+    if any(tool in clean_title.lower() for tool in CODING_TOOLS):
+        for candidate in reversed(parts[:-1]):
+            if not is_file_name(candidate):
+                return candidate
+
+        return None
+
+    return None
+
 
 def detect_project(window_title):
 
-    title = window_title.lower()
+    clean_title = normalize_window_title(window_title)
+    title = clean_title.lower()
 
     if "leetcode" in title:
         return "Learning"
@@ -304,23 +355,30 @@ def detect_project(window_title):
     elif "xerox" in title:
         return "Xerox Automation"
 
-    elif "visual studio code" in title:
-        return "Development"
-
     elif "chrome" in title:
-        return "Browser Work"
+        return "Google Chrome"
 
-    elif "outlook" in title:
+    elif "edge" in title:
+        return "Microsoft Edge"
+
+    coding_project = extract_coding_project(clean_title)
+
+    if coding_project:
+        return coding_project
+
+    if any(tool in title for tool in CODING_TOOLS):
+        return None
+
+    if "outlook" in title:
         return "Communication"
 
-    elif "excel" in title:
+    if "excel" in title:
         return "Excel Work"
 
-    elif "word" in title:
+    if "word" in title:
         return "Documentation"
 
-    else:
-        return "Other"
+    return "Other"
 
 
 # ==========================================
@@ -403,9 +461,7 @@ while True:
 
                 idle_start_time = datetime.now()
 
-                print("\n========================")
-                print("USER IS IDLE")
-                print("========================")
+                # User is idle
 
                 # SAVE CURRENT SESSION BEFORE IDLE
                 if current_window != "":
@@ -438,7 +494,7 @@ while True:
                             str(duration)
                         ])
 
-                        print("Active Session Saved")
+
 
             time.sleep(1)
 
@@ -458,11 +514,7 @@ while True:
                     idle_end_time - idle_start_time
                 )
 
-                print("\n========================")
-                print("USER BECAME ACTIVE")
-                print("========================")
-
-                print("Idle Duration :", idle_duration)
+                # User became active
 
                 # SAVE IDLE SESSION
                 with open(
@@ -485,7 +537,7 @@ while True:
                         str(idle_duration)
                     ])
 
-                    print("Idle Session Saved")
+
 
                 is_idle = False
 
@@ -523,12 +575,7 @@ while True:
                     current_window
                 )
 
-                print("\n------------------------")
-                print("Project Name :", project_name)
-                print("Window Title :", current_window)
-                print("Start Time   :", start_time.strftime("%H:%M:%S"))
-                print("End Time     :", end_time.strftime("%H:%M:%S"))
-                print("Duration     :", duration)
+                # Session window changed
 
                 with open(
                     csv_file,
@@ -550,7 +597,7 @@ while True:
                         str(duration)
                     ])
 
-                    print("Session Saved To CSV")
+
 
             # START NEW SESSION
             current_window = window_title
@@ -561,8 +608,7 @@ while True:
                 current_window
             )
 
-            print("\nNow Tracking ->", current_window)
-            print("Project Name ->", current_project)
+            # Now tracking new window
 
         time.sleep(1)
 

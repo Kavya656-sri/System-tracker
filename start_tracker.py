@@ -4,12 +4,16 @@ import os
 import atexit
 import signal
 import sys
+import subprocess
+import webbrowser
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime
+from tracemalloc import start
 
 import pyautogui
 from pynput import keyboard, mouse
+import threading
 
 # -----------------------------------------
 # IMPORT MODULES
@@ -17,7 +21,6 @@ from pynput import keyboard, mouse
 from report_generator import generate_report
 from dashboard import open_dashboard
 from tray_app import run_tray
-import threading
 
 # -----------------------------------------
 # OPTIONAL ACTIVE WINDOW DETECTION
@@ -77,124 +80,105 @@ def get_active_window():
 # -----------------------------------------
 # PROJECT CLASSIFICATION
 # -----------------------------------------
+CODING_TOOLS = [
+    "visual studio code",
+    "antigravity ide",
+    "cursor",
+    "codex",
+    "firo",
+    "vscode",
+]
+
+
+def normalize_window_title(window_title):
+
+    return (
+        str(window_title)
+        .replace("Ã¢â€”Â ", "")
+        .replace("Ã¢â‚¬â€¹", "")
+        .replace("\u200b", "")
+        .strip()
+    )
+
+
+def is_file_name(value):
+
+    _, ext = os.path.splitext(value.strip())
+
+    return bool(ext)
+
+
+def extract_coding_project(window_title):
+
+    clean_title = normalize_window_title(window_title)
+    parts = [part.strip() for part in clean_title.split(" - ") if part.strip()]
+
+    for index, part in enumerate(parts):
+        if any(tool in part.lower() for tool in CODING_TOOLS):
+            for candidate in reversed(parts[:index]):
+                if not is_file_name(candidate):
+                    return candidate
+
+            return None
+
+    if any(tool in clean_title.lower() for tool in CODING_TOOLS):
+        for candidate in reversed(parts[:-1]):
+            if not is_file_name(candidate):
+                return candidate
+
+        return None
+
+    return None
+
+
 def get_project(window_title):
 
     if window_title.startswith("C:\\"):
         return None
 
-    title = window_title.lower()
+    clean_title = normalize_window_title(window_title)
+    title = clean_title.lower()
 
     ignored_apps = [
-
         "python.exe",
-        "task scheduler",
         "windows input experience",
-        "search",
-        "start",
         "lockapp",
         "widgets",
-
     ]
 
     if any(app in title for app in ignored_apps):
-
         return None
 
-    # ---------------------------------
-    # DEVELOPMENT
-    # ---------------------------------
-    if any(x in title for x in [
+    if any(x in title for x in ["chrome", "google chrome"]):
+        return "Google Chrome"
 
-        "vscode",
-        "visual studio",
-        "pycharm",
-        ".py"
-        "cmd.exe",
-        "powershell",
-        "terminal"
+    if any(x in title for x in ["edge", "microsoft edge"]):
+        return "Microsoft Edge"
 
-    ]):
+    coding_project = extract_coding_project(clean_title)
 
-        return "Development"
+    if coding_project:
+        return coding_project
 
-    # ---------------------------------
-    # BROWSER
-    # ---------------------------------
-    if any(x in title for x in [
+    if any(tool in title for tool in CODING_TOOLS):
+        return None
 
-        "chrome",
-        "google chrome",
-        "chatgpt",
-        "edge",
-        "microsoft edge",
-        "firefox",
-        "gmail",
-        "outlook",
-        "github",
-        "stackoverflow"
-
-    ]):
-
+    if any(x in title for x in ["chatgpt", "firefox", "gmail", "outlook", "github", "stackoverflow"]):
         return "Browser Work"
 
-    # ---------------------------------
-    # ENTERTAINMENT
-    # ---------------------------------
-    if any(x in title for x in [
-
-        "youtube",
-        "netflix",
-        "spotify"
-
-    ]):
-
+    if any(x in title for x in ["youtube", "netflix", "spotify"]):
         return "Entertainment"
 
-    # ---------------------------------
-    # COMMUNICATION
-    # ---------------------------------
-    if any(x in title for x in [
-
-        "whatsapp",
-        "teams",
-        "mail",
-        "outlook"
-
-    ]):
-
+    if any(x in title for x in ["whatsapp", "teams", "mail"]):
         return "Communication"
 
-    # ---------------------------------
-    # OFFICE
-    # ---------------------------------
-    if any(x in title for x in [
-
-        "excel",
-        "word",
-        "powerpoint"
-
-    ]):
-
+    if any(x in title for x in ["excel", "word", "powerpoint"]):
         return "Office Work"
 
-    # ---------------------------------
-    # SHUTDOWN / LOCK / SLEEP
-    # ---------------------------------
-    if any(x in title for x in [
-
-        "shut down windows",
-        "lockapp",
-        "windows default lock screen",
-        "sign in"
-
-    ]):
-
+    if any(x in title for x in ["shut down windows", "lockapp", "windows default lock screen", "sign in"]):
         return "IDLE"
     
-    if any(x in title for x in [
-        "unknown window",
-        "program manager"
-    ]):
+    if any(x in title for x in ["unknown window", "program manager"]):
         return "SLEEP"
 
     return "Other"
@@ -258,7 +242,7 @@ def save_session(project, window, start, end):
 # -----------------------------------------
 # SHUTDOWN POPUP
 # -----------------------------------------
-def shutdown_popup():
+def shutdown_popup(exit_process=True):
 
     global shutdown_done
     global last_window
@@ -297,31 +281,16 @@ def shutdown_popup():
 
         if report_data:
 
-            print("Report Generated Successfully ✔")
+            print("Report Generated Successfully [OK]")
 
-            # ---------------------------------
-            # ASK OPEN DASHBOARD
-            # ---------------------------------
-            dashboard_result = messagebox.askyesno(
+            print("Opening Dashboard...")
 
-                "Open Dashboard",
-
-                "Do you want to open dashboard?"
-
-            )
-
-            # ---------------------------------
-            # OPEN DASHBOARD
-            # ---------------------------------
-            if dashboard_result:
-
-                print("Opening Dashboard...")
-
-                open_dashboard(report_data)
+            open_dashboard()
+            # open_dashboard handles launching Flask if not running and opening browser
 
         else:
 
-            print("Report generation failed ❌")
+            print("Report generation failed [ERROR]")
 
     if last_window and start_time:
 
@@ -336,12 +305,14 @@ def shutdown_popup():
                 datetime.now()
             )
 
-    print("\nTracker Closed Safely ✔")
+    print("\nTracker Closed Safely [OK]")
 
     # ---------------------------------
     # FORCE TERMINATE PROCESS
     # ---------------------------------
-    os._exit(0)
+    if exit_process:
+
+        os._exit(0)
 
 # -----------------------------------------
 # EXIT HANDLERS
@@ -356,9 +327,19 @@ def handle_exit(signum, frame):
 
     sys.exit()
 
-signal.signal(signal.SIGINT, handle_exit)
+if threading.current_thread() is threading.main_thread():
 
-signal.signal(signal.SIGTERM, handle_exit)
+    signal.signal(signal.SIGINT, handle_exit)
+
+    signal.signal(signal.SIGTERM, handle_exit)
+
+def stop_tracker(exit_process=True):
+
+    global running
+
+    running = False
+
+    shutdown_popup(exit_process=exit_process)
 
 # -----------------------------------------
 # START KEYBOARD LISTENER
@@ -393,15 +374,15 @@ def start_tracking():
     global start_time
     global last_loop_time
 
-    print("====================================")
     print("TRACKER STARTED")
-    print("====================================")
     # ---------------------------------
     # START TRAY APP
     # ---------------------------------
     tray_thread = threading.Thread(
 
         target=run_tray,
+
+        args=(stop_tracker,),
 
         daemon=True
 
@@ -451,9 +432,7 @@ def start_tracking():
                 wake_time
             )
 
-            print(
-                f"Sleep detected: {sleep_duration}"
-            )
+            # Sleep detected
 
             start_time = datetime.now()
 
@@ -531,7 +510,7 @@ def start_tracking():
         # ---------------------------------
         # WINDOW CHANGE DETECTED
         # ---------------------------------
-        if current_window != last_window and last_window != "IDLE":
+        elif current_window != last_window and last_window != "IDLE":
 
             end_time = datetime.now()
 

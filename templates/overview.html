@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+<div class="container">
+  <h2 class="mb-4 text-center">Overview</h2>
+  <div class="row mb-4">
+    <div class="col-md-3"><div class="card metric-card text-center"><h5>Total Sessions</h5><h2>{{ total_sessions }}</h2></div></div>
+    <div class="col-md-3"><div class="card metric-card text-center"><h5>Productive Sessions</h5><h2>{{ productive_sessions }}</h2></div></div>
+    <div class="col-md-3"><div class="card metric-card text-center"><h5>Idle Sessions</h5><h2>{{ idle_sessions }}</h2></div></div>
+    <div class="col-md-3"><div class="card metric-card text-center"><h5>Productivity Score</h5><h2>{{ productivity_score }}%</h2></div></div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Project Breakdown</h5>
+      <canvas id="projectPieChart"></canvas>
+    </div>
+    <div class="col-md-6">
+      <h5>Application Usage</h5>
+      <canvas id="appBarChart"></canvas>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Project Pie Chart
+  const ctxPie = document.getElementById('projectPieChart').getContext('2d');
+  new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+      labels: {{ project_labels|tojson }},
+      datasets: [{ data: {{ project_values|tojson }}, backgroundColor: ['#4e79a7','#f28e2b','#e15759','#76b7b2','#59a14f','#edc949','#af7aa1','#ff9da7'] }]
+    }
+  });
+  // Application Bar Chart
+  const ctxBar = document.getElementById('appBarChart').getContext('2d');
+  new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+      labels: {{ app_labels|tojson }},
+      datasets: [{ label: 'Hours', data: {{ app_values|tojson }}, backgroundColor: '#4fd1c5' }]
+    },
+    options: { scales: { y: { beginAtZero: true } } }
+  });
+});
+</script>
+{% endblock %}

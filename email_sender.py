@@ -1,490 +1,374 @@
-import yagmail
-import os
 import csv
-import pandas as pd
+import html
+import json
+import os
 from datetime import datetime
-from tabulate import tabulate
+
+import pandas as pd
+import yagmail
+
 # -----------------------------------------
 # EMAIL CONFIG
 # -----------------------------------------
 SENDER_EMAIL = "kavyakanagaraj2@gmail.com"
-
 APP_PASSWORD = "bwtl ngcf pbei cftg"
-
 RECEIVER_EMAIL = "23cb023@drngpit.ac.in"
 
+
 # -----------------------------------------
-# GET TODAY DATE
+# IDLE / SLEEP KEYWORDS
+# -----------------------------------------
+IDLE_KEYWORDS = [
+    "System Idle",
+    "Shut Down Windows",
+    "Unknown Window",
+    "Program Manager",
+    "Tracker Shutdown",
+    "System Sleep",
+]
+
+CODING_TOOLS = [
+    "visual studio code",
+    "antigravity ide",
+    "cursor",
+    "codex",
+    "firo",
+    "vscode",
+]
+
+
+# -----------------------------------------
+# DATE / DURATION HELPERS
 # -----------------------------------------
 def get_today_date():
 
     return datetime.now().strftime("%Y-%m-%d")
 
-# -----------------------------------------
-# GET REPORT FILES
-# -----------------------------------------
-def get_report_files():
 
-    date = get_today_date()
-
-    # ---------------------------------
-    # PIE CHART PATH
-    # ---------------------------------
-    pie_chart = f"charts/project_pie_chart_{date}.png"
-
-    # ---------------------------------
-    # ATTACHMENTS LIST
-    # ---------------------------------
-    attachments = []
-
-    # ---------------------------------
-    # ONLY ATTACH PIE CHART
-    # ---------------------------------
-    if os.path.exists(pie_chart):
-
-        attachments.append(pie_chart)
-
-    # CREATE EXCEL TIMESHEET AND ATTACH IF EXISTS
-    timesheet_excel = create_timesheet_excel()
-    if os.path.exists(timesheet_excel):
-        attachments.append(timesheet_excel)
-
-    return attachments
-
-
-
-# -----------------------------------------
-# FORMAT DURATION
-# -----------------------------------------
 def format_duration(duration):
 
     total_seconds = int(duration.total_seconds())
 
     hours = total_seconds // 3600
-
     minutes = (total_seconds % 3600) // 60
 
-    seconds = total_seconds % 60
+    return f"{hours:02d}:{minutes:02d}"
 
-    return f"{hours:02}:{minutes:02}:{seconds:02}"
 
-# -----------------------------------------
-# FORMAT TASK NAME
-# -----------------------------------------
-def format_task_name(window_title):
+def normalize_title(value):
 
-    title = str(window_title)
+    return (
+        str(value)
+        .replace("â— ", "")
+        .replace("â€‹", "")
+        .replace("\u200b", "")
+        .strip()
+    )
 
-    # ---------------------------------
-    # GOOGLE CHROME
-    # ---------------------------------
-    if " - Google Chrome" in title:
 
-        task = title.replace(
-            " - Google Chrome",
-            ""
-        )
+def is_file_name(value):
 
-        return f"Google Chrome - {task}"
+    _, ext = os.path.splitext(value.strip())
 
-    # ---------------------------------
-    # MICROSOFT EDGE
-    # ---------------------------------
-    if " - Microsoft Edge" in title:
+    return bool(ext)
 
-        task = title.replace(
-            " - Microsoft Edge",
-            ""
-        )
 
-        return f"Microsoft Edge - {task}"
+def is_google_chrome(title):
 
-    # ---------------------------------
-    # VISUAL STUDIO CODE
-    # ---------------------------------
-    if " - Visual Studio Code" in title:
+    return "google chrome" in normalize_title(title).lower()
 
-        file_name = title.split(" - ")[0]
 
-        return f"VS Code - {file_name}"
+def is_microsoft_edge(title):
 
-    # ---------------------------------
-    # EXCEL
-    # ---------------------------------
-    if " - Excel" in title:
+    normalized = normalize_title(title).lower()
 
-        task = title.replace(
-            " - Excel",
-            ""
-        )
+    return "microsoft edge" in normalized or (
+        "microsoft" in normalized and "edge" in normalized
+    )
 
-        return f"Excel - {task}"
 
-    return title
+def is_coding_tool(title):
+
+    normalized = normalize_title(title).lower()
+
+    return any(tool in normalized for tool in CODING_TOOLS)
 
 
 # -----------------------------------------
-# GENERATE TIMESHEET
+# REPORT / ATTACHMENT HOOKS DISABLED
 # -----------------------------------------
-def generate_timesheet():
+def get_report_files():
 
-    try:
-
-        df = pd.read_csv("activity_log.csv")
-
-        print(df["App Name"].tolist())
-
-        df.columns = df.columns.str.strip()
-
-        df["Duration"] = pd.to_timedelta(
-            df["Duration"]
-        )
-
-        task_summary = df.groupby(
-            "App Name"
-        )["Duration"].sum().reset_index()
-
-        task_summary = task_summary.sort_values(
-            by="Duration",
-            ascending=False
-        )
-
-        work_section = ""
-
-        system_section = ""
-
-        system_keywords = [
-
-            "System Idle",
-            "Tracker Shutdown",
-            "Unknown Window",
-            "Program Manager",
-            "Shut Down Windows"
-
-        ]
-
-        for _, row in task_summary.iterrows():
-
-            task_name = format_task_name(
-                row["App Name"]
-            )
-
-            duration = format_duration(
-                row["Duration"]
-            )
-
-            line = f"{task_name}\t{duration}\n"
-
-            if any(
-
-                keyword.lower() in task_name.lower()
-
-                for keyword in system_keywords
-
-            ):
-
-                system_section += line
-
-            else:
-
-                work_section += line
-
-        report = f"""
-========================================
-WORK TIMESHEET
-========================================
-
-{work_section}
-
-========================================
-SYSTEM ACTIVITY
-========================================
-
-{system_section}
-
-========================================
-"""
-
-        return report
-
-    except Exception as e:
-
-        return f"Failed to generate timesheet\n{e}"
+    return []
 
 
-
-# -----------------------------------------
-# CREATE EXCEL TIMESHEET
-# -----------------------------------------
 def create_timesheet_excel():
 
-    if os.path.exists("email_timesheet.csv"):
+    print("Timesheet Excel generation disabled")
 
-        df = pd.read_csv("email_timesheet.csv")
+    return None
 
-    else:
 
-        df = pd.read_csv("activity_log.csv")
+# -----------------------------------------
+# FOLDER EXTRACTION
+# -----------------------------------------
+def extract_editor_folder(title):
 
+    clean_title = normalize_title(title)
+    parts = [part.strip() for part in clean_title.split(" - ") if part.strip()]
+
+    for index, part in enumerate(parts):
+        if any(editor in part.lower() for editor in CODING_TOOLS):
+            previous_parts = parts[:index]
+
+            for candidate in reversed(previous_parts):
+                if not is_file_name(candidate):
+                    return candidate
+
+            return None
+
+    if is_coding_tool(clean_title):
+        for candidate in reversed(parts[:-1]):
+            if not is_file_name(candidate):
+                return candidate
+
+        return None
+
+    return None
+
+
+def get_saved_project_folder(row):
+
+    project_name = normalize_title(row.get("Project Name", ""))
+
+    non_folder_categories = {
+        "",
+        "browser work",
+        "communication",
+        "codex",
+        "cursor",
+        "development",
+        "entertainment",
+        "excel work",
+        "firo",
+        "idle",
+        "learning",
+        "microsoft edge",
+        "office work",
+        "other",
+        "others",
+        "sleep",
+        "visual studio code",
+        "vscode",
+    }
+
+    if project_name.lower() in non_folder_categories:
+        return None
+
+    return project_name
+
+
+# -----------------------------------------
+# SUMMARY TABLE
+# -----------------------------------------
+def build_summary_rows():
+
+    df = pd.read_csv("activity_log.csv")
     df.columns = df.columns.str.strip()
-
     df["Duration"] = pd.to_timedelta(df["Duration"])
 
-    task_summary = df.groupby(
-        "App Name"
-    )["Duration"].sum().reset_index()
+    totals = {}
+
+    for _, row in df.iterrows():
+        title = normalize_title(row["App Name"])
+        duration = row["Duration"]
+
+        if any(keyword.lower() in title.lower() for keyword in IDLE_KEYWORDS):
+            folder = "Idle Time"
+        elif is_google_chrome(title):
+            folder = "Google Chrome"
+        elif is_microsoft_edge(title):
+            folder = "Microsoft Edge"
+        else:
+            editor_folder = extract_editor_folder(title)
+            saved_project_folder = get_saved_project_folder(row)
+
+            if editor_folder:
+                folder = editor_folder
+            elif saved_project_folder:
+                folder = saved_project_folder
+            elif is_coding_tool(title):
+                continue
+            else:
+                folder = "Others"
+
+        totals[folder] = totals.get(folder, pd.Timedelta(0)) + duration
+
+    chrome_total = totals.pop("Google Chrome", pd.Timedelta(0))
+    edge_total = totals.pop("Microsoft Edge", pd.Timedelta(0))
+    idle_total = totals.pop("Idle Time", pd.Timedelta(0))
+    others_total = totals.pop("Others", pd.Timedelta(0))
 
     rows = []
 
-    for _, row in task_summary.iterrows():
+    for folder_name, duration in sorted(
+        totals.items(),
+        key=lambda item: item[1],
+        reverse=True,
+    ):
+        rows.append((folder_name, format_duration(duration)))
 
-        title = str(row["App Name"])
+    if chrome_total.total_seconds() > 0:
+        rows.append(("Google Chrome", format_duration(chrome_total)))
+    if edge_total.total_seconds() > 0:
+        rows.append(("Microsoft Edge", format_duration(edge_total)))
+    if idle_total.total_seconds() > 0:
+        rows.append(("Idle Time", format_duration(idle_total)))
 
-        duration = format_duration(
-            row["Duration"]
+    rows.append(("Others", format_duration(others_total)))
+
+    return rows
+
+
+def render_summary_table(rows):
+
+    table_rows = [
+        '<tr>'
+        '<th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">Folder / Activity</th>'
+        '<th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">Duration</th>'
+        '</tr>'
+    ]
+
+    for label, duration in rows:
+        table_rows.append(
+            '<tr>'
+            f'<td style="border:1px solid #000;padding:6px 10px;text-align:left;">{html.escape(label)}</td>'
+            f'<td style="border:1px solid #000;padding:6px 10px;text-align:center;">{html.escape(duration)}</td>'
+            '</tr>'
         )
 
-        app_name = "Other"
-        work_name = title
-
-        # Chrome
-        if " - Google Chrome" in title:
-
-            app_name = "Google Chrome"
-            work_name = title.replace(
-                " - Google Chrome",
-                ""
-            )
-
-        # Edge
-        elif " - Microsoft Edge" in title:
-
-            app_name = "Microsoft Edge"
-            work_name = title.replace(
-                " - Microsoft Edge",
-                ""
-            )
-
-        # VS Code
-        elif " - Visual Studio Code" in title:
-
-            app_name = "VS Code"
-            work_name = title.replace(
-                " - Visual Studio Code",
-                ""
-            )
-
-        # Excel
-        elif "Excel" in title:
-
-            app_name = "Excel"
-            work_name = title.replace(
-                " - Excel",
-                ""
-            )
-
-        # System Activities
-        elif title in [
-            "System Idle",
-            "Unknown Window",
-            "Program Manager",
-            "Tracker Shutdown",
-            "Shut Down Windows",
-            "System Sleep"
-        ]:
-
-            app_name = "System"
-
-        rows.append([
-            app_name,
-            work_name,
-            duration
-        ])
-
-    report_df = pd.DataFrame(
-
-        rows,
-
-        columns=[
-            "Application",
-            "Work Done",
-            "Duration"
-        ]
-
+    return (
+        '<table border="1" cellspacing="0" cellpadding="0" '
+        'style="border-collapse:collapse;width:70%;mso-table-lspace:0pt;mso-table-rspace:0pt;">'
+        f"{''.join(table_rows)}"
+        '</table>'
     )
 
-    os.makedirs("reports", exist_ok=True)
 
-    file_name = (
-        f"reports/timesheet_{get_today_date()}.xlsx"
-    )
+def generate_timesheet():
 
-    report_df.to_excel(
-        file_name,
-        index=False
-    )
+    try:
+        return render_summary_table(build_summary_rows())
+    except Exception as error:
+        print("Failed to generate timesheet:", error)
+        return render_summary_table([("Others", "00:00:00")])
 
-    print("Timesheet Excel Created ✔")
 
-    return file_name
-# -----------------------------------------
-# SEND EMAIL FUNCTION
-# -----------------------------------------
+def build_email_body():
+
+    table = generate_timesheet()
+
+    return f"""<html>
+<body>
+{table}
+</body>
+</html>
+"""
+
+
 # -----------------------------------------
 # CLEAR ACTIVITY LOG
 # -----------------------------------------
 def clear_activity_log():
 
     try:
-
         with open(
-
             "activity_log.csv",
-
             "w",
-
             newline="",
-
-            encoding="utf-8"
-
+            encoding="utf-8",
         ) as file:
-
             writer = csv.writer(file)
-
-            # ---------------------------------
-            # WRITE HEADER ONLY
-            # ---------------------------------
             writer.writerow([
-
                 "Project Name",
                 "App Name",
                 "Start Time",
                 "End Time",
-                "Duration"
-
+                "Duration",
             ])
 
-        print("Activity log cleared ✔")
+        print("Activity log cleared")
 
-    except Exception as e:
+    except Exception as error:
+        print("Failed to clear activity log")
+        print(error)
 
-        print("Failed to clear activity log ❌")
 
-        print(e)
-def send_email(report_data=None):
+# -----------------------------------------
+# SEND EMAIL FUNCTION
+# -----------------------------------------
+def send_email(subject=None, body=None, report_data=None):
 
     print("USING NEW EMAIL_SENDER.PY")
-
     print("\n====================================")
     print("SENDING EMAIL")
     print("====================================")
 
     try:
+        if not subject:
+            subject = f"Daily Productivity Report - {get_today_date()}"
 
-        # ---------------------------------
-        # GET ATTACHMENTS
-        # ---------------------------------
-        attachments = get_report_files()
-
-        # ---------------------------------
-        # EMAIL SUBJECT
-        # ---------------------------------
-        subject = f"Daily Productivity Report - {get_today_date()}"
-
-        # ---------------------------------
-        # SUMMARY DATA
-        # ---------------------------------
-        summary = ""
-
-        if report_data and "summary" in report_data:
-
-            s = report_data["summary"]
-
-            summary = f"""
-Daily Productivity Summary
-
-Date: {s.get('date')}
-
-Total Sessions         : {s.get('total_sessions')}
-Productive Sessions    : {s.get('productive_sessions')}
-Entertainment Sessions : {s.get('entertainment_sessions')}
-Idle Sessions          : {s.get('idle_sessions')}
-Productivity Score     : {s.get('productivity_score')} %
-"""
-
-        # ---------------------------------
-        # GENERATE TIMESHEET
-        # ---------------------------------
-        timesheet_report = generate_timesheet()
+        body = build_email_body()
 
         print("\n===== TIMESHEET REPORT =====")
-        print(timesheet_report)
+        print(generate_timesheet())
         print("===========================\n")
 
-        # ---------------------------------
-        # EMAIL BODY
-        # ---------------------------------
-        body = f"""
-Hello Manager,
-
-Please find below today's productivity summary.
-
-{summary}
-
-{timesheet_report}
-
-Attached:
-✔ Project Distribution Pie Chart
-
-Regards,
-Productivity Monitoring System
-"""
-
-        # ---------------------------------
-        # CONNECT EMAIL SERVER
-        # ---------------------------------
         yag = yagmail.SMTP(
-
             user=SENDER_EMAIL,
-
-            password=APP_PASSWORD
-
+            password=APP_PASSWORD,
         )
-
-        # ---------------------------------
-        # SEND EMAIL
-        # ---------------------------------
-        print(timesheet_report)
 
         yag.send(
-
             to=RECEIVER_EMAIL,
-
             subject=subject,
-
-            contents=body,
-
-            attachments=attachments
-
+            contents=yagmail.raw(body),
         )
 
         print("====================================")
-        print("EMAIL SENT SUCCESSFULLY ✔")
+        print("EMAIL SENT SUCCESSFULLY")
         print("====================================")
 
-        # ---------------------------------
-        # CLEAR CSV AFTER EMAIL
-# ---------------------------------
+        try:
+            status_data = {
+                "last_status": "success",
+                "last_run": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "error_message": None,
+            }
+            with open("email_status.json", "w") as status_file:
+                json.dump(status_data, status_file)
+        except Exception as status_error:
+            print("Failed to save success status to email_status.json:", status_error)
+
         clear_activity_log()
 
         return True
 
-    except Exception as e:
-
+    except Exception as error:
         print("\n====================================")
-        print("EMAIL FAILED ❌")
+        print("EMAIL FAILED")
         print("====================================")
+        print(error)
 
-        print(e)
+        try:
+            status_data = {
+                "last_status": "failed",
+                "last_run": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "error_message": str(error),
+            }
+            with open("email_status.json", "w") as status_file:
+                json.dump(status_data, status_file)
+        except Exception as status_error:
+            print("Failed to save failed status to email_status.json:", status_error)
 
         return False

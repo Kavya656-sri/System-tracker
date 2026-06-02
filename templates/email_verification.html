@@ -1,0 +1,471 @@
+{% extends 'base.html' %}
+{% block title %}Email Verification{% endblock %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  /* ── Page chrome ── */
+  .page-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    color: #fff;
+  }
+  .page-header .badge-pill {
+    background: rgba(99,102,241,.25);
+    color: #a5b4fc;
+    border-radius: 30px;
+    padding: 4px 14px;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    border: 1px solid rgba(99,102,241,.4);
+  }
+
+  /* ── Editor card ── */
+  .editor-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    overflow: hidden;
+  }
+  .editor-card .card-header {
+    background: #1e293b;
+    color: #f1f5f9;
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .3px;
+  }
+  .editor-card .card-header i { color: #818cf8; }
+
+  /* ── Subject input ── */
+  #emailSubject {
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: border-color .2s;
+  }
+  #emailSubject:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+    outline: none;
+  }
+
+  /* ── Body textarea ── */
+  #emailBody {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: .88rem;
+    line-height: 1.7;
+    background: #0f172a;
+    color: #94a3b8;
+    border: 2px solid #1e293b;
+    border-radius: 10px;
+    resize: vertical;
+    min-height: 420px;
+    padding: 20px;
+    transition: border-color .2s, color .2s;
+  }
+  #emailBody:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,.12);
+    outline: none;
+    color: #e2e8f0;
+  }
+
+  /* ── Preview modal textarea ── */
+  #previewBody {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: .85rem;
+    line-height: 1.7;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    min-height: 360px;
+    padding: 20px;
+    white-space: pre-wrap;
+    color: #334155;
+  }
+
+  /* ── Buttons ── */
+  .btn-preview {
+    background: linear-gradient(135deg, #64748b, #475569);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all .25s;
+  }
+  .btn-preview:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(100,116,139,.4); }
+
+  .btn-reset {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all .25s;
+  }
+  .btn-reset:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,158,11,.4); }
+
+  .btn-send-email {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all .25s;
+  }
+  .btn-send-email:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(99,102,241,.45);
+  }
+  .btn-send-email:disabled { opacity: .65; cursor: not-allowed; }
+
+  /* ── Status bar ── */
+  #emailBody {
+    display: none !important;
+  }
+  #emailBody + .mt-3 {
+    display: none !important;
+  }
+  .email-table-preview {
+    background: #ffffff;
+    border: 1px solid #000000;
+    overflow-x: auto;
+    padding: 0;
+  }
+  .email-table-preview table {
+    width: 100% !important;
+    margin: 0;
+  }
+
+  #statusBar {
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-weight: 500;
+    font-size: .95rem;
+    display: none;
+  }
+  #statusBar.success { background: #ecfdf5; border: 1.5px solid #34d399; color: #065f46; }
+  #statusBar.error   { background: #fef2f2; border: 1.5px solid #f87171; color: #991b1b; }
+
+  /* ── Last sent info ── */
+  .last-info {
+    font-size: .82rem;
+    color: #94a3b8;
+  }
+
+  /* ── Loading skeleton ── */
+  .loading-shimmer {
+    background: linear-gradient(90deg, #1e293b 25%, #253352 50%, #1e293b 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: 6px;
+    color: transparent !important;
+  }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* character counter */
+  #charCount { font-size: .78rem; color: #94a3b8; }
+</style>
+
+<div class="container-fluid py-2">
+
+  <!-- ══════════ PAGE HEADER ══════════ -->
+  <div class="page-header d-flex align-items-center justify-content-between flex-wrap gap-3">
+    <div>
+      <div class="badge-pill mb-2 d-inline-block">EMAIL EDITOR</div>
+      <h2 class="fw-bold mb-1" style="font-size:1.7rem;">Email Verification &amp; Sender</h2>
+      <p class="mb-0 text-slate-400" style="color:#94a3b8;font-size:.9rem;">
+        Review and edit the report before sending it to the manager.
+      </p>
+    </div>
+    <div class="text-end">
+      <div class="last-info" id="lastSentInfo">Checking status…</div>
+      <div class="last-info mt-1" id="lastUpdatedTime"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ EDITOR CARD ══════════ -->
+  <div class="card editor-card mb-4">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <span><i class="bi bi-envelope-paper-fill me-2"></i>Compose Email</span>
+      <span id="charCount">0 characters</span>
+    </div>
+    <div class="card-body p-4">
+
+      <!-- Subject -->
+      <div class="mb-3">
+        <label for="emailSubject" class="form-label fw-semibold text-secondary mb-1">
+          <i class="bi bi-tag-fill me-1"></i> Subject
+        </label>
+        <input type="text" id="emailSubject" class="form-control"
+               placeholder="Loading subject…" value="">
+      </div>
+
+      <!-- Body -->
+      <div class="mb-3">
+        <label for="emailBody" class="form-label fw-semibold text-secondary mb-1">
+          <i class="bi bi-body-text me-1"></i> Email Body
+          <span class="text-muted fw-normal ms-2" style="font-size:.8rem;">
+            (editable — add notes, comments, or remove rows)
+          </span>
+        </label>
+        <textarea id="emailBody" class="form-control" rows="22"
+                  placeholder="Generating email content…"></textarea>
+
+        <!-- Attachment download -->
+        <div class="mt-3 d-flex align-items-center">
+        </div>
+      </div>
+
+      <!-- ── Action buttons ── -->
+      <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
+        <button class="btn btn-preview" id="btnPreview">
+          <i class="bi bi-eye-fill me-2"></i>Preview
+        </button>
+        <button class="btn btn-reset" id="btnReset">
+          <i class="bi bi-arrow-counterclockwise me-2"></i>Reset to Default
+        </button>
+        <div class="ms-auto">
+          <button class="btn btn-send-email" id="btnSendEmail">
+            <i class="bi bi-send-fill me-2"></i>Send Email
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Status feedback ── -->
+      <div id="statusBar" class="mt-4"></div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ PREVIEW MODAL ══════════ -->
+<div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content" style="border-radius:16px;border:none;">
+      <div class="modal-header" style="background:#1e293b;color:#f1f5f9;border-radius:16px 16px 0 0;">
+        <h5 class="modal-title fw-bold">
+          <i class="bi bi-envelope-open-fill me-2" style="color:#818cf8;"></i>
+          Email Preview
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <div class="mb-3 p-3 rounded" style="background:#f1f5f9;">
+          <span class="fw-semibold text-secondary me-2">Subject:</span>
+          <span id="previewSubject" class="fw-bold text-dark"></span>
+        </div>
+        <pre id="previewBody" class="mb-0"></pre>
+      </div>
+      <div class="modal-footer" style="border-top:1px solid #e2e8f0;">
+        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-send-email btn-sm px-4" id="btnSendFromPreview">
+          <i class="bi bi-send-fill me-1"></i>Send Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+
+  // ── State ──────────────────────────────────────────
+  let defaultSubject = '';
+  let defaultBody    = '';
+
+  // ── Helpers ────────────────────────────────────────
+  function updateCharCount() {
+    const len = $('#emailBody').val().length;
+    $('#charCount').text(len.toLocaleString() + ' characters');
+  }
+
+  function showStatus(type, msg) {
+    const $bar = $('#statusBar');
+    $bar.removeClass('success error').addClass(type).html(msg).fadeIn(200);
+  }
+
+  function hideStatus() {
+    $('#statusBar').fadeOut(150);
+  }
+
+  function ensureTablePreview() {
+    if (!$('#emailBodyPreview').length) {
+      $('#emailBody').after('<div id="emailBodyPreview" class="email-table-preview"></div>');
+    }
+    if ($('#previewBody').prop('tagName') === 'PRE') {
+      $('#previewBody').replaceWith('<div id="previewBody" class="email-table-preview"></div>');
+    }
+  }
+
+  function renderEmailTable() {
+    ensureTablePreview();
+    const body = $('#emailBody').val() || '';
+    $('#emailBodyPreview').html(body);
+    $('#previewBody').html(body);
+  }
+
+  function setSending(isSending) {
+    const $btn = $('#btnSendEmail');
+    const $btn2 = $('#btnSendFromPreview');
+    if (isSending) {
+      $btn.prop('disabled', true)
+          .html('<span class="spinner-border spinner-border-sm me-2"></span>Sending…');
+      $btn2.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Sending…');
+    } else {
+      $btn.prop('disabled', false)
+          .html('<i class="bi bi-send-fill me-2"></i>Send Email');
+      $btn2.prop('disabled', false)
+          .html('<i class="bi bi-send-fill me-1"></i>Send Now');
+    }
+  }
+
+  // ── Load email content from server ─────────────────
+  function loadEmailContent(callback) {
+    // Show loading shimmer
+    $('#emailBody').addClass('loading-shimmer').val('').prop('disabled', true);
+    $('#emailSubject').addClass('loading-shimmer').val('').prop('disabled', true);
+
+    $.ajax({
+      url: '/api/email-content',
+      method: 'GET',
+      success: function (resp) {
+        $('#emailBody').removeClass('loading-shimmer').prop('disabled', false);
+        $('#emailSubject').removeClass('loading-shimmer').prop('disabled', false);
+
+        if (resp.success) {
+          defaultSubject = resp.subject || '';
+          defaultBody    = resp.body    || '';
+          $('#emailSubject').val(defaultSubject);
+          $('#emailBody').val(defaultBody);
+          renderEmailTable();
+          updateCharCount();
+          if (callback) callback();
+        } else {
+          $('#emailBody').val('⚠ Error loading content: ' + (resp.error || 'Unknown'));
+        }
+      },
+      error: function () {
+        $('#emailBody').removeClass('loading-shimmer').prop('disabled', false)
+                       .val('⚠ Could not reach server. Is Flask running?');
+        $('#emailSubject').removeClass('loading-shimmer').prop('disabled', false);
+      }
+    });
+  }
+
+  // ── Load last-sent status ───────────────────────────
+  function loadStatus() {
+    $.ajax({
+      url: '/api/email-data',
+      method: 'GET',
+      success: function (resp) {
+        const s = resp.summary || {};
+        if (s.last_status === 'success') {
+          $('#lastSentInfo').html(
+            '<i class="bi bi-check-circle-fill text-success me-1"></i>Last sent successfully at ' + s.last_run
+          );
+        } else if (s.last_status === 'failed') {
+          $('#lastSentInfo').html(
+            '<i class="bi bi-x-circle-fill text-danger me-1"></i>Last send failed at ' + s.last_run
+          );
+        } else {
+          $('#lastSentInfo').html('<i class="bi bi-dash-circle me-1"></i>Never sent');
+        }
+        const now = new Date();
+        $('#lastUpdatedTime').html(
+          '<i class="bi bi-arrow-clockwise me-1"></i>Refreshed: ' + now.toLocaleTimeString()
+        );
+      }
+    });
+  }
+
+  // ── Core send function ──────────────────────────────
+  function doSend() {
+    const subject = $('#emailSubject').val().trim();
+    const body    = $('#emailBody').val();
+
+    if (!subject) {
+      showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Subject cannot be empty.');
+      return;
+    }
+    if (!body.trim()) {
+      showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Email body cannot be empty.');
+      return;
+    }
+
+    hideStatus();
+    setSending(true);
+
+    // Close preview modal if open
+    const modalEl = document.getElementById('previewModal');
+    if (modalEl) bootstrap.Modal.getInstance(modalEl)?.hide();
+
+    $.ajax({
+      url: '/api/send-email',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ subject: subject, body: body }),
+      success: function (resp) {
+        setSending(false);
+        if (resp.success) {
+          showStatus('success',
+            '<i class="bi bi-check-circle-fill me-2"></i><strong>Email Sent Successfully!</strong> The report has been dispatched to the manager.'
+          );
+          loadStatus();
+        } else {
+          showStatus('error',
+            '<i class="bi bi-x-circle-fill me-2"></i><strong>Send Failed:</strong> ' +
+            (resp.error_message || 'Unknown error')
+          );
+        }
+      },
+      error: function (xhr) {
+        setSending(false);
+        showStatus('error',
+          '<i class="bi bi-x-circle-fill me-2"></i><strong>Connection Error:</strong> ' +
+          (xhr.responseText || 'Could not reach server.')
+        );
+      }
+    });
+  }
+
+  // ── Preview button ──────────────────────────────────
+  $('#btnPreview').on('click', function () {
+    $('#previewSubject').text($('#emailSubject').val() || '(no subject)');
+    renderEmailTable();
+    new bootstrap.Modal(document.getElementById('previewModal')).show();
+  });
+
+  // ── Reset button ────────────────────────────────────
+  $('#btnReset').on('click', function () {
+    if (!confirm('Reset to the auto-generated content? Your edits will be lost.')) return;
+    loadEmailContent();
+    hideStatus();
+  });
+
+  // ── Send buttons ────────────────────────────────────
+  $('#btnSendEmail, #btnSendFromPreview').on('click', doSend);
+
+  // ── Live character counter ──────────────────────────
+  $('#emailBody').on('input', updateCharCount);
+
+  // ── Initial load ────────────────────────────────────
+  loadEmailContent();
+  loadStatus();
+
+  // Auto-refresh status every 60 s (not content, so edits are preserved)
+  setInterval(loadStatus, 60000);
+});
+</script>
+{% endblock %}

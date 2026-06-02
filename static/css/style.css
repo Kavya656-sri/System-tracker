@@ -1,0 +1,157 @@
+/* Premium dark theme dashboard styling */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fb;
+  color: #333333;
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Main wrapper to handle layout */
+body > div {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Sidebar - Fixed */
+#sidebar-wrapper {
+  width: 240px;
+  background: rgba(30,30,47,0.95);
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+/* Main content - Scrollable */
+main {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Dashboard page wrapper */
+#wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Page content wrapper for dashboard pages */
+#page-content-wrapper {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper .list-group-item {
+  color: #c5c6d0;
+  border: none;
+  transition: all 0.3s ease;
+  border-left: none;
+  padding: 12px 16px;
+  margin: 6px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+#sidebar-wrapper .list-group-item:hover {
+  background: #2563EB;
+  color: #fff;
+}
+#sidebar-wrapper .list-group-item:hover i {
+  color: #fff;
+}
+#sidebar-wrapper .list-group-item.active {
+  background: #0F766E;
+  color: #fff;
+  font-weight: 600;
+  border-left: 4px solid #14B8A6;
+}
+#sidebar-wrapper .list-group-item.active i {
+  color: white;
+}
+#sidebar-wrapper .list-group-item i {
+  margin-right: 8px;
+}
+
+/* Base Template Navigation */
+nav .nav-link {
+  color: #c5c6d0 !important;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  padding-left: 12px !important;
+}
+
+nav .nav-link:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff !important;
+}
+
+nav .nav-link.active {
+  background: #0F766E;
+  color: #fff !important;
+  font-weight: 600;
+  border-left: 4px solid #14B8A6;
+}
+
+/* Card titles */
+.card-title {
+  color: #a0a0b5 !important; /* muted contrast */
+  font-weight: 600;
+}
+
+/* Metric values */
+.card-body p.display-4 {
+  color: #ffffff;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  background: rgba(255,255,255,0.12);
+}
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #000000;
+  text-align: left;
+  color: #000000 !important;
+}
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Buttons */
+button {
+  background: #4fd1c5;
+  color: #1e1e2f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #3bb8a9;
+}
+
+/* Chart canvas */
+canvas {
+  max-width: 100%;
+  height: 350px !important;
+  margin-top: 15px;
+}

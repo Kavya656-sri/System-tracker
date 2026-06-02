@@ -9,6 +9,8 @@ from report_generator import generate_report
 from dashboard import open_dashboard
 from email_sender import send_email
 
+tracker_stop_callback = None
+
 # -----------------------------------------
 # CREATE TRAY ICON IMAGE
 # -----------------------------------------
@@ -67,12 +69,12 @@ def exit_action(icon, item):
 
     print("\nStopping Tracker...")
 
-    import start_tracker
-
     # ---------------------------------
     # STOP TRACKER LOOP
     # ---------------------------------
-    start_tracker.running = False
+    if tracker_stop_callback:
+
+        tracker_stop_callback(exit_process=False)
 
     # ---------------------------------
     # STOP TRAY ICON
@@ -89,7 +91,11 @@ def exit_action(icon, item):
 # -----------------------------------------
 # RUN TRAY ICON
 # -----------------------------------------
-def run_tray():
+def run_tray(stop_callback=None):
+
+    global tracker_stop_callback
+
+    tracker_stop_callback = stop_callback
 
     icon = pystray.Icon(
 
