@@ -1,0 +1,675 @@
+{% extends 'base.html' %}
+{% block title %}Manager Dashboard{% endblock %}
+{% block content %}
+<style>
+  :root {
+    --mgr-bg: #f5f7fb;
+    --mgr-ink: #111827;
+    --mgr-muted: #64748b;
+    --mgr-line: #dbe3ef;
+    --mgr-shadow: 0 8px 20px rgba(15, 23, 42, .06);
+  }
+
+  .dashboard-user-header { display: none !important; }
+  main.flex-grow-1 { background: var(--mgr-bg); padding-top: 12px !important; }
+
+  .monitor-shell {
+    max-width: 1400px;
+    margin: 0 auto;
+    color: var(--mgr-ink);
+  }
+
+  .manager-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .manager-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 1.15;
+  }
+
+  .manager-subtitle,
+  .section-subtitle {
+    color: var(--mgr-muted);
+    font-size: .78rem;
+  }
+
+  .filter-strip {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    min-height: 54px;
+    border: 1px solid var(--mgr-line);
+    border-radius: 12px;
+    padding: 9px;
+    background: #fff;
+    box-shadow: var(--mgr-shadow);
+    backdrop-filter: blur(12px);
+  }
+
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .filter-control {
+    flex: 0 0 150px;
+    min-width: 130px;
+  }
+
+  .filter-control.employee {
+    flex-basis: 230px;
+  }
+
+  .filter-actions {
+    flex: 0 0 216px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .filter-strip .form-select,
+  .filter-strip .form-control,
+  .filter-strip .btn {
+    height: 32px;
+    min-height: 32px;
+    border-radius: 8px;
+    font-size: .8rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  .metric-card {
+    height: 82px;
+    border: 1px solid var(--mgr-line);
+    border-radius: 12px;
+    padding: 10px 12px;
+    background: #fff;
+    box-shadow: var(--mgr-shadow);
+  }
+
+  .metric-icon {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: var(--accent);
+    background: var(--accent-bg);
+    font-size: .95rem;
+  }
+
+  .metric-label {
+    color: var(--mgr-muted);
+    font-size: .68rem;
+    font-weight: 850;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .metric-value {
+    margin-top: 8px;
+    font-size: clamp(1.08rem, 1.5vw, 1.38rem);
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .records-card {
+    border: 1px solid var(--mgr-line);
+    border-radius: 14px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: var(--mgr-shadow);
+  }
+
+  .section-title {
+    font-size: .98rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .table-shell {
+    max-height: calc(100vh - 275px);
+    min-height: 390px;
+    overflow: auto;
+    border: 1px solid var(--mgr-line);
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  #activity-records-table,
+  #drawer-project-table,
+  #drawer-timeline-table {
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    font-size: .82rem;
+    table-layout: fixed;
+    margin: 0 !important;
+  }
+
+  #activity-records-table thead th,
+  #drawer-project-table thead th,
+  #drawer-timeline-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background: #111827 !important;
+    color: #f8fafc !important;
+    border: 0 !important;
+    border-bottom: 1px solid #111827 !important;
+    font-size: .67rem;
+    letter-spacing: .04em;
+    line-height: 1;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  #activity-records-table tbody td,
+  #drawer-project-table tbody td,
+  #drawer-timeline-table tbody td {
+    border: 0 !important;
+    border-bottom: 1px solid #e6edf5 !important;
+    padding: 9px 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  #activity-records-table tbody tr:last-child td,
+  #drawer-project-table tbody tr:last-child td,
+  #drawer-timeline-table tbody tr:last-child td {
+    border-bottom: 0 !important;
+  }
+
+  #activity-records-table tbody tr:hover,
+  #drawer-project-table tbody tr:hover,
+  #drawer-timeline-table tbody tr:hover {
+    background: #eff6ff !important;
+  }
+
+  #activity-records-table th:nth-child(1),
+  #activity-records-table td:nth-child(1) { width: 112px; }
+  #activity-records-table th:nth-child(2),
+  #activity-records-table td:nth-child(2) { width: 160px; }
+  #activity-records-table th:nth-child(3),
+  #activity-records-table td:nth-child(3) { width: 150px; }
+  #activity-records-table th:nth-child(4),
+  #activity-records-table td:nth-child(4) { width: 150px; }
+  #activity-records-table th:nth-child(5),
+  #activity-records-table td:nth-child(5) { width: 120px; }
+  #activity-records-table th:nth-child(6),
+  #activity-records-table td:nth-child(6) { width: 148px; }
+  #activity-records-table th:nth-child(7),
+  #activity-records-table td:nth-child(7) { width: auto; min-width: 260px; }
+  #activity-records-table th:nth-child(8),
+  #activity-records-table td:nth-child(8) { width: 110px; text-align: center; }
+
+  #activity-records-table thead .sorting,
+  #activity-records-table thead .sorting_asc,
+  #activity-records-table thead .sorting_desc {
+    background-image: none !important;
+  }
+
+  #activity-records-table_wrapper .dataTables_filter label,
+  #activity-records-table_wrapper .dataTables_length label,
+  #activity-records-table_wrapper .dataTables_info {
+    color: var(--mgr-muted);
+    font-size: .8rem;
+  }
+
+  #activity-records-table_wrapper .dataTables_filter input,
+  #activity-records-table_wrapper .dataTables_length select {
+    border: 1px solid var(--mgr-line);
+    border-radius: 8px;
+    height: 32px;
+    padding: 4px 9px;
+    font-size: .82rem;
+  }
+
+  #activity-records-table_wrapper .dataTables_length select {
+    width: 64px;
+    margin: 0 4px;
+  }
+
+  #activity-records-table_wrapper .dataTables_filter {
+    text-align: right;
+  }
+
+  #activity-records-table_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 8px !important;
+    padding: 4px 10px !important;
+    margin-left: 4px !important;
+  }
+
+  #activity-records-table_wrapper .dataTables_paginate .paginate_button.current {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #fff !important;
+  }
+
+  #activity-records-table_wrapper .dt-buttons .btn { display: none; }
+
+  .progress-slim {
+    height: 7px;
+    width: 68px;
+    max-width: 68px;
+    border-radius: 999px;
+    background: #e2e8f0;
+  }
+
+  .progress-slim .progress-bar { border-radius: 999px; }
+
+  .login-range {
+    min-width: 138px;
+    font-weight: 750;
+  }
+
+  .project-truncate {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .productivity-cell {
+    max-width: 92px;
+  }
+
+  .drawer-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .drawer-summary-card {
+    border: 1px solid var(--mgr-line);
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .drawer-summary-card .value {
+    margin-top: 4px;
+    font-weight: 900;
+  }
+
+  .drawer-table-shell {
+    max-height: 320px;
+    overflow: auto;
+    border: 1px solid var(--mgr-line);
+    border-radius: 10px;
+  }
+
+  .empty-state {
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    color: var(--mgr-muted);
+    padding: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 991.98px) {
+    .filter-row { flex-wrap: wrap; }
+    .filter-control,
+    .filter-control.employee,
+    .filter-actions { flex: 1 1 180px; }
+    .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .table-shell { max-height: none; }
+  }
+
+  @media (max-width: 575.98px) {
+    .metric-grid,
+    .drawer-summary { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="monitor-shell">
+  <div class="manager-title-row">
+    <div>
+      <div class="manager-title">Manager Dashboard</div>
+      <div class="manager-subtitle">Employee attendance and productivity monitoring</div>
+    </div>
+  </div>
+
+  <section class="filter-strip mb-2">
+    <div class="filter-row">
+      <div class="filter-control employee">
+        <select id="employee-filter" class="form-select form-select-sm" aria-label="Employee">
+          <option value="">All Employees</option>
+        </select>
+      </div>
+      <div class="filter-control">
+        <select id="manager-period" class="form-select form-select-sm" aria-label="Date range">
+          <option value="today">Today</option>
+          <option value="yesterday">Yesterday</option>
+          <option value="week">This Week</option>
+          <option value="month">This Month</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div class="filter-control">
+        <input type="date" id="manager-start-date" class="form-control form-control-sm" aria-label="Start date">
+      </div>
+      <div class="filter-control">
+        <input type="date" id="manager-end-date" class="form-control form-control-sm" aria-label="End date">
+      </div>
+      <div class="filter-actions">
+        <button type="button" id="manager-apply-filter" class="btn btn-dark btn-sm flex-fill">
+          <i class="bi bi-funnel me-1"></i>Apply
+        </button>
+        <button type="button" id="manager-export" class="btn btn-outline-primary btn-sm flex-fill">
+          <i class="bi bi-filetype-csv me-1"></i>Export CSV
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-grid">
+    <div class="metric-card" style="--accent:#2563eb;--accent-bg:#eff6ff;">
+      <div class="d-flex align-items-start justify-content-between gap-2">
+        <div>
+          <div class="metric-label">Total Work Time</div>
+          <div class="metric-value" id="summary-total-time">00:00:00</div>
+        </div>
+        <div class="metric-icon"><i class="bi bi-clock-history"></i></div>
+      </div>
+    </div>
+    <div class="metric-card" style="--accent:#16a34a;--accent-bg:#f0fdf4;">
+      <div class="d-flex align-items-start justify-content-between gap-2">
+        <div>
+          <div class="metric-label">Productive Time</div>
+          <div class="metric-value" id="summary-productive-time">00:00:00</div>
+        </div>
+        <div class="metric-icon"><i class="bi bi-check2-circle"></i></div>
+      </div>
+    </div>
+    <div class="metric-card" style="--accent:#dc2626;--accent-bg:#fef2f2;">
+      <div class="d-flex align-items-start justify-content-between gap-2">
+        <div>
+          <div class="metric-label">Idle Time</div>
+          <div class="metric-value" id="summary-idle-time">00:00:00</div>
+        </div>
+        <div class="metric-icon"><i class="bi bi-pause-circle"></i></div>
+      </div>
+    </div>
+    <div class="metric-card" style="--accent:#7c3aed;--accent-bg:#f5f3ff;">
+      <div class="d-flex align-items-start justify-content-between gap-2">
+        <div>
+          <div class="metric-label">Activity Count</div>
+          <div class="metric-value" id="summary-activity-count">0</div>
+        </div>
+        <div class="metric-icon"><i class="bi bi-list-check"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="records-card">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+      <div>
+        <div class="section-title">Employee Activity Records</div>
+        <div class="section-subtitle">Review daily work sessions, productivity, projects, and activity counts</div>
+      </div>
+    </div>
+    <div class="table-shell">
+      <table class="table table-hover align-middle mb-0" id="activity-records-table" style="width:100%">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Login-Logout</th>
+            <th>Total Work Time</th>
+            <th>Productive Time</th>
+            <th>Idle Time</th>
+            <th>Productivity %</th>
+            <th>Project Name</th>
+            <th>View Details</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="activityDetailDrawer" aria-labelledby="activityDetailDrawerLabel" style="width:min(760px, 100vw);">
+  <div class="offcanvas-header border-bottom bg-white">
+    <div>
+      <h5 class="offcanvas-title fw-bold" id="activityDetailDrawerLabel">Employee Details</h5>
+      <div class="section-subtitle" id="drawer-date">Selected Date</div>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body bg-light">
+    <div class="mb-3">
+      <div class="metric-label">Employee Name</div>
+      <div class="section-title mt-1" id="drawer-employee-name">-</div>
+    </div>
+
+    <div class="drawer-summary mb-3">
+      <div class="drawer-summary-card">
+        <div class="metric-label">Total Activities</div>
+        <div class="value" id="drawer-activity-count">0</div>
+      </div>
+      <div class="drawer-summary-card">
+        <div class="metric-label">Projects Worked</div>
+        <div class="value" id="drawer-project-count">0</div>
+      </div>
+      <div class="drawer-summary-card">
+        <div class="metric-label">Total Duration</div>
+        <div class="value" id="drawer-total-duration">00:00:00</div>
+      </div>
+    </div>
+
+    <div class="records-card mb-3">
+      <div class="section-title mb-2">Projects Worked</div>
+      <div class="drawer-table-shell">
+        <table class="table table-sm table-hover align-middle mb-0" id="drawer-project-table">
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody id="drawer-project-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="records-card">
+      <div class="section-title mb-2">Activity Timeline</div>
+      <div class="drawer-table-shell">
+        <table class="table table-sm table-hover align-middle mb-0" id="drawer-timeline-table">
+          <thead>
+            <tr>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Project</th>
+              <th>Activity</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody id="drawer-timeline-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const managerState = { table: null, drawer: null };
+
+  function htmlEscape(value) {
+    return String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+  }
+
+  function secondsToDisplay(seconds) {
+    const total = Math.max(0, Math.round(Number(seconds || 0)));
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  }
+
+  function managerParams() {
+    const params = new URLSearchParams({ period: $('#manager-period').val() || 'today' });
+    const userId = $('#employee-filter').val();
+    if (userId) params.set('user_id', userId);
+    if ($('#manager-start-date').val()) params.set('start_date', $('#manager-start-date').val());
+    if ($('#manager-end-date').val()) params.set('end_date', $('#manager-end-date').val());
+    if ($('#manager-start-date').val() || $('#manager-end-date').val()) params.set('period', 'custom');
+    return params;
+  }
+
+  function updateSummary(summary) {
+    $('#summary-total-time').text(summary?.total_work_time?.display || '00:00:00');
+    $('#summary-productive-time').text(summary?.productive_time?.display || '00:00:00');
+    $('#summary-idle-time').text(summary?.idle_time?.display || '00:00:00');
+    $('#summary-activity-count').text(summary?.activity_count || 0);
+  }
+
+  function loadEmployeeOptions() {
+    return fetch('/api/manager/employee-options')
+      .then(response => response.json())
+      .then(payload => {
+        const options = ['<option value="">All Employees</option>'];
+        (payload.data || []).forEach(employee => {
+          options.push(`<option value="${employee.user_id}">${htmlEscape(employee.employee_name)} (${htmlEscape(employee.employee_id)})</option>`);
+        });
+        $('#employee-filter').html(options.join(''));
+      });
+  }
+
+  function reloadRecords() {
+    if (managerState.table) {
+      managerState.table.ajax.reload();
+    }
+  }
+
+  function loadDetails(userId, date, employeeName) {
+    const params = new URLSearchParams({ user_id: userId, date });
+    fetch('/api/manager/activity-record-detail?' + params.toString())
+      .then(response => response.json())
+      .then(payload => {
+        if (!payload.success) return;
+        const totalSeconds = (payload.timeline || []).reduce((sum, row) => sum + Number(row.duration_seconds || 0), 0);
+
+        $('#activityDetailDrawerLabel').text('Employee Details');
+        $('#drawer-employee-name').text(employeeName || payload.employee.employee_name);
+        $('#drawer-date').text(`Selected Date: ${payload.date}`);
+        $('#drawer-activity-count').text((payload.timeline || []).length);
+        $('#drawer-project-count').text((payload.projects || []).length);
+        $('#drawer-total-duration').text(secondsToDisplay(totalSeconds));
+
+        $('#drawer-project-body').html((payload.projects || []).map(project => `
+          <tr>
+            <td>${htmlEscape(project.project)}</td>
+            <td>${htmlEscape(project.duration)}</td>
+          </tr>
+        `).join('') || '<tr><td colspan="2"><div class="empty-state">No projects found.</div></td></tr>');
+
+        $('#drawer-timeline-body').html((payload.timeline || []).map(row => `
+          <tr>
+            <td>${htmlEscape(row.start_time)}</td>
+            <td>${htmlEscape(row.end_time)}</td>
+            <td>${htmlEscape(row.project)}</td>
+            <td>${htmlEscape(row.activity)}</td>
+            <td>${htmlEscape(row.duration)}</td>
+          </tr>
+        `).join('') || '<tr><td colspan="5"><div class="empty-state">No activity timeline found.</div></td></tr>');
+
+        managerState.drawer.show();
+      });
+  }
+
+  $(document).ready(function () {
+    managerState.drawer = new bootstrap.Offcanvas(document.getElementById('activityDetailDrawer'));
+
+    managerState.table = $('#activity-records-table').DataTable({
+      ajax: {
+        url: '/api/manager/activity-records',
+        data: function (requestData) {
+          managerParams().forEach((value, key) => {
+            requestData[key] = value;
+          });
+        },
+        dataSrc: function (payload) {
+          updateSummary(payload.summary || {});
+          return payload.data || [];
+        }
+      },
+      dom: "<'row align-items-center g-2 mb-2'<'col-md-3'l><'col-md-3'B><'col-md-6'f>>rt<'row align-items-center mt-2'<'col-md-6'i><'col-md-6'p>>",
+      buttons: [{ extend: 'csvHtml5', className: 'btn btn-outline-primary btn-sm', text: 'Export CSV' }],
+      columns: [
+        { data: 'date' },
+        {
+          data: null,
+          render: row => `<span class="login-range">${htmlEscape(row.login_time)} - ${htmlEscape(row.logout_time)}</span>`
+        },
+        { data: 'total_work_time' },
+        { data: 'productive_time' },
+        { data: 'idle_time' },
+        {
+          data: 'productivity_percentage',
+          render: data => {
+            const value = Number(data || 0);
+            return `<div class="productivity-cell d-flex align-items-center gap-1"><span class="badge text-bg-success">${value.toFixed(1)}%</span><div class="progress progress-slim"><div class="progress-bar bg-success" style="width:${Math.min(value, 100)}%"></div></div></div>`;
+          }
+        },
+        { data: 'project_name', render: data => `<span class="project-truncate d-inline-block" data-bs-toggle="tooltip" title="${htmlEscape(data)}">${htmlEscape(data)}</span>` },
+        {
+          data: null,
+          orderable: false,
+          searchable: false,
+          render: row => `<button type="button" class="btn btn-sm btn-dark py-1 px-2 view-record-details" data-user-id="${row.user_id}" data-date="${row.date}" data-employee="${htmlEscape(row.employee_name)}">View</button>`
+        }
+      ],
+      order: [[0, 'desc']],
+      pageLength: 25,
+      lengthMenu: [10, 25, 50, 100],
+      autoWidth: false,
+      scrollX: false,
+      language: { emptyTable: 'No activity records found for the selected filters' },
+      drawCallback: function () {
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(element => {
+          bootstrap.Tooltip.getOrCreateInstance(element);
+        });
+      }
+    });
+
+    $('#activity-records-table').on('click', '.view-record-details', function () {
+      loadDetails($(this).data('user-id'), $(this).data('date'), $(this).data('employee'));
+    });
+
+    $('#manager-apply-filter').on('click', reloadRecords);
+    $('#employee-filter').on('change', reloadRecords);
+    $('#manager-export').on('click', function () {
+      managerState.table.button('.buttons-csv').trigger();
+    });
+    $('#manager-period').on('change', function () {
+      if ($(this).val() !== 'custom') {
+        $('#manager-start-date').val('');
+        $('#manager-end-date').val('');
+      }
+    });
+    $('#manager-start-date, #manager-end-date').on('change', function () {
+      $('#manager-period').val('custom');
+    });
+
+    loadEmployeeOptions();
+  });
+</script>
+{% endblock %}

@@ -1,9 +1,10 @@
-// Format duration: convert seconds to HH:MM format
+// Format duration: convert seconds to HH:MM:SS format
 function formatDuration(seconds) {
-  const totalMinutes = Math.round(seconds / 60);
-  const hours = Math.floor(totalMinutes / 60);
-  const minutes = totalMinutes % 60;
-  return String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
+  const totalSeconds = Math.max(0, Math.round(Number(seconds) || 0));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  return String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
 }
 
 // Format hours to HH:MM format
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('totalSessions').textContent = totalSessions;
     document.getElementById('productiveSessions').textContent = productiveSessions;
     document.getElementById('idleSessions').textContent = idleSessions;
+    document.getElementById('unassignedSessions').textContent = unassignedSessions;
     document.getElementById('productivityScore').textContent = productivityScore + '%';
 
     // Project Breakdown Pie Chart
@@ -37,52 +39,31 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // Application Usage Bar Chart (horizontal bar)
-    const ctxBar = document.getElementById('appBarChart').getContext('2d');
-    new Chart(ctxBar, {
-      type: 'bar',
-      data: {
-        labels: barLabels,
-        datasets: [{
-          label: 'Total Duration (s)',
-          data: barValues,
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          tooltip: {
-            callbacks: {
-              label: function (context) {
-                const idx = context.dataIndex;
-                const full = barFullLabels[idx] || '';
-                return `${full}: ${context.parsed.x}s`;
-              }
-            }
-          },
-          legend: { display: false }
-        },
-        scales: {
-          x: { title: { display: true, text: 'Duration (seconds)' } },
-          y: { ticks: { autoSkip: false } }
-        }
-      }
-    });
+    const topAppsList = document.getElementById('topApplicationsList');
+    if (topAppsList) {
+      const appNames = (barFullLabels || [])
+        .filter(Boolean)
+        .map(name => ActivityProcessor.deriveTaskName(name))
+        .slice(0, 5);
+      topAppsList.innerHTML = '';
+      appNames.forEach(name => {
+        const item = document.createElement('li');
+        item.textContent = name;
+        topAppsList.appendChild(item);
+      });
+    }
 
     // Recent Activities Table
     const tbody = document.getElementById('recentTableBody');
     recentActivities.forEach(rec => {
       const tr = document.createElement('tr');
-      const tdProj = document.createElement('td'); tdProj.textContent = rec['Project Name'];
-      const tdApp = document.createElement('td'); tdApp.textContent = rec['App Name'];
+      const tdCat = document.createElement('td'); tdCat.textContent = rec['Activity Category'] || 'Project Work';
+      const taskName = ActivityProcessor.deriveTaskName(rec);
+      const tdProj = document.createElement('td'); tdProj.textContent = ActivityProcessor.normalizeProjectName(rec['Project Name'], taskName);
+      const tdApp = document.createElement('td'); tdApp.textContent = taskName;
       const tdStart = document.createElement('td'); tdStart.textContent = rec['Start Time'];
       const tdDur = document.createElement('td'); tdDur.textContent = formatDuration(parseFloat(rec['Duration']));
-      tr.append(tdProj, tdApp, tdStart, tdDur);
+      tr.append(tdCat, tdProj, tdApp, tdStart, tdDur);
       tbody.appendChild(tr);
     });
 
@@ -97,15 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('productiveTime').textContent = formatHours(data.summary.productive_hours);
         document.getElementById('idleTime').textContent = formatHours(data.summary.idle_hours);
 
-        // Productive vs Idle Doughnut Chart
+        // Category Doughnut Chart
         const ctxDoughnut = document.getElementById('prodIdleChart').getContext('2d');
         new Chart(ctxDoughnut, {
           type: 'doughnut',
           data: {
-            labels: ['Productive Time (hrs)', 'Idle Time (hrs)'],
+            labels: ['Project Work (hrs)', 'Unassigned Activities (hrs)', 'IDLE (hrs)'],
             datasets: [{
-              data: [data.summary.productive_hours, data.summary.idle_hours],
-              backgroundColor: ['#2ec4b6', '#e71d36']
+              data: [data.summary.productive_hours, data.summary.unassigned_hours || 0, data.summary.idle_hours],
+              backgroundColor: ['#2ec4b6', '#f59e0b', '#e71d36']
             }]
           },
           options: {
@@ -122,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         new Chart(ctxProj, {
           type: 'bar',
           data: {
-            labels: data.project_breakdown.map(p => p['Project Name']),
+            labels: data.project_breakdown.map(p => ActivityProcessor.normalizeProjectName(p['Project Name'], p['Project Name'])),
             datasets: [{
               label: 'Duration (hrs)',
               data: data.project_breakdown.map(p => p['Hours']),
@@ -157,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         new Chart(ctxApps, {
           type: 'bar',
           data: {
-            labels: data.top_apps.map(a => a['App Name']),
+            labels: data.top_apps.map(a => ActivityProcessor.deriveTaskName(a)),
             datasets: [{
               label: 'Duration (hrs)',
               data: data.top_apps.map(a => a['Hours']),
@@ -184,31 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             scales: {
               x: { title: { display: true, text: 'Hours' } }
-            }
-          }
-        });
-        // Productivity Trend Line Chart
-        const ctxTrend = document.getElementById('trendLineChart').getContext('2d');
-        new Chart(ctxTrend, {
-          type: 'line',
-          data: {
-            labels: data.trend.map(t => t['Date']),
-            datasets: [{
-              label: 'Productive Hours',
-              data: data.trend.map(t => t['Hours']),
-              borderColor: 'rgba(255, 99, 132, 1)',
-              backgroundColor: 'rgba(255, 99, 132, 0.2)',
-              borderWidth: 2,
-              tension: 0.1,
-              fill: true
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              x: { title: { display: true, text: 'Date' } },
-              y: { title: { display: true, text: 'Hours' }, beginAtZero: true }
             }
           }
         });

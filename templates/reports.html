@@ -203,6 +203,7 @@
               <table class="table table-hover table-sm text-dark align-middle" id="excel-preview-table">
                 <thead class="table-light">
                   <tr>
+                    <th>Category</th>
                     <th>Project Name</th>
                     <th>App Name</th>
                     <th>Start Time</th>
@@ -288,17 +289,20 @@
       excelTbody.empty();
       if (data.latest.excel_preview && data.latest.excel_preview.length > 0) {
         data.latest.excel_preview.forEach(row => {
+          const processedTask = ActivityProcessor.deriveTaskName(row);
+          const projectName = ActivityProcessor.normalizeProjectName(row['Project Name'], processedTask);
           excelTbody.append(`
             <tr>
-              <td><span class="badge bg-secondary">${row['Project Name'] || 'Other'}</span></td>
-              <td>${row['App Name']}</td>
+              <td><span class="badge bg-info text-dark">${row['Activity Category'] || 'Project Work'}</span></td>
+              <td><span class="badge bg-secondary">${projectName || 'Other'}</span></td>
+              <td><span class="processed-task-name">${processedTask}</span></td>
               <td>${row['Start Time']}</td>
               <td>${formatDuration(parseFloat(row['Duration']))}</td>
             </tr>
           `);
         });
       } else {
-        excelTbody.append('<tr><td colspan="4" class="text-center text-muted py-3">No spreadsheet data available</td></tr>');
+        excelTbody.append('<tr><td colspan="5" class="text-center text-muted py-3">No spreadsheet data available</td></tr>');
       }
 
       // Populate DataTable

@@ -1,7 +1,4 @@
 @echo off
-
-cd /d "C:\Users\KAVYA SRI K\OneDrive\Desktop\task-1"
-
-"C:\Users\KAVYA SRI K\AppData\Local\Programs\Python\Python313\python.exe" start_tracker.py
-
-pause
+cd /d "C:\Users\KAVYA SRI K\OneDrive\Desktop\productivity Tracker"
+call .venv\Scripts\activate.bat
+python start_tracker.py

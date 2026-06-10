@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% block title %}Email Verification{% endblock %}
 {% block content %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-  /* ── Page chrome ── */
+  /* Section */
   .page-header {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     border-radius: 16px;
@@ -22,7 +22,7 @@
     border: 1px solid rgba(99,102,241,.4);
   }
 
-  /* ── Editor card ── */
+  /* Section */
   .editor-card {
     border: none;
     border-radius: 16px;
@@ -39,7 +39,7 @@
   }
   .editor-card .card-header i { color: #818cf8; }
 
-  /* ── Subject input ── */
+  /* Section */
   #emailSubject {
     border: 2px solid #e2e8f0;
     border-radius: 10px;
@@ -55,7 +55,7 @@
     outline: none;
   }
 
-  /* ── Body textarea ── */
+  /* Section */
   #emailBody {
     font-family: 'Fira Code', 'Courier New', monospace;
     font-size: .88rem;
@@ -76,7 +76,7 @@
     color: #e2e8f0;
   }
 
-  /* ── Preview modal textarea ── */
+  /* Section */
   #previewBody {
     font-family: 'Fira Code', 'Courier New', monospace;
     font-size: .85rem;
@@ -90,7 +90,7 @@
     color: #334155;
   }
 
-  /* ── Buttons ── */
+  /* Section */
   .btn-preview {
     background: linear-gradient(135deg, #64748b, #475569);
     color: #fff;
@@ -129,7 +129,7 @@
   }
   .btn-send-email:disabled { opacity: .65; cursor: not-allowed; }
 
-  /* ── Status bar ── */
+  /* Section */
   #emailBody {
     display: none !important;
   }
@@ -147,6 +147,149 @@
     margin: 0;
   }
 
+  .task-review-table th {
+    background: #f1f5f9;
+    color: #334155;
+    font-size: .82rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .task-review-table td {
+    vertical-align: middle;
+  }
+  .task-review-table input,
+  .task-review-table select {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: .9rem;
+    min-width: 130px;
+  }
+  .task-review-table .readonly-cell {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+  }
+  .unassigned-section {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px;
+    background: #f8fafc;
+  }
+  .unassigned-action-bar {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .unassigned-action-bar select {
+    min-width: 240px;
+  }
+  .merge-target-field {
+    flex: 1 1 420px;
+    min-width: 280px;
+  }
+  .merge-target-field .form-label {
+    color: #334155;
+  }
+  #mergeTarget {
+    width: 100%;
+    min-height: 42px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 9px 42px 9px 14px;
+    color: #1e293b;
+    background-color: #ffffff;
+    font-size: .92rem;
+    font-weight: 400;
+    box-shadow: 0 1px 2px rgba(15,23,42,.04);
+    transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  }
+  #mergeTarget:hover:not(:disabled) {
+    border-color: #818cf8;
+    background-color: #f8fafc;
+    box-shadow: 0 6px 18px rgba(99,102,241,.12);
+  }
+  #mergeTarget:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99,102,241,.16);
+  }
+  #mergeTarget:disabled {
+    color: #94a3b8;
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+  }
+  #mergeTarget optgroup {
+    color: #475569;
+    font-size: .88rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  #mergeTarget option {
+    color: #1e293b;
+    font-size: .92rem;
+    font-weight: 400;
+    padding: 10px 12px;
+    text-transform: none;
+  }
+
+  .unassigned-row {
+    cursor: pointer;
+    transition: background-color .18s ease;
+  }
+  .unassigned-row:hover td {
+    background-color: #eef2ff;
+  }
+  .unassigned-row.is-selected td {
+    background-color: #eef2ff;
+  }
+  .unassigned-select-cell {
+    text-align: center;
+    vertical-align: middle;
+    width: 72px;
+  }
+  .task-review-table input.unassigned-select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    margin: 0 auto;
+    display: grid;
+    place-content: center;
+    border: 2px solid #94a3b8;
+    border-radius: 999px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+  }
+  .task-review-table input.unassigned-select:hover {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99,102,241,.12);
+  }
+  .task-review-table input.unassigned-select:focus-visible {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(99,102,241,.22);
+  }
+  .task-review-table input.unassigned-select::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    transform: scale(0);
+    transition: transform .16s ease;
+    background: #ffffff;
+  }
+  .task-review-table input.unassigned-select:checked {
+    border-color: #4f46e5;
+    background: #4f46e5;
+  }
+  .task-review-table input.unassigned-select:checked::before {
+    transform: scale(1);
+  }
+
   #statusBar {
     border-radius: 10px;
     padding: 14px 20px;
@@ -157,13 +300,13 @@
   #statusBar.success { background: #ecfdf5; border: 1.5px solid #34d399; color: #065f46; }
   #statusBar.error   { background: #fef2f2; border: 1.5px solid #f87171; color: #991b1b; }
 
-  /* ── Last sent info ── */
+  /* Section */
   .last-info {
     font-size: .82rem;
     color: #94a3b8;
   }
 
-  /* ── Loading skeleton ── */
+  /* Section */
   .loading-shimmer {
     background: linear-gradient(90deg, #1e293b 25%, #253352 50%, #1e293b 75%);
     background-size: 200% 100%;
@@ -179,7 +322,7 @@
 
 <div class="container-fluid py-2">
 
-  <!-- ══════════ PAGE HEADER ══════════ -->
+<!-- Section -->
   <div class="page-header d-flex align-items-center justify-content-between flex-wrap gap-3">
     <div>
       <div class="badge-pill mb-2 d-inline-block">EMAIL EDITOR</div>
@@ -189,12 +332,12 @@
       </p>
     </div>
     <div class="text-end">
-      <div class="last-info" id="lastSentInfo">Checking status…</div>
+      <div class="last-info" id="lastSentInfo">Checking status...</div>
       <div class="last-info mt-1" id="lastUpdatedTime"></div>
     </div>
   </div>
 
-  <!-- ══════════ EDITOR CARD ══════════ -->
+<!-- Section -->
   <div class="card editor-card mb-4">
     <div class="card-header d-flex align-items-center justify-content-between">
       <span><i class="bi bi-envelope-paper-fill me-2"></i>Compose Email</span>
@@ -208,7 +351,7 @@
           <i class="bi bi-tag-fill me-1"></i> Subject
         </label>
         <input type="text" id="emailSubject" class="form-control"
-               placeholder="Loading subject…" value="">
+               placeholder="Loading subject..." value="">
       </div>
 
       <!-- Body -->
@@ -216,24 +359,72 @@
         <label for="emailBody" class="form-label fw-semibold text-secondary mb-1">
           <i class="bi bi-body-text me-1"></i> Email Body
           <span class="text-muted fw-normal ms-2" style="font-size:.8rem;">
-            (editable — add notes, comments, or remove rows)
+            (edit date, task, and status before sending)
           </span>
         </label>
         <textarea id="emailBody" class="form-control" rows="22"
-                  placeholder="Generating email content…"></textarea>
+                  placeholder="Generating email content..."></textarea>
+        <div id="taskReviewWrapper" class="email-table-preview task-review-table mt-2">
+          <table class="table table-bordered align-middle mb-0">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Project</th>
+                <th>Task Name</th>
+                <th>Status</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody id="taskReviewBody">
+              <tr><td colspan="5" class="text-center text-muted py-4">Loading review rows...</td></tr>
+            </tbody>
+          </table>
+        </div>
 
+        <div class="unassigned-section mt-4">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <h5 class="fw-bold mb-0">Unassigned Activities</h5>
+            <span class="text-muted small" id="unassignedCount">0 activities</span>
+          </div>
+          <div class="unassigned-action-bar">
+            <div class="merge-target-field">
+              <label for="mergeTarget" class="form-label fw-semibold mb-1">Merge Into:</label>
+              <select id="mergeTarget" class="form-select form-select-sm"></select>
+            </div>
+            <button type="button" class="btn btn-preview" id="btnMergeSelected">
+              Merge Selected Activities
+            </button>
+          </div>
+          <div class="email-table-preview task-review-table">
+            <table class="table table-bordered align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>App</th>
+                  <th>Duration</th>
+                </tr>
+              </thead>
+              <tbody id="unassignedBody">
+                <tr><td colspan="3" class="text-center text-muted py-4">Loading unassigned activities...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <!-- Attachment download -->
         <div class="mt-3 d-flex align-items-center">
         </div>
       </div>
 
-      <!-- ── Action buttons ── -->
+<!-- Section -->
       <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
         <button class="btn btn-preview" id="btnPreview">
           <i class="bi bi-eye-fill me-2"></i>Preview
         </button>
         <button class="btn btn-reset" id="btnReset">
           <i class="bi bi-arrow-counterclockwise me-2"></i>Reset to Default
+        </button>
+        <button class="btn btn-preview" id="btnSaveChanges">
+          <i class="bi bi-save-fill me-2"></i>Save Changes
         </button>
         <div class="ms-auto">
           <button class="btn btn-send-email" id="btnSendEmail">
@@ -242,7 +433,7 @@
         </div>
       </div>
 
-      <!-- ── Status feedback ── -->
+<!-- Section -->
       <div id="statusBar" class="mt-4"></div>
 
     </div>
@@ -250,7 +441,7 @@
 
 </div>
 
-<!-- ══════════ PREVIEW MODAL ══════════ -->
+<!-- Section -->
 <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content" style="border-radius:16px;border:none;">
@@ -281,15 +472,10 @@
 <script>
 $(document).ready(function () {
 
-  // ── State ──────────────────────────────────────────
   let defaultSubject = '';
-  let defaultBody    = '';
-
-  // ── Helpers ────────────────────────────────────────
-  function updateCharCount() {
-    const len = $('#emailBody').val().length;
-    $('#charCount').text(len.toLocaleString() + ' characters');
-  }
+  let taskRows = [];
+  let unassignedRows = [];
+  const currentEmployeeName = {{ (current_user.employee_name if current_user else 'User')|tojson }};
 
   function showStatus(type, msg) {
     const $bar = $('#statusBar');
@@ -300,71 +486,356 @@ $(document).ready(function () {
     $('#statusBar').fadeOut(150);
   }
 
-  function ensureTablePreview() {
-    if (!$('#emailBodyPreview').length) {
-      $('#emailBody').after('<div id="emailBodyPreview" class="email-table-preview"></div>');
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function updateCharCount() {
+    $('#charCount').text(taskRows.length.toLocaleString() + ' review rows');
+  }
+
+  function parseReviewDuration(value) {
+    const parts = String(value || '00:00').split(':').map(part => Number(part) || 0);
+    if (parts.length >= 3) return (parts[0] * 3600) + (parts[1] * 60) + parts[2];
+    if (parts.length >= 2) return (parts[0] * 3600) + (parts[1] * 60);
+    return parts[0] || 0;
+  }
+
+  function formatReviewDuration(totalSeconds) {
+    const seconds = Math.max(0, Math.round(totalSeconds || 0));
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    return String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
+  }
+
+  function addDurationToTask(row, duration) {
+    row.duration = formatReviewDuration(parseReviewDuration(row.duration) + parseReviewDuration(duration));
+  }
+
+  function defaultProjectName(row) {
+    const project = String(row.project || '').trim();
+    if (!project || ['unassigned activities', 'idle', 'other', 'unknown'].includes(project.toLowerCase())) {
+      return 'Productivity Tracker';
     }
-    if ($('#previewBody').prop('tagName') === 'PRE') {
-      $('#previewBody').replaceWith('<div id="previewBody" class="email-table-preview"></div>');
+    return project;
+  }
+
+  function defaultTaskName(row) {
+    return String(row.task || row.app || row.raw_app || 'New Task').trim();
+  }
+
+  function todayDisplayDate() {
+    const today = new Date();
+    return String(today.getDate()).padStart(2, '0') + '-'
+      + String(today.getMonth() + 1).padStart(2, '0') + '-'
+      + today.getFullYear();
+  }
+
+  function defaultRowDate(row) {
+    return String(row.date || row.Date || '').trim() || todayDisplayDate();
+  }
+
+  function renderTaskEditor() {
+    const $body = $('#taskReviewBody');
+    $body.empty();
+
+    if (!taskRows.length) {
+      $body.append('<tr><td colspan="5" class="text-center text-muted py-4">No file activity found for review.</td></tr>');
+      updateCharCount();
+      renderUnassignedEditor();
+      return;
     }
+
+    taskRows.forEach(function (row, index) {
+      const status = row.status === 'Completed' ? 'Completed' : 'In Progress';
+      $body.append(`
+        <tr data-index="${index}">
+          <td class="readonly-cell text-center">${escapeHtml(row.date)}</td>
+          <td class="readonly-cell">${escapeHtml(row.project)}</td>
+          <td><input type="text" class="form-control form-control-sm task-name" value="${escapeHtml(row.task)}"></td>
+          <td>
+            <select class="form-select form-select-sm task-status">
+              <option value="In Progress" ${status === 'In Progress' ? 'selected' : ''}>In Progress</option>
+              <option value="Completed" ${status === 'Completed' ? 'selected' : ''}>Completed</option>
+            </select>
+          </td>
+          <td class="readonly-cell text-center">${escapeHtml(row.duration)}</td>
+        </tr>
+      `);
+    });
+
+    updateCharCount();
+    renderUnassignedEditor();
+    renderEmailTable();
+  }
+
+  function renderMergeTargetOptions() {
+    const currentTarget = $('#mergeTarget').val();
+    const $target = $('#mergeTarget');
+    const groupedTasks = new Map();
+    $target.empty();
+    const badProjects = new Set(['', 'unknown', 'unassigned activities', 'other', 'idle']);
+    const badTasks = new Set(['', 'unknown', 'unknown window', 'unknown task', 'unknown activity', 'system tray overflow window', 'search', 'snipping tool overlay', 'program manager', 'lock screen']);
+
+    function isMeaningfulTarget(project, task) {
+      const p = String(project || '').trim().toLowerCase();
+      const t = String(task || '').trim().toLowerCase();
+      return !badProjects.has(p) && !badTasks.has(t);
+    }
+
+    function addTargetOption(project, task) {
+      if (!isMeaningfulTarget(project, task)) {
+        return;
+      }
+
+      if (!groupedTasks.has(project)) {
+        groupedTasks.set(project, new Map());
+      }
+
+      groupedTasks.get(project).set(task, {
+        project: project,
+        task: task,
+        value: `${project}|||${task}`,
+        label: task
+      });
+    }
+
+    taskRows.forEach(function (row) {
+      addTargetOption(String(row.project || '').trim(), String(row.task || '').trim());
+    });
+
+    const sortedProjects = [...groupedTasks.keys()].sort(function (a, b) {
+      return a.localeCompare(b, undefined, { sensitivity: 'base' });
+    });
+
+    sortedProjects.forEach(function (project) {
+      const $group = $('<optgroup>').attr('label', project);
+      const sortedTasks = [...groupedTasks.get(project).values()].sort(function (a, b) {
+        return a.task.localeCompare(b.task, undefined, { sensitivity: 'base' });
+      });
+
+      sortedTasks.forEach(function (item) {
+        $('<option>')
+          .val(item.value)
+          .text(item.label)
+          .appendTo($group);
+      });
+
+      $target.append($group);
+    });
+
+    const targetTaskNames = [];
+    groupedTasks.forEach(function (tasksByName) {
+      tasksByName.forEach(function (item) {
+        targetTaskNames.push(item.value);
+      });
+    });
+
+    const selectedTaskValues = targetTaskNames
+      .filter(Boolean);
+
+    if (currentTarget && selectedTaskValues.includes(currentTarget)) {
+      $target.val(currentTarget);
+    }
+
+    if (!selectedTaskValues.length) {
+      $('<option>')
+        .val('')
+        .text('No task rows available')
+        .appendTo($target);
+    }
+
+    $target.prop('disabled', false);
+    $('#btnMergeSelected').prop('disabled', !unassignedRows.length);
+  }
+
+  function renderUnassignedEditor() {
+    const $body = $('#unassignedBody');
+    $body.empty();
+    $('#unassignedCount').text(unassignedRows.length.toLocaleString() + ' activities');
+    renderMergeTargetOptions();
+
+    if (!unassignedRows.length) {
+      $body.append('<tr><td colspan="3" class="text-center text-muted py-4">No unassigned activities.</td></tr>');
+      return;
+    }
+
+    unassignedRows.forEach(function (row, index) {
+      $body.append(`
+        <tr data-index="${index}" class="unassigned-row" tabindex="0" role="checkbox" aria-checked="false">
+          <td class="unassigned-select-cell"><input type="checkbox" class="unassigned-select" aria-label="Select ${escapeHtml(row.app)}"></td>
+          <td class="readonly-cell">${escapeHtml(row.app)}</td>
+          <td class="readonly-cell text-center">${escapeHtml(row.duration)}</td>
+        </tr>
+      `);
+    });
+  }
+
+  function collectTaskRows() {
+    const rows = [];
+    $('#taskReviewBody tr[data-index]').each(function () {
+      const index = Number($(this).data('index'));
+      const original = taskRows[index] || {};
+      rows.push({
+        date: original.date || '',
+        project: original.project || '',
+        task: $(this).find('.task-name').val().trim(),
+        source_task: original.source_task || original.task || '',
+        status: $(this).find('.task-status').val(),
+        duration: original.duration || ''
+      });
+    });
+    taskRows = rows;
+    return rows;
+  }
+
+  function buildTaskTableHtml() {
+    const rows = collectTaskRows();
+    const bodyRows = rows.map(function (row) {
+      return `
+        <tr>
+          <td style="border:1px solid #000;padding:6px 10px;text-align:center;">${escapeHtml(row.date)}</td>
+          <td style="border:1px solid #000;padding:6px 10px;text-align:left;">${escapeHtml(row.project)}</td>
+          <td style="border:1px solid #000;padding:6px 10px;text-align:left;">${escapeHtml(row.task)}</td>
+          <td style="border:1px solid #000;padding:6px 10px;text-align:center;">${escapeHtml(row.status)}</td>
+          <td style="border:1px solid #000;padding:6px 10px;text-align:center;">${escapeHtml(row.duration)}</td>
+        </tr>
+      `;
+    }).join('');
+
+    return `
+      <table border="1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:90%;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+        <tr>
+          <th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">Date</th>
+          <th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">Project</th>
+          <th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">AI Task Name</th>
+          <th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">Status</th>
+          <th style="border:1px solid #000;padding:6px 10px;background-color:#f2f2f2;text-align:center;">Duration</th>
+        </tr>
+        ${bodyRows}
+      </table>
+    `;
+  }
+
+  function buildEmailBodyHtml() {
+    const table = buildTaskTableHtml();
+
+    return `
+      <p>Hello Manager,</p>
+      <p>Please find below my productivity report for today.</p>
+      <p>The report summarizes the activities completed, associated projects, task assignments, statuses, and durations recorded during today's work session.</p>
+      ${table}
+      <p>Regards,</p>
+      <p>${escapeHtml(currentEmployeeName || 'User')}</p>
+    `;
   }
 
   function renderEmailTable() {
-    ensureTablePreview();
-    const body = $('#emailBody').val() || '';
-    $('#emailBodyPreview').html(body);
-    $('#previewBody').html(body);
+    const html = buildEmailBodyHtml();
+    $('#emailBody').val(html);
+    if ($('#previewBody').prop('tagName') === 'PRE') {
+      $('#previewBody').replaceWith('<div id="previewBody" class="email-table-preview"></div>');
+    }
+    $('#previewBody').html(html);
   }
 
   function setSending(isSending) {
     const $btn = $('#btnSendEmail');
     const $btn2 = $('#btnSendFromPreview');
     if (isSending) {
-      $btn.prop('disabled', true)
-          .html('<span class="spinner-border spinner-border-sm me-2"></span>Sending…');
-      $btn2.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Sending…');
+      $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Sending...');
+      $btn2.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Sending...');
     } else {
-      $btn.prop('disabled', false)
-          .html('<i class="bi bi-send-fill me-2"></i>Send Email');
-      $btn2.prop('disabled', false)
-          .html('<i class="bi bi-send-fill me-1"></i>Send Now');
+      $btn.prop('disabled', false).html('<i class="bi bi-send-fill me-2"></i>Send Email');
+      $btn2.prop('disabled', false).html('<i class="bi bi-send-fill me-1"></i>Send Now');
     }
   }
 
-  // ── Load email content from server ─────────────────
   function loadEmailContent(callback) {
-    // Show loading shimmer
-    $('#emailBody').addClass('loading-shimmer').val('').prop('disabled', true);
     $('#emailSubject').addClass('loading-shimmer').val('').prop('disabled', true);
 
     $.ajax({
       url: '/api/email-content',
       method: 'GET',
       success: function (resp) {
-        $('#emailBody').removeClass('loading-shimmer').prop('disabled', false);
         $('#emailSubject').removeClass('loading-shimmer').prop('disabled', false);
-
         if (resp.success) {
           defaultSubject = resp.subject || '';
-          defaultBody    = resp.body    || '';
           $('#emailSubject').val(defaultSubject);
-          $('#emailBody').val(defaultBody);
-          renderEmailTable();
-          updateCharCount();
           if (callback) callback();
         } else {
-          $('#emailBody').val('⚠ Error loading content: ' + (resp.error || 'Unknown'));
+          showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Error loading subject: ' + (resp.error || 'Unknown'));
         }
       },
       error: function () {
-        $('#emailBody').removeClass('loading-shimmer').prop('disabled', false)
-                       .val('⚠ Could not reach server. Is Flask running?');
         $('#emailSubject').removeClass('loading-shimmer').prop('disabled', false);
+        showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Could not reach server. Is Flask running?');
       }
     });
   }
 
-  // ── Load last-sent status ───────────────────────────
+  function loadEmailTasks(fresh = false) {
+    $('#taskReviewBody').html('<tr><td colspan="5" class="text-center text-muted py-4">Loading review rows...</td></tr>');
+
+    $.ajax({
+      url: '/api/email-tasks' + (fresh ? '?fresh=1' : ''),
+      method: 'GET',
+      success: function (resp) {
+        if (resp.success) {
+          console.log('EMAIL TASKS API RESPONSE', resp);
+          const processedPayload = ActivityProcessor.processEmailPayload(resp.tasks || [], resp.unassigned || []);
+          taskRows = processedPayload.taskRows;
+          unassignedRows = processedPayload.unassignedRows;
+          console.log('EMAIL TASKS AFTER PROCESSOR', { taskRows, unassignedRows });
+          renderTaskEditor();
+        } else {
+          showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Error loading review rows: ' + (resp.error || 'Unknown'));
+        }
+      },
+      error: function () {
+        showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Could not load editable review rows.');
+      }
+    });
+  }
+
+  function saveTaskRows(callback) {
+    const rows = collectTaskRows();
+    const invalid = rows.some(row => !row.task);
+    if (invalid) {
+      showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>AI Task Name cannot be empty.');
+      return;
+    }
+
+    $.ajax({
+      url: '/api/save-tasks',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ tasks: rows, unassigned: unassignedRows }),
+      success: function (resp) {
+        if (resp.success) {
+          console.log('SAVE TASKS API RESPONSE', resp);
+          const processedPayload = ActivityProcessor.processEmailPayload(resp.tasks || rows, resp.unassigned || unassignedRows);
+          taskRows = processedPayload.taskRows;
+          unassignedRows = processedPayload.unassignedRows;
+          console.log('SAVE TASKS AFTER PROCESSOR', { taskRows, unassignedRows });
+          renderTaskEditor();
+          showStatus('success', '<i class="bi bi-check-circle-fill me-2"></i>Changes saved to tasks.json.');
+          if (callback) callback();
+        } else {
+          showStatus('error', '<i class="bi bi-x-circle-fill me-2"></i>Save failed: ' + (resp.error || 'Unknown error'));
+        }
+      },
+      error: function (xhr) {
+        showStatus('error', '<i class="bi bi-x-circle-fill me-2"></i>Save failed: ' + (xhr.responseText || 'Could not reach server.'));
+      }
+    });
+  }
+
   function loadStatus() {
     $.ajax({
       url: '/api/email-data',
@@ -372,100 +843,215 @@ $(document).ready(function () {
       success: function (resp) {
         const s = resp.summary || {};
         if (s.last_status === 'success') {
-          $('#lastSentInfo').html(
-            '<i class="bi bi-check-circle-fill text-success me-1"></i>Last sent successfully at ' + s.last_run
-          );
+          $('#lastSentInfo').html('<i class="bi bi-check-circle-fill text-success me-1"></i>Last sent successfully at ' + s.last_run);
         } else if (s.last_status === 'failed') {
-          $('#lastSentInfo').html(
-            '<i class="bi bi-x-circle-fill text-danger me-1"></i>Last send failed at ' + s.last_run
-          );
+          $('#lastSentInfo').html('<i class="bi bi-x-circle-fill text-danger me-1"></i>Last send failed at ' + s.last_run);
         } else {
           $('#lastSentInfo').html('<i class="bi bi-dash-circle me-1"></i>Never sent');
         }
-        const now = new Date();
-        $('#lastUpdatedTime').html(
-          '<i class="bi bi-arrow-clockwise me-1"></i>Refreshed: ' + now.toLocaleTimeString()
-        );
+        $('#lastUpdatedTime').html('<i class="bi bi-arrow-clockwise me-1"></i>Refreshed: ' + new Date().toLocaleTimeString());
       }
     });
   }
 
-  // ── Core send function ──────────────────────────────
   function doSend() {
     const subject = $('#emailSubject').val().trim();
-    const body    = $('#emailBody').val();
-
     if (!subject) {
       showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Subject cannot be empty.');
       return;
     }
-    if (!body.trim()) {
-      showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Email body cannot be empty.');
-      return;
-    }
 
-    hideStatus();
-    setSending(true);
+    saveTaskRows(function () {
+      hideStatus();
+      setSending(true);
 
-    // Close preview modal if open
-    const modalEl = document.getElementById('previewModal');
-    if (modalEl) bootstrap.Modal.getInstance(modalEl)?.hide();
+      const modalEl = document.getElementById('previewModal');
+      if (modalEl) bootstrap.Modal.getInstance(modalEl)?.hide();
 
-    $.ajax({
-      url: '/api/send-email',
-      method: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({ subject: subject, body: body }),
-      success: function (resp) {
-        setSending(false);
-        if (resp.success) {
-          showStatus('success',
-            '<i class="bi bi-check-circle-fill me-2"></i><strong>Email Sent Successfully!</strong> The report has been dispatched to the manager.'
-          );
-          loadStatus();
-        } else {
-          showStatus('error',
-            '<i class="bi bi-x-circle-fill me-2"></i><strong>Send Failed:</strong> ' +
-            (resp.error_message || 'Unknown error')
-          );
+      $.ajax({
+        url: '/api/send-email',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ subject: subject, tasks: collectTaskRows() }),
+        success: function (resp) {
+          setSending(false);
+          if (resp.success) {
+            showStatus('success', '<i class="bi bi-check-circle-fill me-2"></i><strong>Email Sent Successfully!</strong> The reviewed report has been dispatched to the manager.');
+            taskRows = [];
+            unassignedRows = [];
+            renderTaskEditor();
+            loadEmailTasks(true);
+            loadStatus();
+          } else {
+            showStatus('error', '<i class="bi bi-x-circle-fill me-2"></i><strong>Send Failed:</strong> ' + (resp.error_message || 'Unknown error'));
+          }
+        },
+        error: function (xhr) {
+          setSending(false);
+          showStatus('error', '<i class="bi bi-x-circle-fill me-2"></i><strong>Connection Error:</strong> ' + (xhr.responseText || 'Could not reach server.'));
         }
-      },
-      error: function (xhr) {
-        setSending(false);
-        showStatus('error',
-          '<i class="bi bi-x-circle-fill me-2"></i><strong>Connection Error:</strong> ' +
-          (xhr.responseText || 'Could not reach server.')
-        );
-      }
+      });
     });
   }
 
-  // ── Preview button ──────────────────────────────────
+  $('#taskReviewBody').on('input change', 'input, select', function () {
+    collectTaskRows();
+    renderUnassignedEditor();
+    renderEmailTable();
+  });
+
+  function updateUnassignedRowSelection($checkbox) {
+    const isChecked = $checkbox.is(':checked');
+    const $row = $checkbox.closest('tr[data-index]');
+    $row.toggleClass('is-selected', isChecked).attr('aria-checked', isChecked ? 'true' : 'false');
+  }
+
+  $('#unassignedBody').on('change', '.unassigned-select', function () {
+    updateUnassignedRowSelection($(this));
+  });
+
+  $('#unassignedBody').on('click', 'tr[data-index]', function (event) {
+    if ($(event.target).is('input, select, button, a')) return;
+    const $checkbox = $(this).find('.unassigned-select');
+    $checkbox.prop('checked', !$checkbox.prop('checked')).trigger('change');
+  });
+
+  $('#unassignedBody').on('keydown', 'tr[data-index]', function (event) {
+    if (event.key !== ' ' && event.key !== 'Enter') return;
+    event.preventDefault();
+    const $checkbox = $(this).find('.unassigned-select');
+    $checkbox.prop('checked', !$checkbox.prop('checked')).trigger('change');
+  });
+
+  $('#btnMergeSelected').on('click', function () {
+    const rows = collectTaskRows();
+    const selectedIndexes = [];
+    $('#unassignedBody tr[data-index]').each(function () {
+      if ($(this).find('.unassigned-select').is(':checked')) {
+        selectedIndexes.push(Number($(this).data('index')));
+      }
+    });
+
+    if (!selectedIndexes.length) {
+      showStatus('error', '<i class="bi bi-exclamation-triangle-fill me-2"></i>Select at least one unassigned activity.');
+      return;
+    }
+
+    const targetTask = $('#mergeTarget').val();
+    const targetParts = String(targetTask).split('|||');
+
+    const selectedItems = selectedIndexes
+      .map(index => ({ item: unassignedRows[index], index }))
+      .filter(entry => entry.item);
+    const remainingUnassigned = unassignedRows.filter((_, index) => !selectedIndexes.includes(index));
+    let updatedRows = rows.slice();
+
+    if (targetTask && targetParts.length > 1) {
+      const targetProject = targetParts[0];
+      const targetName = targetParts.slice(1).join('|||');
+      let targetRow = updatedRows.find(row =>
+        String(row.project || '').trim() === targetProject
+        && String(row.task || '').trim() === targetName
+      );
+
+      if (!targetRow) {
+        targetRow = {
+          date: defaultRowDate(selectedItems[0]?.item || {}),
+          project: targetProject,
+          task: targetName,
+          source_task: targetName,
+          status: 'In Progress',
+          duration: '00:00'
+        };
+        updatedRows.push(targetRow);
+      }
+
+      selectedItems.forEach(({ item }) => {
+        if (!targetRow.date) targetRow.date = defaultRowDate(item);
+        addDurationToTask(targetRow, item.duration);
+      });
+    } else {
+      selectedItems.forEach(({ item }) => {
+        const project = defaultProjectName(item);
+        const task = defaultTaskName(item);
+        let existing = updatedRows.find(row =>
+          String(row.project || '').trim().toLowerCase() === project.toLowerCase()
+          && String(row.task || '').trim().toLowerCase() === task.toLowerCase()
+        );
+
+        if (!existing) {
+          existing = {
+            date: defaultRowDate(item),
+            project: project,
+            task: task,
+            source_task: item.raw_app || item.task || item.app || task,
+            status: 'In Progress',
+            duration: '00:00'
+          };
+          updatedRows.push(existing);
+        }
+
+        if (!existing.date) existing.date = defaultRowDate(item);
+        addDurationToTask(existing, item.duration);
+      });
+    }
+
+    $.ajax({
+      url: '/api/save-tasks',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        tasks: updatedRows,
+        unassigned: remainingUnassigned
+      }),
+      success: function (resp) {
+        if (resp.success) {
+          console.log('MERGE SAVE API RESPONSE', resp);
+          const processedPayload = ActivityProcessor.processEmailPayload(resp.tasks || updatedRows, resp.unassigned || remainingUnassigned);
+          taskRows = processedPayload.taskRows;
+          unassignedRows = processedPayload.unassignedRows;
+          console.log('MERGE SAVE AFTER PROCESSOR', { taskRows, unassignedRows });
+          renderTaskEditor();
+          showStatus('success', '<i class="bi bi-check-circle-fill me-2"></i>Selected activities merged and saved.');
+        } else {
+          showStatus('error', '<i class="bi bi-x-circle-fill me-2"></i>Merge failed: ' + (resp.error || 'Unknown error'));
+        }
+      },
+      error: function (xhr) {
+        showStatus('error', '<i class="bi bi-x-circle-fill me-2"></i>Merge failed: ' + (xhr.responseJSON?.error || xhr.responseText || 'Could not reach server.'));
+      }
+    });
+  });
+
+  $('#btnSaveChanges').on('click', function () {
+    saveTaskRows();
+  });
+
   $('#btnPreview').on('click', function () {
     $('#previewSubject').text($('#emailSubject').val() || '(no subject)');
     renderEmailTable();
     new bootstrap.Modal(document.getElementById('previewModal')).show();
   });
 
-  // ── Reset button ────────────────────────────────────
   $('#btnReset').on('click', function () {
-    if (!confirm('Reset to the auto-generated content? Your edits will be lost.')) return;
-    loadEmailContent();
+    if (!confirm('Reset to the tracker-generated review rows? Your unsaved edits will be lost.')) return;
+    loadEmailTasks(true);
     hideStatus();
   });
 
-  // ── Send buttons ────────────────────────────────────
   $('#btnSendEmail, #btnSendFromPreview').on('click', doSend);
 
-  // ── Live character counter ──────────────────────────
-  $('#emailBody').on('input', updateCharCount);
-
-  // ── Initial load ────────────────────────────────────
   loadEmailContent();
+  loadEmailTasks(true);
   loadStatus();
-
-  // Auto-refresh status every 60 s (not content, so edits are preserved)
   setInterval(loadStatus, 60000);
 });
 </script>
 {% endblock %}
+
+
+
+
+
+
+

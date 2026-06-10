@@ -254,7 +254,9 @@ from datetime import datetime
 import win32gui
 import csv
 import os
+import re
 import ctypes
+from activity_store import save_tracked_activity
 
 
 # ==========================================
@@ -292,11 +294,57 @@ def get_idle_time():
 # ==========================================
 CODING_TOOLS = [
     "visual studio code",
+    "visual studio code insiders",
+    "code - insiders",
+    "vscode insiders",
+    "vs code insiders",
+    "vs code",
+    "vscodium",
+    "windsurf",
     "antigravity ide",
+    "antigravity",
     "cursor",
     "codex",
     "firo",
     "vscode",
+    "pycharm",
+    "intellij idea",
+    "intellij",
+    "webstorm",
+    "phpstorm",
+    "rider",
+    "android studio",
+    "eclipse",
+    "netbeans",
+]
+
+UNASSIGNED_ACTIVITY_KEYWORDS = [
+    "snipping tool overlay",
+    "snipping tool",
+    "task switching",
+    "file explorer",
+    "windows explorer",
+    "settings",
+    "calculator",
+    "program manager",
+    "start menu",
+    "search",
+    "notification center",
+    "action center",
+    "desktop",
+    "system tray overflow window",
+    "unknown window",
+    "unknown task",
+    "unknown activity",
+]
+
+IDLE_WINDOW_KEYWORDS = [
+    "system idle",
+    "idle",
+    "shut down windows",
+    "lockapp",
+    "windows default lock screen",
+    "sign in",
 ]
 
 
@@ -318,23 +366,79 @@ def is_file_name(value):
     return bool(ext)
 
 
+def is_ide_name(value):
+    normalized = str(value or "").lower()
+    return any(tool in normalized for tool in CODING_TOOLS)
+
+
+def is_unknown_activity(value):
+    normalized = normalize_window_title(value).lower().strip(" .")
+    exact = {
+        "unknown window",
+        "unknown task",
+        "unknown activity",
+        "task switching",
+        "file explorer",
+        "windows explorer",
+        "settings",
+        "calculator",
+        "search",
+        "desktop",
+        "",
+    }
+    contains = {"system tray overflow window", "snipping tool"}
+    return normalized in exact or any(keyword in normalized for keyword in contains)
+
+
+def clean_project_candidate(value):
+    candidate = normalize_window_title(value)
+    candidate = re.sub(r"\[[^\]]+\]$", "", candidate).strip()
+    if not candidate or is_file_name(candidate) or is_ide_name(candidate) or is_unknown_activity(candidate):
+        return None
+    if candidate.lower() in {"administrator", "personal", "professional", "community", "untitled"}:
+        return None
+    return candidate
+
+
+def project_name_from_path(value):
+    text = normalize_window_title(value).strip().strip('"')
+    match = re.search(r"[A-Za-z]:\\[^|<>?*\n\r]+", text)
+    if not match:
+        return None
+
+    path = match.group(0).split(" - ", 1)[0].strip()
+    basename = os.path.basename(path)
+    if is_file_name(basename):
+        return os.path.basename(os.path.dirname(path)) or None
+    return basename or None
+
+
 def extract_coding_project(window_title):
 
     clean_title = normalize_window_title(window_title)
+    path_project = project_name_from_path(clean_title)
+    if path_project:
+        return path_project
+
     parts = [part.strip() for part in clean_title.split(" - ") if part.strip()]
 
     for index, part in enumerate(parts):
-        if any(tool in part.lower() for tool in CODING_TOOLS):
+        if is_ide_name(part):
             for candidate in reversed(parts[:index]):
-                if not is_file_name(candidate):
-                    return candidate
+                candidate_path_project = project_name_from_path(candidate)
+                if candidate_path_project:
+                    return candidate_path_project
+                cleaned_candidate = clean_project_candidate(candidate)
+                if cleaned_candidate:
+                    return cleaned_candidate
 
             return None
 
     if any(tool in clean_title.lower() for tool in CODING_TOOLS):
         for candidate in reversed(parts[:-1]):
-            if not is_file_name(candidate):
-                return candidate
+            cleaned_candidate = clean_project_candidate(candidate)
+            if cleaned_candidate:
+                return cleaned_candidate
 
         return None
 
@@ -346,6 +450,19 @@ def detect_project(window_title):
     clean_title = normalize_window_title(window_title)
     title = clean_title.lower()
 
+    if any(keyword in title for keyword in IDLE_WINDOW_KEYWORDS):
+        return "IDLE"
+
+    if is_unknown_activity(clean_title):
+        return "Unassigned Activities"
+
+    if any(keyword in title for keyword in UNASSIGNED_ACTIVITY_KEYWORDS):
+        return "Unassigned Activities"
+
+    path_project = project_name_from_path(clean_title)
+    if path_project:
+        return path_project
+
     if "leetcode" in title:
         return "Learning"
 
@@ -356,10 +473,10 @@ def detect_project(window_title):
         return "Xerox Automation"
 
     elif "chrome" in title:
-        return "Google Chrome"
+        return "Browser Work"
 
     elif "edge" in title:
-        return "Microsoft Edge"
+        return "Browser Work"
 
     coding_project = extract_coding_project(clean_title)
 
@@ -367,7 +484,7 @@ def detect_project(window_title):
         return coding_project
 
     if any(tool in title for tool in CODING_TOOLS):
-        return None
+        return "Unassigned Activities"
 
     if "outlook" in title:
         return "Communication"
@@ -378,7 +495,7 @@ def detect_project(window_title):
     if "word" in title:
         return "Documentation"
 
-    return "Other"
+    return "Unassigned Activities"
 
 
 # ==========================================
@@ -395,6 +512,19 @@ IDLE_LIMIT = 5
 
 is_idle = False
 idle_start_time = None
+
+
+def save_activity_to_database(project_name, window_title, start, end, duration):
+    print("Calling PostgreSQL activity insert function")
+    db_saved = save_tracked_activity(
+        project_name=project_name,
+        window_title=window_title,
+        file_name="",
+        start_time=start,
+        end_time=end,
+        duration=duration,
+    )
+    print(f"PostgreSQL activity insert: {'success' if db_saved else 'skipped/failed'}")
 
 
 # ==========================================
@@ -494,6 +624,14 @@ while True:
                             str(duration)
                         ])
 
+                    save_activity_to_database(
+                        project_name,
+                        current_window,
+                        start_time,
+                        idle_start,
+                        duration
+                    )
+
 
 
             time.sleep(1)
@@ -536,6 +674,14 @@ while True:
                         idle_end_time.strftime("%H:%M:%S"),
                         str(idle_duration)
                     ])
+
+                save_activity_to_database(
+                    "IDLE",
+                    "No Application",
+                    idle_start_time,
+                    idle_end_time,
+                    idle_duration
+                )
 
 
 
@@ -597,6 +743,14 @@ while True:
                         str(duration)
                     ])
 
+                save_activity_to_database(
+                    project_name,
+                    current_window,
+                    start_time,
+                    end_time,
+                    duration
+                )
+
 
 
             # START NEW SESSION
@@ -652,6 +806,14 @@ while True:
                     end_time.strftime("%H:%M:%S"),
                     str(duration)
                 ])
+
+                save_activity_to_database(
+                    project_name,
+                    current_window,
+                    start_time,
+                    end_time,
+                    duration
+                )
 
                 print("Final Session Saved")
 

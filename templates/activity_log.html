@@ -53,7 +53,7 @@
       <label class="form-label">Date Range</label>
       <select class="form-select" id="date-filter">
         <option value="">All</option>
-        <option value="today">Today</option>
+        <option value="today" selected>Today</option>
         <option value="last7">Last 7 Days</option>
         <option value="last30">Last 30 Days</option>
         <option value="custom">Custom</option>
@@ -79,6 +79,7 @@
     <table class="table table-striped" id="activity-table" style="width:100%">
       <thead class="table-dark">
         <tr>
+          <th>Category</th>
           <th>Project Name</th>
           <th>App Name</th>
           <th>Start Time</th>
@@ -91,5 +92,5 @@
   </div>
 </div>
 
-<script src="{{ url_for('static', filename='js/activity_log.js') }}"></script>
+<script src="{{ url_for('static', filename='js/activity_log.js') }}?v=processed-20260609k"></script>
 {% endblock %}

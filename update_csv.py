@@ -4,9 +4,9 @@ warnings.filterwarnings('ignore')
 
 # Read the existing CSV with error handling
 try:
-    df = pd.read_csv("activity_log.csv", on_bad_lines='skip')
+    df = pd.read_csv("activity_log.csv", encoding="utf-8", on_bad_lines='skip')
 except:
-    df = pd.read_csv("activity_log.csv", engine='python', on_bad_lines='skip')
+    df = pd.read_csv("activity_log.csv", encoding="utf-8", engine='python', on_bad_lines='skip')
 
 # Ensure only 5 columns
 if "Ideal Time Met" in df.columns:

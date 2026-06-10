@@ -15,8 +15,12 @@
       <canvas id="projectPieChart"></canvas>
     </div>
     <div class="col-md-6">
-      <h5>Application Usage</h5>
-      <canvas id="appBarChart"></canvas>
+      <h5>Top Applications</h5>
+      <ol>
+        {% for app in app_labels[:5] %}
+        <li>{{ app }}</li>
+        {% endfor %}
+      </ol>
     </div>
   </div>
 </div>
@@ -30,16 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
       labels: {{ project_labels|tojson }},
       datasets: [{ data: {{ project_values|tojson }}, backgroundColor: ['#4e79a7','#f28e2b','#e15759','#76b7b2','#59a14f','#edc949','#af7aa1','#ff9da7'] }]
     }
-  });
-  // Application Bar Chart
-  const ctxBar = document.getElementById('appBarChart').getContext('2d');
-  new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-      labels: {{ app_labels|tojson }},
-      datasets: [{ label: 'Hours', data: {{ app_values|tojson }}, backgroundColor: '#4fd1c5' }]
-    },
-    options: { scales: { y: { beginAtZero: true } } }
   });
 });
 </script>

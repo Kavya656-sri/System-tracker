@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "date": "05-06-2026",
+      "project": "productivity Tracker",
+      "task": "Ai Service Enhancement",
+      "source_task": "ai_service.py",
+      "status": "In Progress",
+      "duration": "00:02"
+    },
+    {
+      "date": "04-06-2026",
+      "project": "productivity Tracker",
+      "task": "Startup Tracker Enhancement",
+      "source_task": "start_tracker.py",
+      "status": "In Progress",
+      "duration": "00:02"
+    }
+  ],
+  "unassigned": [],
+  "activity_merges": [
+    {
+      "app": "WhatsApp",
+      "target_task": "start_tracker.py"
+    }
+  ]
+}

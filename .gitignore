@@ -1,10 +1,13 @@
 __pycache__/
 *.pyc
-
+.env
 .venv/
 
 activity_log.csv
 email_status.json
+active_tracker_user.json
+tracker_activity_db.log
+user_tasks/
 
 charts/
 reports/
