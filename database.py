@@ -49,8 +49,8 @@ class User(Base):
     login_email: Mapped[str] = mapped_column(String(255), nullable=False, unique=True, index=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
     manager_email: Mapped[str] = mapped_column(String(255), nullable=False)
-    sender_gmail: Mapped[str] = mapped_column(String(255), nullable=False)
-    gmail_app_password: Mapped[str] = mapped_column(String(255), nullable=False)
+    sender_gmail: Mapped[str] = mapped_column(String(255), nullable=False, default="")
+    gmail_app_password: Mapped[str] = mapped_column(String(255), nullable=False, default="")
     role: Mapped[str] = mapped_column(String(20), nullable=False, default="employee")
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)
 

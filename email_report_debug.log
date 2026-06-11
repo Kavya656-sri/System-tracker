@@ -1646,3 +1646,2518 @@ Rows for email = 4
 3. Project=productivity Tracker | Task=Email Automation Module | Duration=00:00:30
 4. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:14
 ============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 10:45:13
+Current User ID: 4
+Current Username: kkk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=4, include_all=False) -> SELECT activities WHERE Activity.user_id = 4 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 264
+Rows With Is Assigned=True: 85
+Rows With Valid Project=True: 85
+Rows Passing Project Work Mask: 85
+Rows Marked Unassigned: 179
+Rows Marked Idle: 25
+Rows With Start Time Date Today: 0
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                        App Name                                                    AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         841  productivity Tracker          Project Work                                       Email Verification Module                                       Email Verification Module In Progress         True           True 2026-06-09 17:54:06.511661        42
+         840 Unassigned Activities Unassigned Activities Reports Management and 2 more pages - Personal - Microsoft Edge Reports Management and 2 more pages - Personal - Microsoft Edge In Progress        False          False 2026-06-09 17:53:58.476306         6
+         839  productivity Tracker          Project Work                                       Email Verification Module                                       Email Verification Module In Progress         True           True 2026-06-09 17:53:02.445559        56
+         838  productivity Tracker          Project Work                                         Email Automation Module                                         Email Automation Module In Progress         True           True 2026-06-09 17:52:42.419789        20
+         837  productivity Tracker          Project Work                                         Email Automation Module                                         Email Automation Module In Progress         True           True 2026-06-09 17:52:36.394032         4
+First 5 Rows After Email Filters:
+(no rows)
+Why email table is empty: all returned rows were removed by the email filters above.
+- No rows have Start Time equal to today's date.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:11
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:04
+3. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module | Duration=00:02
+4. Project=productivity Tracker | Task=Dashboard Development | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 11:01:01
+Current User ID: 4
+Current Username: kkk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=4, include_all=False) -> SELECT activities WHERE Activity.user_id = 4 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 285
+Rows With Is Assigned=True: 97
+Rows With Valid Project=True: 97
+Rows Passing Project Work Mask: 97
+Rows Marked Unassigned: 188
+Rows Marked Idle: 27
+Rows With Start Time Date Today: 21
+Activities Found After Email Filters: 12
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         869  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:59:13.909651       100
+         868  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:58:15.838208        56
+         867 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 10:58:03.804650        12
+         866                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 10:57:57.780547         6
+         865 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 10:55:33.702019       144
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         869 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:59:13.909651       100
+         868 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:58:15.838208        56
+         864 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:55:21.664067        12
+         862 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:53:07.398712        50
+         860 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 10:49:53.265008       150
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:11
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:04
+3. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module | Duration=00:02
+4. Project=productivity Tracker | Task=Dashboard Development | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 11:10:18
+Current User ID: 4
+Current Username: kkk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=4, include_all=False) -> SELECT activities WHERE Activity.user_id = 4 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 303
+Rows With Is Assigned=True: 105
+Rows With Valid Project=True: 105
+Rows Passing Project Work Mask: 105
+Rows Marked Unassigned: 198
+Rows Marked Idle: 27
+Rows With Start Time Date Today: 39
+Activities Found After Email Filters: 20
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         887  productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 11:08:22.742720       110
+         886  productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 11:08:16.717705         6
+         885           Office Work Unassigned Activities                        Initialadminpassword Module                        Initialadminpassword Module In Progress        False          False 2026-06-10 11:08:06.688673         8
+         884 Unassigned Activities Unassigned Activities                                 Untitled - Notepad                                 Untitled - Notepad In Progress        False          False 2026-06-10 11:08:02.654496         4
+         883 Unassigned Activities Unassigned Activities                                             Search                                             Search In Progress        False          False 2026-06-10 11:07:52.614714         8
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                App Name            AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         887 productivity Tracker      Project Work      Auto Start Feature      Auto Start Feature In Progress         True           True 2026-06-10 11:08:22.742720       110
+         882 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-10 11:07:28.582291        24
+         877 productivity Tracker      Project Work      Auto Start Feature      Auto Start Feature In Progress         True           True 2026-06-10 11:06:28.373180        34
+         876 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-10 11:06:12.340420        16
+         875 productivity Tracker      Project Work      Auto Start Feature      Auto Start Feature In Progress         True           True 2026-06-10 11:05:28.288717        44
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:11
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:04
+3. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module | Duration=00:02
+4. Project=productivity Tracker | Task=Dashboard Development | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 11:51:12
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 15
+Rows With Is Assigned=True: 6
+Rows With Valid Project=True: 6
+Rows Passing Project Work Mask: 6
+Rows Marked Unassigned: 9
+Rows Marked Idle: 5
+Rows With Start Time Date Today: 15
+Activities Found After Email Filters: 6
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                    App Name                AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         904  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 11:50:42.152809        20
+         903  productivity Tracker Unassigned Activities         Activity Log Module         Activity Log Module In Progress        False          False 2026-06-10 11:50:22.127561        20
+         902                  IDLE Unassigned Activities                 System Idle                 System Idle        Idle        False          False 2026-06-10 11:50:08.096587        10
+         901 Unassigned Activities Unassigned Activities System Tray Overflow Window System Tray Overflow Window In Progress        False          False 2026-06-10 11:47:14.011543       174
+         900  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 11:46:53.971718        20
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         904 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 11:50:42.152809        20
+         900 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 11:46:53.971718        20
+         898 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 11:44:35.865480        78
+         896 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 11:42:53.800844        60
+         894 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 11:40:21.696897       128
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:05:06
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:06
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 11:51:47
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 16
+Rows With Is Assigned=True: 7
+Rows With Valid Project=True: 7
+Rows Passing Project Work Mask: 7
+Rows Marked Unassigned: 9
+Rows Marked Idle: 5
+Rows With Start Time Date Today: 16
+Activities Found After Email Filters: 7
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                    App Name                AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         905  productivity Tracker          Project Work       Dashboard Development       Dashboard Development In Progress         True           True 2026-06-10 11:51:02.178971        10
+         904  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 11:50:42.152809        20
+         903  productivity Tracker Unassigned Activities         Activity Log Module         Activity Log Module In Progress        False          False 2026-06-10 11:50:22.127561        20
+         902                  IDLE Unassigned Activities                 System Idle                 System Idle        Idle        False          False 2026-06-10 11:50:08.096587        10
+         901 Unassigned Activities Unassigned Activities System Tray Overflow Window System Tray Overflow Window In Progress        False          False 2026-06-10 11:47:14.011543       174
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category              App Name          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         905 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 11:51:02.178971        10
+         904 productivity Tracker      Project Work    Auto Start Feature    Auto Start Feature In Progress         True           True 2026-06-10 11:50:42.152809        20
+         900 productivity Tracker      Project Work    Auto Start Feature    Auto Start Feature In Progress         True           True 2026-06-10 11:46:53.971718        20
+         898 productivity Tracker      Project Work    Auto Start Feature    Auto Start Feature In Progress         True           True 2026-06-10 11:44:35.865480        78
+         896 productivity Tracker      Project Work    Auto Start Feature    Auto Start Feature In Progress         True           True 2026-06-10 11:42:53.800844        60
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:05
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:05
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 11:56:57
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 29
+Rows With Is Assigned=True: 14
+Rows With Valid Project=True: 14
+Rows Passing Project Work Mask: 14
+Rows Marked Unassigned: 15
+Rows Marked Idle: 6
+Rows With Start Time Date Today: 29
+Activities Found After Email Filters: 14
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID         Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         918 productivity Tracker          Project Work                          Email Verification Module                          Email Verification Module In Progress         True           True 2026-06-10 11:56:24.855658         4
+         917 productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 11:56:12.791129        10
+         916 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 11:56:02.765274        10
+         915 productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 11:55:00.721232        62
+         914 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 11:54:56.699471         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         918 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 11:56:24.855658         4
+         917 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:56:12.791129        10
+         915 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:55:00.721232        62
+         913 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:54:42.640642        12
+         909 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:53:24.308709        48
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:05
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:05
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 11:57:14
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 29
+Rows With Is Assigned=True: 14
+Rows With Valid Project=True: 14
+Rows Passing Project Work Mask: 14
+Rows Marked Unassigned: 15
+Rows Marked Idle: 6
+Rows With Start Time Date Today: 29
+Activities Found After Email Filters: 14
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID         Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         918 productivity Tracker          Project Work                          Email Verification Module                          Email Verification Module In Progress         True           True 2026-06-10 11:56:24.855658         4
+         917 productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 11:56:12.791129        10
+         916 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 11:56:02.765274        10
+         915 productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 11:55:00.721232        62
+         914 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 11:54:56.699471         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         918 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 11:56:24.855658         4
+         917 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:56:12.791129        10
+         915 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:55:00.721232        62
+         913 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:54:42.640642        12
+         909 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 11:53:24.308709        48
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 3
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:08
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:05
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:16:05
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 73
+Rows With Is Assigned=True: 27
+Rows With Valid Project=True: 27
+Rows Passing Project Work Mask: 27
+Rows Marked Unassigned: 46
+Rows Marked Idle: 10
+Rows With Start Time Date Today: 73
+Activities Found After Email Filters: 27
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         962  productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 12:14:24.489112        96
+         961                  IDLE Unassigned Activities                                        System Idle                                        System Idle        Idle        False          False 2026-06-10 12:14:10.453820        12
+         960 Unassigned Activities Unassigned Activities                                              Codex                                              Codex In Progress        False          False 2026-06-10 12:12:38.105706        92
+         959  productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 12:12:31.934396         4
+         958           Office Work Unassigned Activities                        Initialadminpassword Module                        Initialadminpassword Module In Progress        False          False 2026-06-10 12:12:27.907947         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         962 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:14:24.489112        96
+         949 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:05:16.452576       108
+         945 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:03:04.307731        72
+         943 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:01:50.222663        54
+         941 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:01:40.133146         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:08
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:05
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:21:50
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 81
+Rows With Is Assigned=True: 33
+Rows With Valid Project=True: 33
+Rows Passing Project Work Mask: 33
+Rows Marked Unassigned: 48
+Rows Marked Idle: 10
+Rows With Start Time Date Today: 81
+Activities Found After Email Filters: 33
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         970  productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:39.387741         4
+         969  productivity Tracker          Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:20:33.090670        66
+         968 Unassigned Activities Unassigned Activities                Calculator                Calculator In Progress        False          False 2026-06-10 12:19:55.026140        38
+         967 Unassigned Activities Unassigned Activities                    Search                    Search In Progress        False          False 2026-06-10 12:19:44.943059        10
+         966  productivity Tracker          Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:18:26.893721        78
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         970 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:39.387741         4
+         969 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:20:33.090670        66
+         966 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:18:26.893721        78
+         965 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:18:12.810103        12
+         964 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:16:10.648907       120
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:08
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:05
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:22:41
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 81
+Rows With Is Assigned=True: 33
+Rows With Valid Project=True: 33
+Rows Passing Project Work Mask: 33
+Rows Marked Unassigned: 48
+Rows Marked Idle: 10
+Rows With Start Time Date Today: 81
+Activities Found After Email Filters: 33
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         970  productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:39.387741         4
+         969  productivity Tracker          Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:20:33.090670        66
+         968 Unassigned Activities Unassigned Activities                Calculator                Calculator In Progress        False          False 2026-06-10 12:19:55.026140        38
+         967 Unassigned Activities Unassigned Activities                    Search                    Search In Progress        False          False 2026-06-10 12:19:44.943059        10
+         966  productivity Tracker          Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:18:26.893721        78
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         970 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:39.387741         4
+         969 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:20:33.090670        66
+         966 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:18:26.893721        78
+         965 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:18:12.810103        12
+         964 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:16:10.648907       120
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:20
+2. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module Module Module Module Module | Duration=00:06
+3. Project=productivity Tracker | Task=Dashboard Development | Duration=00:04
+4. Project=productivity Tracker | Task=Email Verification Module | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:30:22
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 97
+Rows With Is Assigned=True: 37
+Rows With Valid Project=True: 37
+Rows Passing Project Work Mask: 37
+Rows Marked Unassigned: 60
+Rows Marked Idle: 12
+Rows With Start Time Date Today: 97
+Activities Found After Email Filters: 37
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         986 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:29:05.431796        74
+         985                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:28:55.392575        10
+         984 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:27:17.089900        98
+         983  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:26:23.028469        54
+         982  productivity Tracker Unassigned Activities           ● Module           ● Module In Progress        False          False 2026-06-10 12:26:16.980729         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         983 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:26:23.028469        54
+         974 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:24:39.757081        52
+         972 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:22:59.617921        74
+         971 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:47.531257        72
+         970 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:39.387741         4
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:20
+2. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module Module Module | Duration=00:06
+3. Project=productivity Tracker | Task=Dashboard Development | Duration=00:04
+4. Project=productivity Tracker | Task=Email Verification Module | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:31:03
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 97
+Rows With Is Assigned=True: 37
+Rows With Valid Project=True: 37
+Rows Passing Project Work Mask: 37
+Rows Marked Unassigned: 60
+Rows Marked Idle: 12
+Rows With Start Time Date Today: 97
+Activities Found After Email Filters: 37
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         986 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:29:05.431796        74
+         985                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:28:55.392575        10
+         984 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:27:17.089900        98
+         983  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:26:23.028469        54
+         982  productivity Tracker Unassigned Activities           ● Module           ● Module In Progress        False          False 2026-06-10 12:26:16.980729         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         983 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:26:23.028469        54
+         974 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:24:39.757081        52
+         972 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:22:59.617921        74
+         971 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:47.531257        72
+         970 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:21:39.387741         4
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:23
+2. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module Module Module | Duration=00:13
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:02
+4. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:37:40
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 105
+Rows With Is Assigned=True: 40
+Rows With Valid Project=True: 40
+Rows Passing Project Work Mask: 40
+Rows Marked Unassigned: 65
+Rows Marked Idle: 14
+Rows With Start Time Date Today: 105
+Activities Found After Email Filters: 40
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         994                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:37:23.940966        10
+         993 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:36:21.883248        62
+         992                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:34:49.793199        92
+         991 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:33:47.717457        62
+         990  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:32:55.665145        52
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         990 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:32:55.665145        52
+         989 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:31:21.594163        92
+         987 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:30:19.516919        54
+         983 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:26:23.028469        54
+         974 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:24:39.757081        52
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:23
+2. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module | Duration=00:13
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:02
+4. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:38:22
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 105
+Rows With Is Assigned=True: 40
+Rows With Valid Project=True: 40
+Rows Passing Project Work Mask: 40
+Rows Marked Unassigned: 65
+Rows Marked Idle: 14
+Rows With Start Time Date Today: 105
+Activities Found After Email Filters: 40
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         994                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:37:23.940966        10
+         993 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:36:21.883248        62
+         992                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:34:49.793199        92
+         991 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:33:47.717457        62
+         990  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:32:55.665145        52
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         990 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:32:55.665145        52
+         989 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:31:21.594163        92
+         987 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:30:19.516919        54
+         983 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:26:23.028469        54
+         974 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:24:39.757081        52
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 4
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:26
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:11
+3. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module Module Module Module Module | Duration=00:06
+4. Project=productivity Tracker | Task=Email Verification Module | Duration=00:03
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:40:03
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 10
+Rows With Is Assigned=True: 5
+Rows With Valid Project=True: 5
+Rows Passing Project Work Mask: 5
+Rows Marked Unassigned: 5
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 10
+Activities Found After Email Filters: 5
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                                                                                App Name                                                                                                            AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1004  productivity Tracker          Project Work                                                                                                      Auto Start Feature                                                                                                      Auto Start Feature In Progress         True           True 2026-06-10 12:39:44.430829        18
+        1003  productivity Tracker          Project Work                                                                                               Email Verification Module                                                                                               Email Verification Module In Progress         True           True 2026-06-10 12:39:40.386318         4
+        1002 Unassigned Activities Unassigned Activities Daily Productivity Report - 2026-06-10 - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome Daily Productivity Report - 2026-06-10 - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome In Progress        False          False 2026-06-10 12:39:34.356149         4
+        1001  productivity Tracker          Project Work                                                                                               Email Verification Module                                                                                               Email Verification Module In Progress         True           True 2026-06-10 12:39:30.330859         4
+        1000  productivity Tracker          Project Work                                                                                                      Auto Start Feature                                                                                                      Auto Start Feature In Progress         True           True 2026-06-10 12:39:10.279206        20
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1004 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:39:44.430829        18
+        1003 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:39:40.386318         4
+        1001 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:39:30.330859         4
+        1000 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:39:10.279206        20
+         995 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:37:35.983810        56
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Email Verification Module | Duration=00:01:04
+2. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:00:38
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:47:23
+Current User ID: 6
+Current Username: kavya
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=6, include_all=False) -> SELECT activities WHERE Activity.user_id = 6 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 19
+Rows With Is Assigned=True: 10
+Rows With Valid Project=True: 10
+Rows Passing Project Work Mask: 10
+Rows Marked Unassigned: 9
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 19
+Activities Found After Email Filters: 10
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1013 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:47:14.992243         4
+        1012                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:46:02.918725        72
+        1011 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:42:38.771596       204
+        1010  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:42:32.748329         6
+        1009 Unassigned Activities Unassigned Activities          Task View          Task View In Progress        False          False 2026-06-10 12:42:24.711355         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1010 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:42:32.748329         6
+        1008 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:42:00.650519        24
+        1007 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:41:44.611801        14
+        1006 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:40:08.488250        92
+        1005 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:40:02.459000         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:02:54
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:01:10
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:47:56
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 118
+Rows With Is Assigned=True: 44
+Rows With Valid Project=True: 44
+Rows Passing Project Work Mask: 44
+Rows Marked Unassigned: 74
+Rows Marked Idle: 8
+Rows With Start Time Date Today: 0
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 0
+First 5 Returned Rows:
+ Activity ID         Project Name     Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         848 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:57:01.580407        60
+         847          Office Work Unassigned Activities    Everyday Report Module    Everyday Report Module In Progress        False          False 2026-06-09 17:56:57.562246         4
+         846 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:56:51.545945         6
+         845 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:56:25.484407        16
+         844 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:55:37.450497        46
+First 5 Rows After Email Filters:
+(no rows)
+Why email table is empty: all returned rows were removed by the email filters above.
+- No rows have Start Time equal to today's date.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 0
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:48:01
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 118
+Rows With Is Assigned=True: 44
+Rows With Valid Project=True: 44
+Rows Passing Project Work Mask: 44
+Rows Marked Unassigned: 74
+Rows Marked Idle: 8
+Rows With Start Time Date Today: 0
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 0
+First 5 Returned Rows:
+ Activity ID         Project Name     Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+         848 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:57:01.580407        60
+         847          Office Work Unassigned Activities    Everyday Report Module    Everyday Report Module In Progress        False          False 2026-06-09 17:56:57.562246         4
+         846 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:56:51.545945         6
+         845 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:56:25.484407        16
+         844 productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-09 17:55:37.450497        46
+First 5 Rows After Email Filters:
+(no rows)
+Why email table is empty: all returned rows were removed by the email filters above.
+- No rows have Start Time equal to today's date.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 0
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:48:19
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 120
+Rows With Is Assigned=True: 45
+Rows With Valid Project=True: 45
+Rows Passing Project Work Mask: 45
+Rows Marked Unassigned: 75
+Rows Marked Idle: 8
+Rows With Start Time Date Today: 2
+Activities Found After Email Filters: 1
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                 App Name                                             AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1016 Unassigned Activities Unassigned Activities Activity Log and 1 more page - Personal - Microsoft Edge Activity Log and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:48:05.401184         6
+        1015  productivity Tracker          Project Work                                Email Verification Module                                Email Verification Module In Progress         True           True 2026-06-10 12:47:56.922604         6
+         848  productivity Tracker          Project Work                                Email Verification Module                                Email Verification Module In Progress         True           True 2026-06-09 17:57:01.580407        60
+         847           Office Work Unassigned Activities                                   Everyday Report Module                                   Everyday Report Module In Progress        False          False 2026-06-09 17:56:57.562246         4
+         846  productivity Tracker          Project Work                                Email Verification Module                                Email Verification Module In Progress         True           True 2026-06-09 17:56:51.545945         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1015 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:47:56.922604         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 1
+1. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:06
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:49:54
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 123
+Rows With Is Assigned=True: 47
+Rows With Valid Project=True: 47
+Rows Passing Project Work Mask: 47
+Rows Marked Unassigned: 76
+Rows Marked Idle: 8
+Rows With Start Time Date Today: 5
+Activities Found After Email Filters: 3
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                           App Name                                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1019  productivity Tracker          Project Work                                                 Auto Start Feature                                                 Auto Start Feature In Progress         True           True 2026-06-10 12:48:25.508272        82
+        1018  productivity Tracker          Project Work                                          Email Verification Module                                          Email Verification Module In Progress         True           True 2026-06-10 12:48:17.467786         8
+        1017 Unassigned Activities Unassigned Activities Productivity Dashboard and 1 more page - Personal - Microsoft Edge Productivity Dashboard and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:48:11.434511         6
+        1016 Unassigned Activities Unassigned Activities           Activity Log and 1 more page - Personal - Microsoft Edge           Activity Log and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:48:05.401184         6
+        1015  productivity Tracker          Project Work                                          Email Verification Module                                          Email Verification Module In Progress         True           True 2026-06-10 12:47:56.922604         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1019 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:48:25.508272        82
+        1018 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:48:17.467786         8
+        1015 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:47:56.922604         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:01:22
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:14
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:50:22
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 125
+Rows With Is Assigned=True: 48
+Rows With Valid Project=True: 48
+Rows Passing Project Work Mask: 48
+Rows Marked Unassigned: 77
+Rows Marked Idle: 8
+Rows With Start Time Date Today: 7
+Activities Found After Email Filters: 4
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                           App Name                                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1021 Unassigned Activities Unassigned Activities Productivity Dashboard and 1 more page - Personal - Microsoft Edge Productivity Dashboard and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:50:09.601839         6
+        1020  productivity Tracker          Project Work                                          Email Verification Module                                          Email Verification Module In Progress         True           True 2026-06-10 12:49:51.574921        18
+        1019  productivity Tracker          Project Work                                                 Auto Start Feature                                                 Auto Start Feature In Progress         True           True 2026-06-10 12:48:25.508272        82
+        1018  productivity Tracker          Project Work                                          Email Verification Module                                          Email Verification Module In Progress         True           True 2026-06-10 12:48:17.467786         8
+        1017 Unassigned Activities Unassigned Activities Productivity Dashboard and 1 more page - Personal - Microsoft Edge Productivity Dashboard and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:48:11.434511         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1020 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:49:51.574921        18
+        1019 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:48:25.508272        82
+        1018 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:48:17.467786         8
+        1015 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:47:56.922604         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:01:22
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:32
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 12:50:34
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 126
+Rows With Is Assigned=True: 48
+Rows With Valid Project=True: 48
+Rows Passing Project Work Mask: 48
+Rows Marked Unassigned: 78
+Rows Marked Idle: 8
+Rows With Start Time Date Today: 8
+Activities Found After Email Filters: 4
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                           App Name                                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1022 Unassigned Activities Unassigned Activities           Activity Log and 1 more page - Personal - Microsoft Edge           Activity Log and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:50:15.624555         6
+        1021 Unassigned Activities Unassigned Activities Productivity Dashboard and 1 more page - Personal - Microsoft Edge Productivity Dashboard and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 12:50:09.601839         6
+        1020  productivity Tracker          Project Work                                          Email Verification Module                                          Email Verification Module In Progress         True           True 2026-06-10 12:49:51.574921        18
+        1019  productivity Tracker          Project Work                                                 Auto Start Feature                                                 Auto Start Feature In Progress         True           True 2026-06-10 12:48:25.508272        82
+        1018  productivity Tracker          Project Work                                          Email Verification Module                                          Email Verification Module In Progress         True           True 2026-06-10 12:48:17.467786         8
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1020 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:49:51.574921        18
+        1019 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 12:48:25.508272        82
+        1018 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:48:17.467786         8
+        1015 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 12:47:56.922604         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:01
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 13:02:31
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 13
+Rows With Is Assigned=True: 6
+Rows With Valid Project=True: 6
+Rows Passing Project Work Mask: 6
+Rows Marked Unassigned: 7
+Rows Marked Idle: 3
+Rows With Start Time Date Today: 13
+Activities Found After Email Filters: 6
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1035  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:59:08.921793       198
+        1034  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:58:18.804024        48
+        1033                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:57:56.729639        22
+        1032  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:56:38.653593        78
+        1031 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:55:40.606485        58
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1035 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:59:08.921793       198
+        1034 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:58:18.804024        48
+        1032 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:56:38.653593        78
+        1028 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:53:10.457674         8
+        1026 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:51:03.741800       110
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:07:22
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:22
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 13:02:47
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 13
+Rows With Is Assigned=True: 6
+Rows With Valid Project=True: 6
+Rows Passing Project Work Mask: 6
+Rows Marked Unassigned: 7
+Rows Marked Idle: 3
+Rows With Start Time Date Today: 13
+Activities Found After Email Filters: 6
+Email Body Task Rows Built: 2
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1035  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:59:08.921793       198
+        1034  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:58:18.804024        48
+        1033                  IDLE Unassigned Activities        System Idle        System Idle        Idle        False          False 2026-06-10 12:57:56.729639        22
+        1032  productivity Tracker          Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:56:38.653593        78
+        1031 Unassigned Activities Unassigned Activities              Codex              Codex In Progress        False          False 2026-06-10 12:55:40.606485        58
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1035 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:59:08.921793       198
+        1034 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:58:18.804024        48
+        1032 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:56:38.653593        78
+        1028 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:53:10.457674         8
+        1026 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 12:51:03.741800       110
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 2
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:07
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:03
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 13:03:10
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 2
+Rows With Is Assigned=True: 1
+Rows With Valid Project=True: 1
+Rows Passing Project Work Mask: 1
+Rows Marked Unassigned: 1
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 2
+Activities Found After Email Filters: 1
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                 App Name                                             AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1038  productivity Tracker          Project Work                                    Dashboard Development                                    Dashboard Development In Progress         True           True 2026-06-10 13:02:55.911368        10
+        1037 Unassigned Activities Unassigned Activities Activity Log and 1 more page - Personal - Microsoft Edge Activity Log and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-10 13:02:49.869602         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category              App Name          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1038 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 13:02:55.911368        10
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 1
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:10
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 15:01:37
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 14
+Rows With Is Assigned=True: 4
+Rows With Valid Project=True: 4
+Rows Passing Project Work Mask: 4
+Rows Marked Unassigned: 10
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 14
+Activities Found After Email Filters: 4
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1050 Unassigned Activities Unassigned Activities                        System Tray Overflow Window                        System Tray Overflow Window In Progress        False          False 2026-06-10 14:47:15.245180         5
+        1049              system32 Unassigned Activities                                         Cmd Module                                         Cmd Module In Progress        False          False 2026-06-10 14:47:02.734934        10
+        1048 Unassigned Activities Unassigned Activities                        System Tray Overflow Window                        System Tray Overflow Window In Progress        False          False 2026-06-10 14:20:48.275639         8
+        1047  productivity Tracker          Project Work                                 Auto Start Feature                                 Auto Start Feature In Progress         True           True 2026-06-10 14:19:28.195688        78
+        1046  productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 14:19:20.110022         8
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1047 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 14:19:28.195688        78
+        1040 productivity Tracker      Project Work        Auto Start Feature        Auto Start Feature In Progress         True           True 2026-06-10 13:03:14.017623        14
+        1039 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 13:03:09.989982         4
+        1038 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 13:02:55.911368        10
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:01:32
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:10
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:04
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 15:53:17
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 34
+Rows With Is Assigned=True: 13
+Rows With Valid Project=True: 13
+Rows Passing Project Work Mask: 13
+Rows Marked Unassigned: 21
+Rows Marked Idle: 2
+Rows With Start Time Date Today: 34
+Activities Found After Email Filters: 13
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                    App Name                AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1070 Unassigned Activities Unassigned Activities System Tray Overflow Window System Tray Overflow Window In Progress        False          False 2026-06-10 15:11:06.996173         4
+        1069  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 15:10:44.940671        22
+        1068 Unassigned Activities Unassigned Activities                Task Manager                Task Manager In Progress        False          False 2026-06-10 15:10:34.914551        10
+        1067 Unassigned Activities Unassigned Activities                Task Manager                Task Manager In Progress        False          False 2026-06-10 15:10:20.861142        12
+        1066  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 15:10:12.809455         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1069 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:10:44.940671        22
+        1066 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:10:12.809455         6
+        1062 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:09:10.512298        36
+        1060 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:08:48.070225         6
+        1059 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:08:36.382881         3
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:03:24
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:10
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:04
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:19:24
+Current User ID: 1
+Current Username: k
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=1, include_all=False) -> SELECT activities WHERE Activity.user_id = 1 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 34
+Rows With Is Assigned=True: 13
+Rows With Valid Project=True: 13
+Rows Passing Project Work Mask: 13
+Rows Marked Unassigned: 21
+Rows Marked Idle: 2
+Rows With Start Time Date Today: 34
+Activities Found After Email Filters: 13
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                    App Name                AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1070 Unassigned Activities Unassigned Activities System Tray Overflow Window System Tray Overflow Window In Progress        False          False 2026-06-10 15:11:06.996173         4
+        1069  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 15:10:44.940671        22
+        1068 Unassigned Activities Unassigned Activities                Task Manager                Task Manager In Progress        False          False 2026-06-10 15:10:34.914551        10
+        1067 Unassigned Activities Unassigned Activities                Task Manager                Task Manager In Progress        False          False 2026-06-10 15:10:20.861142        12
+        1066  productivity Tracker          Project Work          Auto Start Feature          Auto Start Feature In Progress         True           True 2026-06-10 15:10:12.809455         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category           App Name       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1069 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:10:44.940671        22
+        1066 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:10:12.809455         6
+        1062 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:09:10.512298        36
+        1060 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:08:48.070225         6
+        1059 productivity Tracker      Project Work Auto Start Feature Auto Start Feature In Progress         True           True 2026-06-10 15:08:36.382881         3
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=Auto Start Feature | Duration=00:03:24
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:10
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:04
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:24:46
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 0
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+(no rows)
+First 5 Rows After Email Filters:
+(no rows)
+Why count is 0: no Activity rows were returned for the current logged-in user id.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:29:24
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 9
+Rows With Is Assigned=True: 4
+Rows With Valid Project=True: 4
+Rows Passing Project Work Mask: 4
+Rows Marked Unassigned: 5
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 9
+Activities Found After Email Filters: 4
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1079  productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:10.543956        10
+        1078 Unassigned Activities Unassigned Activities                     Codex                     Codex In Progress        False          False 2026-06-10 16:29:06.516732         4
+        1077 Unassigned Activities Unassigned Activities            Quick settings            Quick settings In Progress        False          False 2026-06-10 16:28:54.485416        10
+        1076 Unassigned Activities Unassigned Activities                     Codex                     Codex In Progress        False          False 2026-06-10 16:27:48.365288        66
+        1075 Unassigned Activities Unassigned Activities                     Codex                     Codex In Progress        False          False 2026-06-10 16:26:28.280938        78
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1079 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:10.543956        10
+        1074 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:26:02.237371        26
+        1072 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:24:56.129072        60
+        1071 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:24:45.918565         8
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:30:06
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 13
+Rows With Is Assigned=True: 8
+Rows With Valid Project=True: 8
+Rows Passing Project Work Mask: 8
+Rows Marked Unassigned: 5
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 13
+Activities Found After Email Filters: 8
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1083 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:29:41.051086        20
+        1082 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:36.843251         4
+        1081 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:26.671010        10
+        1080 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:20.574103         4
+        1079 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:10.543956        10
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1083 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:29:41.051086        20
+        1082 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:36.843251         4
+        1081 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:26.671010        10
+        1080 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:20.574103         4
+        1079 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:10.543956        10
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:30:24
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 13
+Rows With Is Assigned=True: 12
+Rows With Valid Project=True: 12
+Rows Passing Project Work Mask: 12
+Rows Marked Unassigned: 1
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 13
+Activities Found After Email Filters: 12
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1083 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:29:41.051086        20
+        1082 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:36.843251         4
+        1081 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:26.671010        10
+        1080 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:20.574103         4
+        1079 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:10.543956        10
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1083 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:29:41.051086        20
+        1082 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:36.843251         4
+        1081 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:26.671010        10
+        1080 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:20.574103         4
+        1079 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:10.543956        10
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:32:36
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 25
+Rows With Is Assigned=True: 14
+Rows With Valid Project=True: 14
+Rows Passing Project Work Mask: 14
+Rows Marked Unassigned: 11
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 25
+Activities Found After Email Filters: 14
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID         Project Name     Activity Category                                       App Name                                   AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1095 prompt-injection-lab Unassigned Activities                                 Package Module                                 Package Module In Progress        False          False 2026-06-10 16:32:27.620336         4
+        1094 prompt-injection-lab Unassigned Activities                                  Readme Module                                  Readme Module In Progress        False          False 2026-06-10 16:32:19.578806         4
+        1093 prompt-injection-lab Unassigned Activities                                 Package Module                                 Package Module In Progress        False          False 2026-06-10 16:32:07.544618        12
+        1092 prompt-injection-lab Unassigned Activities                            Package Lock Module                            Package Lock Module In Progress        False          False 2026-06-10 16:32:01.506250         6
+        1091 prompt-injection-lab Unassigned Activities Prompt Injection Lab Visual Studio Code Module Prompt Injection Lab Visual Studio Code Module In Progress        False          False 2026-06-10 16:31:49.412760         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1085 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:30:39.193321        16
+        1084 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:30:01.081704        36
+        1083 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:29:41.051086        20
+        1082 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:29:36.843251         4
+        1081 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:29:26.671010        10
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:33:39
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 27
+Rows With Is Assigned=True: 26
+Rows With Valid Project=True: 26
+Rows Passing Project Work Mask: 26
+Rows Marked Unassigned: 1
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 27
+Activities Found After Email Filters: 26
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1097 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 16:33:07.876619        28
+        1096  prompt-injection-lab          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 16:32:31.683303        32
+        1095  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 16:32:27.620336         4
+        1094  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 16:32:19.578806         4
+        1093  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 16:32:07.544618        12
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1096 prompt-injection-lab      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:31.683303        32
+        1095 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:27.620336         4
+        1094 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:19.578806         4
+        1093 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:07.544618        12
+        1092 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:01.506250         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:41:31
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 36
+Rows With Is Assigned=True: 27
+Rows With Valid Project=True: 27
+Rows Passing Project Work Mask: 27
+Rows Marked Unassigned: 9
+Rows Marked Idle: 3
+Rows With Start Time Date Today: 36
+Activities Found After Email Filters: 27
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1106 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 16:41:22.835086         4
+        1105                  IDLE Unassigned Activities                                System Idle                                System Idle        Idle        False          False 2026-06-10 16:41:04.756226        18
+        1104 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 16:39:48.671592        76
+        1103 Unassigned Activities Unassigned Activities                             Unknown Window                             Unknown Window In Progress        False          False 2026-06-10 16:39:40.459229         4
+        1102 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 16:38:24.264056        76
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1098 prompt-injection-lab      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:33:37.961461        22
+        1096 prompt-injection-lab      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:31.683303        32
+        1095 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:27.620336         4
+        1094 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:19.578806         4
+        1093 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:32:07.544618        12
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 16:47:55
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 53
+Rows With Is Assigned=True: 39
+Rows With Valid Project=True: 39
+Rows Passing Project Work Mask: 39
+Rows Marked Unassigned: 14
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 53
+Activities Found After Email Filters: 39
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                                                                                    App Name                                                                                                                AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1123 Unassigned Activities Unassigned Activities                                                                                                              Task Scheduler                                                                                                              Task Scheduler In Progress        False          False 2026-06-10 16:47:16.083092         8
+        1122  productivity Tracker Unassigned Activities                                                                                                         Activity Log Module                                                                                                         Activity Log Module In Progress        False          False 2026-06-10 16:46:38.018343        38
+        1121  productivity Tracker          Project Work                                                                                                     Email Automation Module                                                                                                     Email Automation Module In Progress         True           True 2026-06-10 16:46:27.997535        10
+        1120  prompt-injection-lab          Project Work                                                                                                   Email Verification Module                                                                                                   Email Verification Module In Progress         True           True 2026-06-10 16:46:19.963218         6
+        1119 Unassigned Activities Unassigned Activities k - Daily Productivity Report - 10-06-2026 - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome k - Daily Productivity Report - 10-06-2026 - 23cb023@drngpit.ac.in - Dr.N.G.P. Institute of Technology Mail - Google Chrome In Progress        False          False 2026-06-10 16:46:11.935139         8
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1121 productivity Tracker      Project Work   Email Automation Module   Email Automation Module In Progress         True           True 2026-06-10 16:46:27.997535        10
+        1120 prompt-injection-lab      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:46:19.963218         6
+        1107 prompt-injection-lab      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:41:26.898843        30
+        1106 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:41:22.835086         4
+        1105 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:41:04.756226        18
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:01:00
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 69
+Rows With Is Assigned=True: 47
+Rows With Valid Project=True: 47
+Rows Passing Project Work Mask: 47
+Rows Marked Unassigned: 22
+Rows Marked Idle: 3
+Rows With Start Time Date Today: 69
+Activities Found After Email Filters: 47
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                    App Name                AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1139 Unassigned Activities Unassigned Activities                       Codex                       Codex In Progress        False          False 2026-06-10 16:59:37.834405        78
+        1138                  IDLE Unassigned Activities                 System Idle                 System Idle        Idle        False          False 2026-06-10 16:57:51.612020       106
+        1137 Unassigned Activities Unassigned Activities                       Codex                       Codex In Progress        False          False 2026-06-10 16:56:51.503807        60
+        1136  productivity Tracker          Project Work   Email Verification Module   Email Verification Module In Progress         True           True 2026-06-10 16:56:39.442421        10
+        1135 Unassigned Activities Unassigned Activities System Tray Overflow Window System Tray Overflow Window In Progress        False          False 2026-06-10 16:56:31.403736         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1136 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:56:39.442421        10
+        1130 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:53:36.469876        18
+        1128 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:53:04.400217        12
+        1124 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 16:47:28.138257        50
+        1122 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:46:38.018343        38
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:06:06
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 79
+Rows With Is Assigned=True: 62
+Rows With Valid Project=True: 62
+Rows Passing Project Work Mask: 62
+Rows Marked Unassigned: 17
+Rows Marked Idle: 4
+Rows With Start Time Date Today: 79
+Activities Found After Email Filters: 62
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1149 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:05:28.983886        32
+        1148                  IDLE Unassigned Activities                                System Idle                                System Idle        Idle        False          False 2026-06-10 17:05:00.945124        26
+        1147  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 17:03:58.815524        62
+        1146 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:02:00.296309       118
+        1145 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:01:40.084790        20
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1147 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:03:58.815524        62
+        1141 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:01:01.921506        16
+        1140 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:00:55.887586         4
+        1139 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:59:37.834405        78
+        1137 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 16:56:51.503807        60
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:09:39
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 83
+Rows With Is Assigned=True: 76
+Rows With Valid Project=True: 76
+Rows Passing Project Work Mask: 76
+Rows Marked Unassigned: 7
+Rows Marked Idle: 1
+Rows With Start Time Date Today: 83
+Activities Found After Email Filters: 76
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1153                  IDLE Unassigned Activities                                System Idle                                System Idle        Idle        False          False 2026-06-10 17:07:43.267588         4
+        1152 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:06:41.202485        62
+        1151 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:06:27.163810        14
+        1150  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 17:06:01.043133        24
+        1149  productivity Tracker          Project Work                      Dashboard Development                      Dashboard Development In Progress         True           True 2026-06-10 17:05:28.983886        32
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1150 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:06:01.043133        24
+        1149 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:05:28.983886        32
+        1148 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:05:00.945124        26
+        1147 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:03:58.815524        62
+        1146 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:02:00.296309       118
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:13:19
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 91
+Rows With Is Assigned=True: 81
+Rows With Valid Project=True: 81
+Rows Passing Project Work Mask: 81
+Rows Marked Unassigned: 10
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 91
+Activities Found After Email Filters: 81
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1162 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:12:07.712618        66
+        1161 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:11:59.680018         8
+        1160 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:11:11.582243        48
+        1159 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:10:49.552495        20
+        1158  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 17:10:31.519465        18
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1158 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:10:31.519465        18
+        1155 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:09:35.387519        16
+        1153 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:07:43.267588         4
+        1152 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:06:41.202485        62
+        1151 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:06:27.163810        14
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:28:24
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 104
+Rows With Is Assigned=True: 91
+Rows With Valid Project=True: 91
+Rows Passing Project Work Mask: 91
+Rows Marked Unassigned: 13
+Rows Marked Idle: 3
+Rows With Start Time Date Today: 104
+Activities Found After Email Filters: 91
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category    App Name AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1177 Unassigned Activities Unassigned Activities       Codex        Codex In Progress        False          False 2026-06-10 17:27:23.258739        56
+        1174                  IDLE Unassigned Activities System Idle  System Idle        Idle        False          False 2026-06-10 17:24:37.023646        46
+        1173 Unassigned Activities Unassigned Activities       Codex        Codex In Progress        False          False 2026-06-10 17:23:36.947579        60
+        1172                  IDLE Unassigned Activities System Idle  System Idle        Idle        False          False 2026-06-10 17:23:10.791487        26
+        1171 Unassigned Activities Unassigned Activities       Codex        Codex In Progress        False          False 2026-06-10 17:22:00.736410        70
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1163 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:13:15.778391        22
+        1162 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:12:07.712618        66
+        1161 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:11:59.680018         8
+        1160 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:11:11.582243        48
+        1159 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:10:49.552495        20
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:30:44
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 109
+Rows With Is Assigned=True: 104
+Rows With Valid Project=True: 104
+Rows Passing Project Work Mask: 104
+Rows Marked Unassigned: 5
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 109
+Activities Found After Email Filters: 104
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1182 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:30:33.580399         4
+        1181 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:29:29.504216        64
+        1180 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:29:23.451980         4
+        1179 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:28:41.358854        42
+        1178  productivity Tracker          Project Work                  Email Verification Module                  Email Verification Module In Progress         True           True 2026-06-10 17:28:19.320828        20
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1178 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:28:19.320828        20
+        1177 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:27:23.258739        56
+        1174 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:24:37.023646        46
+        1173 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:23:36.947579        60
+        1172 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:23:10.791487        26
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:34:08
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 123
+Rows With Is Assigned=True: 111
+Rows With Valid Project=True: 111
+Rows Passing Project Work Mask: 111
+Rows Marked Unassigned: 12
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 123
+Activities Found After Email Filters: 111
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1196  productivity Tracker Unassigned Activities                        Email Status Module                        Email Status Module In Progress        False          False 2026-06-10 17:33:44.335760         4
+        1195 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:33:40.303943         4
+        1194  productivity Tracker Unassigned Activities                        Email Status Module                        Email Status Module In Progress        False          False 2026-06-10 17:33:20.278362        20
+        1193 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-10 17:32:40.167738        34
+        1192 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-10 17:32:18.011016        18
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1187 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:31:09.800262         6
+        1183 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:30:37.651129        16
+        1182 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:30:33.580399         4
+        1181 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:29:29.504216        64
+        1180 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:29:23.451980         4
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=System Idle Enhancement | Duration=00:05
+2. Project=productivity Tracker | Task=Snipping Tool Overlay Enhancement | Duration=00:01
+3. Project=productivity Tracker | Task=Task Switching Enhancement | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:38:23
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 129
+Rows With Is Assigned=True: 125
+Rows With Valid Project=True: 125
+Rows Passing Project Work Mask: 125
+Rows Marked Unassigned: 4
+Rows Marked Idle: 2
+Rows With Start Time Date Today: 129
+Activities Found After Email Filters: 125
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1202                  IDLE Unassigned Activities               System Idle               System Idle        Idle        False          False 2026-06-10 17:36:42.708382         8
+        1201 Unassigned Activities Unassigned Activities                     Codex                     Codex In Progress        False          False 2026-06-10 17:35:42.644396        60
+        1200                  IDLE Unassigned Activities               System Idle               System Idle        Idle        False          False 2026-06-10 17:35:38.618961         4
+        1199 Unassigned Activities Unassigned Activities                     Codex                     Codex In Progress        False          False 2026-06-10 17:34:38.508423        60
+        1198  productivity Tracker          Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:34:06.411032        32
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1198 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:34:06.411032        32
+        1197 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:33:48.366417        18
+        1196 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:33:44.335760         4
+        1195 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:33:40.303943         4
+        1194 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:33:20.278362        20
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:52:34
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:07:44
+3. Project=productivity Tracker | Task=Email Automation Module | Duration=00:01:44
+4. Project=prompt-injection-lab | Task=Email Verification Module | Duration=00:01:30
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:38:35
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 129
+Rows With Is Assigned=True: 129
+Rows With Valid Project=True: 129
+Rows Passing Project Work Mask: 129
+Rows Marked Unassigned: 0
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 129
+Activities Found After Email Filters: 129
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1202 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:36:42.708382         8
+        1201 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:35:42.644396        60
+        1200 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:35:38.618961         4
+        1199 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:34:38.508423        60
+        1198 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:34:06.411032        32
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1202 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:36:42.708382         8
+        1201 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:35:42.644396        60
+        1200 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:35:38.618961         4
+        1199 productivity Tracker      Project Work     Dashboard Development     Dashboard Development In Progress         True           True 2026-06-10 17:34:38.508423        60
+        1198 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-10 17:34:06.411032        32
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 4
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:54
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:08
+3. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module | Duration=00:01
+4. Project=prompt-injection-lab | Task=Email Verification Module | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:48:41
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 0
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 0
+First 5 Returned Rows:
+(no rows)
+First 5 Rows After Email Filters:
+(no rows)
+Why count is 0: no Activity rows were returned for the current logged-in user id.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 0
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:48:44
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 0
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 0
+First 5 Returned Rows:
+(no rows)
+First 5 Rows After Email Filters:
+(no rows)
+Why count is 0: no Activity rows were returned for the current logged-in user id.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 0
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:50:19
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 1
+Rows With Is Assigned=True: 0
+Rows With Valid Project=True: 0
+Rows Passing Project Work Mask: 0
+Rows Marked Unassigned: 1
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 1
+Activities Found After Email Filters: 0
+Email Body Task Rows Built: 0
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                 App Name                                             AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1203 Unassigned Activities Unassigned Activities Login | Productivity Tracker - Personal - Microsoft Edge Login | Productivity Tracker - Personal - Microsoft Edge In Progress        False          False 2026-06-10 17:49:44.555556         4
+First 5 Rows After Email Filters:
+(no rows)
+Why email table is empty: all returned rows were removed by the email filters above.
+- No rows have Is Assigned=True.
+- No rows have Valid Project=True.
+- No rows passed the project work mask.
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 0
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:52:41
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 12
+Rows With Is Assigned=True: 1
+Rows With Valid Project=True: 1
+Rows Passing Project Work Mask: 1
+Rows Marked Unassigned: 11
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 12
+Activities Found After Email Filters: 1
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1214 Unassigned Activities Unassigned Activities                                              Codex                                              Codex In Progress        False          False 2026-06-10 17:52:34.260712         4
+        1213 Unassigned Activities Unassigned Activities                                              Codex                                              Codex In Progress        False          False 2026-06-10 17:52:12.212344        18
+        1212  productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 17:52:06.079523         4
+        1211  productivity Tracker Unassigned Activities                                           ● Module                                           ● Module In Progress        False          False 2026-06-10 17:52:02.056493         4
+        1210  productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-10 17:51:54.031368         8
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category              App Name          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1204 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:49:59.390825        20
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 1
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:20
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-10 17:53:02
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-10
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 12
+Rows With Is Assigned=True: 12
+Rows With Valid Project=True: 12
+Rows Passing Project Work Mask: 12
+Rows Marked Unassigned: 0
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 12
+Activities Found After Email Filters: 12
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID         Project Name Activity Category              App Name          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1214 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:34.260712         4
+        1213 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:12.212344        18
+        1212 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:06.079523         4
+        1211 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:02.056493         4
+        1210 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:51:54.031368         8
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category              App Name          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1214 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:34.260712         4
+        1213 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:12.212344        18
+        1212 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:06.079523         4
+        1211 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:52:02.056493         4
+        1210 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-10 17:51:54.031368         8
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 1
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:02
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-11 09:44:27
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-11
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 2
+Rows With Is Assigned=True: 1
+Rows With Valid Project=True: 1
+Rows Passing Project Work Mask: 1
+Rows Marked Unassigned: 1
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 2
+Activities Found After Email Filters: 1
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                 App Name                             AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1230 Unassigned Activities Unassigned Activities Activity Log - Personal - Microsoft Edge Activity Log - Personal - Microsoft Edge In Progress        False          False 2026-06-11 09:44:17.591283         4
+        1229  productivity Tracker          Project Work                    Dashboard Development                    Dashboard Development In Progress         True           True 2026-06-11 09:44:11.257236         6
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category              App Name          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1229 productivity Tracker      Project Work Dashboard Development Dashboard Development In Progress         True           True 2026-06-11 09:44:11.257236         6
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 1
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:06
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-11 10:06:56
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-11
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 49
+Rows With Is Assigned=True: 8
+Rows With Valid Project=True: 8
+Rows Passing Project Work Mask: 8
+Rows Marked Unassigned: 41
+Rows Marked Idle: 5
+Rows With Start Time Date Today: 49
+Activities Found After Email Filters: 8
+Email Body Task Rows Built: 3
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                                       App Name                                                   AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1277 Unassigned Activities Unassigned Activities Reports Management and 1 more page - Personal - Microsoft Edge Reports Management and 1 more page - Personal - Microsoft Edge In Progress        False          False 2026-06-11 10:06:45.394596         4
+        1276 Unassigned Activities Unassigned Activities                          127.0.0.1 - Personal - Microsoft Edge                          127.0.0.1 - Personal - Microsoft Edge In Progress        False          False 2026-06-11 10:06:27.180590        12
+        1275 Unassigned Activities Unassigned Activities                                                 Unknown Window                                                 Unknown Window In Progress        False          False 2026-06-11 10:06:16.459507        10
+        1274 Unassigned Activities Unassigned Activities                     Auto-start Issue Debugging - Google Chrome                     Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-11 10:04:50.332000        82
+        1273 Unassigned Activities Unassigned Activities                                        ChatGPT - Google Chrome                                        ChatGPT - Google Chrome In Progress        False          False 2026-06-11 10:04:39.089357        10
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                App Name            AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1246 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-11 09:50:54.678769        18
+        1245 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-11 09:50:32.619379        22
+        1244 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-11 09:50:04.567018        26
+        1243 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-11 09:49:22.510032        40
+        1240 productivity Tracker      Project Work Email Automation Module Email Automation Module In Progress         True           True 2026-06-11 09:46:58.334902        20
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 3
+1. Project=productivity Tracker | Task=Email Automation Module | Duration=00:02:06
+2. Project=productivity Tracker | Task=Dashboard Development | Duration=00:00:18
+3. Project=productivity Tracker | Task=Email Verification Module | Duration=00:00:06
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-11 10:21:52
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-11
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 67
+Rows With Is Assigned=True: 57
+Rows With Valid Project=True: 57
+Rows Passing Project Work Mask: 57
+Rows Marked Unassigned: 10
+Rows Marked Idle: 2
+Rows With Start Time Date Today: 67
+Activities Found After Email Filters: 57
+Email Body Task Rows Built: 4
+First 5 Returned Rows:
+ Activity ID          Project Name     Activity Category                                   App Name                               AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1295 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-11 10:20:28.871261        78
+        1294 Unassigned Activities Unassigned Activities                                      Codex                                      Codex In Progress        False          False 2026-06-11 10:20:16.785836        12
+        1293 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-11 10:18:06.632264       130
+        1292 Unassigned Activities Unassigned Activities Auto-start Issue Debugging - Google Chrome Auto-start Issue Debugging - Google Chrome In Progress        False          False 2026-06-11 10:18:00.493438         4
+        1291                  IDLE Unassigned Activities                                System Idle                                System Idle        Idle        False          False 2026-06-11 10:16:35.587460        74
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                              App Name                          AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1289 productivity Tracker      Project Work             Email Verification Module             Email Verification Module In Progress         True           True 2026-06-11 10:15:11.468596        22
+        1284 productivity Tracker      Project Work             Email Verification Module             Email Verification Module In Progress         True           True 2026-06-11 10:09:50.102697        34
+        1283 productivity Tracker      Project Work             Email Verification Module             Email Verification Module In Progress         True           True 2026-06-11 10:07:37.931797       130
+        1282 productivity Tracker      Project Work Email Automation Module Module Module Email Automation Module Module Module In Progress         True           True 2026-06-11 10:07:25.854921         6
+        1281 productivity Tracker      Project Work             Email Verification Module             Email Verification Module In Progress         True           True 2026-06-11 10:07:21.793938         4
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 4
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:11:16
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:03:20
+3. Project=productivity Tracker | Task=Email Automation Module | Duration=00:02:06
+4. Project=productivity Tracker | Task=Email Automation Module Module Module | Duration=00:01:36
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-11 10:22:41
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-11
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 67
+Rows With Is Assigned=True: 67
+Rows With Valid Project=True: 67
+Rows Passing Project Work Mask: 67
+Rows Marked Unassigned: 0
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 67
+Activities Found After Email Filters: 67
+Email Body Task Rows Built: 5
+First 5 Returned Rows:
+ Activity ID         Project Name Activity Category                                            App Name                                        AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1295 productivity Tracker      Project Work Email Automation Module Module Module Module Module Email Automation Module Module Module Module Module In Progress         True           True 2026-06-11 10:20:28.871261        78
+        1294 productivity Tracker      Project Work                           Email Verification Module                           Email Verification Module In Progress         True           True 2026-06-11 10:20:16.785836        12
+        1293 productivity Tracker      Project Work Email Automation Module Module Module Module Module Email Automation Module Module Module Module Module In Progress         True           True 2026-06-11 10:18:06.632264       130
+        1292 productivity Tracker      Project Work Email Automation Module Module Module Module Module Email Automation Module Module Module Module Module In Progress         True           True 2026-06-11 10:18:00.493438         4
+        1291 productivity Tracker      Project Work                           Email Verification Module                           Email Verification Module In Progress         True           True 2026-06-11 10:16:35.587460        74
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                                            App Name                                        AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1295 productivity Tracker      Project Work Email Automation Module Module Module Module Module Email Automation Module Module Module Module Module In Progress         True           True 2026-06-11 10:20:28.871261        78
+        1294 productivity Tracker      Project Work                           Email Verification Module                           Email Verification Module In Progress         True           True 2026-06-11 10:20:16.785836        12
+        1293 productivity Tracker      Project Work Email Automation Module Module Module Module Module Email Automation Module Module Module Module Module In Progress         True           True 2026-06-11 10:18:06.632264       130
+        1292 productivity Tracker      Project Work Email Automation Module Module Module Module Module Email Automation Module Module Module Module Module In Progress         True           True 2026-06-11 10:18:00.493438         4
+        1291 productivity Tracker      Project Work                           Email Verification Module                           Email Verification Module In Progress         True           True 2026-06-11 10:16:35.587460        74
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 5
+1. Project=productivity Tracker | Task=Dashboard Development | Duration=00:11
+2. Project=productivity Tracker | Task=Email Verification Module | Duration=00:11
+3. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module Module Module Module Module | Duration=00:06
+4. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module | Duration=00:02
+5. Project=productivity Tracker | Task=Email Automation Module Module Module Module Module Module Module | Duration=00:01
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-11 10:25:00
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-11
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 11
+Rows With Is Assigned=True: 1
+Rows With Valid Project=True: 1
+Rows Passing Project Work Mask: 1
+Rows Marked Unassigned: 10
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 11
+Activities Found After Email Filters: 1
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID         Project Name     Activity Category                                           App Name                                       AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1306 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-11 10:24:36.354862        18
+        1305          Office Work Unassigned Activities                        Initialadminpassword Module                        Initialadminpassword Module In Progress        False          False 2026-06-11 10:24:28.161048         8
+        1304 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-11 10:24:17.834128         6
+        1303 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-11 10:24:09.752692         6
+        1302 productivity Tracker Unassigned Activities Env Productivity Tracker Visual Studio Code Module Env Productivity Tracker Visual Studio Code Module In Progress        False          False 2026-06-11 10:23:59.497077         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1296 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:21:46.955159        64
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: saved review rows
+Rows for email = 1
+1. Project=productivity Tracker | Task=Email Verification Module | Duration=00:01:04
+============================================
+
+========== EMAIL REPORT DEBUG ==========
+Generated At: 2026-06-11 10:25:15
+Current User ID: 2
+Current Username: kk
+Today's Date: 2026-06-11
+Query Used: load_user_activities_dataframe(user_id=2, include_all=False) -> SELECT activities WHERE Activity.user_id = 2 ORDER BY Activity.start_time DESC, Activity.id DESC
+Filtering Conditions Applied:
+- user_id must match the logged-in session user
+- Is Assigned must be True
+- Valid Project must be True
+- Project Name and Task Name must be meaningful
+- Activity must not be Idle
+- Activity must not be Unassigned Activities
+- Start Time date must equal today's date
+Activities Returned Before Filters: 11
+Rows With Is Assigned=True: 11
+Rows With Valid Project=True: 11
+Rows Passing Project Work Mask: 11
+Rows Marked Unassigned: 0
+Rows Marked Idle: 0
+Rows With Start Time Date Today: 11
+Activities Found After Email Filters: 11
+Email Body Task Rows Built: 1
+First 5 Returned Rows:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1306 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:36.354862        18
+        1305 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:28.161048         8
+        1304 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:17.834128         6
+        1303 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:09.752692         6
+        1302 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:23:59.497077         4
+First 5 Rows After Email Filters:
+ Activity ID         Project Name Activity Category                  App Name              AI Task Name      Status  Is Assigned  Valid Project                 Start Time  Duration
+        1306 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:36.354862        18
+        1305 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:28.161048         8
+        1304 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:17.834128         6
+        1303 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:24:09.752692         6
+        1302 productivity Tracker      Project Work Email Verification Module Email Verification Module In Progress         True           True 2026-06-11 10:23:59.497077         4
+========================================
+
+========== EMAIL ROW SOURCE DEBUG ==========
+Source: Email Verification visible table
+Rows for email = 1
+1. Project=productivity Tracker | Task=Email Verification Module | Duration=00:02
+============================================

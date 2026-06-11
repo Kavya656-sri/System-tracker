@@ -3,15 +3,30 @@ import html
 import json
 import os
 import re
+import smtplib
 import urllib.request
 from datetime import datetime
+from email.mime.text import MIMEText
 
 import pandas as pd
-import yagmail
-from activity_store import derive_processed_task_name
+from dotenv import load_dotenv
+from activity_store import derive_processed_task_name, should_ignore_idle_activity
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+ENV_FILE = os.path.join(PROJECT_ROOT, ".env")
 TASKS_FILE = os.path.join(os.path.dirname(__file__), "tasks.json")
 AI_CACHE_FILE = os.path.join(os.path.dirname(__file__), "ai_cache.json")
+
+UNICODE_EMAIL_REPLACEMENTS = {
+    "\u25cf": "*",
+    "\u2022": "*",
+    "\u2713": "[OK]",
+    "\u2714": "[OK]",
+    "\u2717": "[X]",
+    "\u2718": "[X]",
+    "\u2705": "[OK]",
+    "\u274c": "[X]",
+}
 
 
 # -----------------------------------------
@@ -30,6 +45,63 @@ AUTO_MERGE_APPS = {
     "google chrome",
     "microsoft edge",
 }
+
+
+def get_system_email_credentials():
+    load_dotenv(ENV_FILE)
+    sender = os.getenv("SYSTEM_EMAIL", "").strip()
+    password = os.getenv("SYSTEM_APP_PASSWORD", "").strip()
+
+    if not sender or not password:
+        raise ValueError("SYSTEM_EMAIL or SYSTEM_APP_PASSWORD is missing in .env.")
+
+    return sender, password
+
+
+def mask_secret(value, visible=2):
+    value = str(value or "")
+    if not value:
+        return ""
+    if len(value) <= visible * 2:
+        return "*" * len(value)
+    return f"{value[:visible]}{'*' * (len(value) - visible * 2)}{value[-visible:]}"
+
+
+def log_email_auth_debug(sender, password, recipient):
+    print(f"SYSTEM_EMAIL loaded: {'YES' if sender else 'NO'}")
+    print(f"SYSTEM_APP_PASSWORD loaded: {'YES' if password else 'NO'}")
+    print(f"Using sender: {sender}")
+    print("Credential source: .env")
+    print(f"Recipient email: {recipient}")
+    print(f"SYSTEM_APP_PASSWORD length: {len(password)}")
+    print(f"SYSTEM_APP_PASSWORD masked: {mask_secret(password)}")
+
+
+def sanitize_email_text(value):
+    text = str(value or "")
+    for source, replacement in UNICODE_EMAIL_REPLACEMENTS.items():
+        text = text.replace(source, replacement)
+    return text
+
+
+def debug_non_ascii_email_lines(label, value):
+    text = str(value or "")
+    found = False
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        chars = sorted({character for character in line if ord(character) > 127})
+        if not chars:
+            continue
+        found = True
+        char_summary = ", ".join(
+            f"U+{ord(character):04X}" for character in chars
+        )
+        ascii_preview = line.encode("ascii", "backslashreplace").decode("ascii")
+        print(
+            f"EMAIL ENCODING DEBUG: {label} line {line_number} "
+            f"contains {char_summary}: {ascii_preview}"
+        )
+    if not found:
+        print(f"EMAIL ENCODING DEBUG: {label} has no non-ASCII characters.")
 
 SUPPORT_BROWSER_KEYWORDS = {
     "chatgpt",
@@ -680,6 +752,13 @@ def build_summary_rows():
     for _, row in df.iterrows():
         title = normalize_required_text(row.get("App Name", ""))
         duration = row["Duration"]
+        if should_ignore_idle_activity(
+            row.get("Project Name", "") or row.get("Project", ""),
+            title,
+            None,
+            duration,
+        ):
+            continue
 
         raw_project = row.get("Project", "")
         raw_file_name = row.get("File Name", "")
@@ -841,6 +920,13 @@ def build_current_unassigned_activities():
 
     totals = {}
     for _, row in df.iterrows():
+        if should_ignore_idle_activity(
+            row.get("Project Name", "") or row.get("Project", ""),
+            row.get("App Name", ""),
+            None,
+            row["Duration"],
+        ):
+            continue
         app = normalize_misc_app(row.get("App Name", ""))
         if not app:
             continue
@@ -1023,32 +1109,37 @@ def send_email(
 
     try:
         if not subject:
-            subject = f"Daily Productivity Report - {get_today_date()}"
+            safe_employee_name = get_employee_name(employee_name)
+            subject = f"{safe_employee_name} - Daily Productivity Report - {get_today_date()}"
 
         if not body:
             body = build_email_body(employee_name=employee_name, employee_id=employee_id)
         recipient = str(receiver_email or "").strip()
-        sender = str(sender_email or "").strip()
-        password = str(app_password or "").strip()
-        if not sender or not password:
-            raise ValueError("Employee sender Gmail or app password is missing.")
+        sender, password = get_system_email_credentials()
         if not recipient:
             raise ValueError("Employee manager email is missing.")
+        if "Sent From:" not in body:
+            body = f"Sent From: {sender}\n\n{body}"
+        log_email_auth_debug(sender, password, recipient)
+        debug_non_ascii_email_lines("subject before sanitize", subject)
+        debug_non_ascii_email_lines("body before sanitize", body)
+        subject = sanitize_email_text(subject)
+        body = sanitize_email_text(body)
+        debug_non_ascii_email_lines("subject after sanitize", subject)
+        debug_non_ascii_email_lines("body after sanitize", body)
 
         print("\n===== TIMESHEET REPORT =====")
-        print(generate_timesheet())
+        print("Generated email body length:", len(body))
         print("===========================\n")
 
-        yag = yagmail.SMTP(
-            user=sender,
-            password=password,
-        )
+        message = MIMEText(body, "html", "utf-8")
+        message["Subject"] = subject
+        message["From"] = sender
+        message["To"] = recipient
 
-        yag.send(
-            to=recipient,
-            subject=subject,
-            contents=yagmail.raw(body),
-        )
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(sender, password)
+            smtp.send_message(message)
 
         print("====================================")
         print("EMAIL SENT SUCCESSFULLY")

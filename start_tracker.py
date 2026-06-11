@@ -20,7 +20,13 @@ import threading
 # IMPORT MODULES
 # -----------------------------------------
 from tray_app import run_tray
-from activity_store import get_active_tracker_user, log_tracker_db, save_tracked_activity
+from activity_store import (
+    MAX_RECORDED_IDLE_SECONDS,
+    get_active_tracker_user,
+    log_tracker_db,
+    save_tracked_activity,
+    should_ignore_idle_activity,
+)
 
 # -----------------------------------------
 # OPTIONAL ACTIVE WINDOW DETECTION
@@ -481,6 +487,13 @@ def save_session(project, window, start, end):
         log_tracker_db(
             f"Tracker save_session skipped short duration: {duration.total_seconds()}s, "
             f"project={project!r}, window={window!r}."
+        )
+        return
+
+    if should_ignore_idle_activity(project, csv_file or window, None, duration):
+        log_tracker_db(
+            f"Tracker save_session skipped long idle duration: {duration.total_seconds()}s "
+            f"> {MAX_RECORDED_IDLE_SECONDS}s."
         )
         return
 

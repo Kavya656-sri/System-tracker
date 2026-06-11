@@ -17,6 +17,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 
 from activity_store import (
+    MAX_RECORDED_IDLE_SECONDS,
     clear_active_tracker_user,
     derive_processed_task_name,
     get_active_tracker_user,
@@ -25,6 +26,7 @@ from activity_store import (
     normalize_existing_activity_projects,
     normalize_project_name_for_storage,
     set_active_tracker_user,
+    should_ignore_idle_activity,
 )
 from database import Activity, Project, Task, User, get_db_session, initialize_postgres_foundation
 
@@ -38,6 +40,7 @@ TRACKER_STOP_FILE = os.path.join(BASE_DIR, "tracker.stop")
 TRACKER_LOG_FILE = os.path.join(BASE_DIR, "tracker_runtime.log")
 AUTH_FLOW_LOG_FILE = os.path.join(BASE_DIR, "auth_tracker_flow.log")
 EMAIL_REPORT_DEBUG_LOG_FILE = os.path.join(BASE_DIR, "email_report_debug.log")
+EMAIL_REVIEW_DEBUG_LOG_FILE = os.path.join(BASE_DIR, "email_review_debug.log")
 TRACKER_STOP_TIMEOUT_SECONDS = 8
 _tracker_process = None
 
@@ -633,19 +636,23 @@ def register():
         password = str(request.form.get("password", ""))
         confirm_password = str(request.form.get("confirm_password", ""))
         manager_email = normalize_login_email(request.form.get("manager_email", ""))
-        sender_gmail = normalize_login_email(request.form.get("sender_gmail", ""))
-        gmail_app_password = str(request.form.get("gmail_app_password", "")).strip()
 
-        if not all([
-            employee_name,
-            employee_id,
-            login_email,
-            password,
-            confirm_password,
-            manager_email,
-            sender_gmail,
-            gmail_app_password,
-        ]):
+        required_fields = {
+            "employee_name": employee_name,
+            "employee_id": employee_id,
+            "login_email": login_email,
+            "password": password,
+            "confirm_password": confirm_password,
+            "manager_email": manager_email,
+        }
+        missing_fields = [
+            field_name
+            for field_name, field_value in required_fields.items()
+            if not field_value
+        ]
+
+        if missing_fields:
+            print("Registration missing required fields:", ", ".join(missing_fields))
             flash("All fields are required.", "error")
             return render_template("register.html")
 
@@ -682,8 +689,6 @@ def register():
                     login_email=login_email,
                     password_hash=hash_password(password),
                     manager_email=manager_email,
-                    sender_gmail=sender_gmail,
-                    gmail_app_password=gmail_app_password,
                     role="employee",
                 )
                 db_session.add(user)
@@ -1278,25 +1283,79 @@ def get_user_tasks_file():
     return os.path.join(tasks_dir, f"tasks_user_{user_id}.json")
 
 
+def debug_email_review_flow(step, tasks=None, unassigned=None, target_task=None, activity_ids=None, extra=None):
+    try:
+        user_id = get_session_user_id()
+    except Exception:
+        user_id = None
+    lines = [
+        "",
+        "========== EMAIL REVIEW FLOW DEBUG ==========",
+        f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"Step: {step}",
+        f"User ID: {user_id}",
+        f"Review task rows: {len(tasks or [])}",
+        f"Unassigned activities: {len(unassigned or [])}",
+        f"Target task ID/name: {target_task}",
+        f"Activity IDs being merged: {activity_ids or []}",
+    ]
+    if extra is not None:
+        lines.append(f"Extra: {extra}")
+    lines.append("============================================")
+    for line in lines:
+        print(line)
+    try:
+        with open(EMAIL_REVIEW_DEBUG_LOG_FILE, "a", encoding="utf-8") as debug_file:
+            for line in lines:
+                debug_file.write(f"{line}\n")
+    except OSError as error:
+        print(f"Unable to write email review debug log: {error}")
+
+
 def load_tasks_data():
     """Load persisted email review data for the current user."""
     tasks_file_path = get_user_tasks_file()
     if not os.path.exists(tasks_file_path):
+        debug_email_review_flow(
+            "load_tasks_data missing file",
+            extra={"file": tasks_file_path},
+        )
         return empty_review_data()
 
     try:
         with open(tasks_file_path, "r", encoding="utf-8") as task_file:
             data = json.load(task_file)
             if isinstance(data, list):
+                debug_email_review_flow(
+                    "load_tasks_data loaded legacy list",
+                    tasks=data,
+                    extra={"file": tasks_file_path},
+                )
                 return {"tasks": data, "unassigned": [], "activity_merges": []}
             if isinstance(data, dict):
+                loaded_tasks = data.get("tasks", []) if isinstance(data.get("tasks", []), list) else []
+                loaded_unassigned = data.get("unassigned", []) if isinstance(data.get("unassigned", []), list) else []
+                debug_email_review_flow(
+                    "load_tasks_data loaded dict",
+                    tasks=loaded_tasks,
+                    unassigned=loaded_unassigned,
+                    extra={"file": tasks_file_path},
+                )
                 return {
-                    "tasks": data.get("tasks", []) if isinstance(data.get("tasks", []), list) else [],
-                    "unassigned": data.get("unassigned", []) if isinstance(data.get("unassigned", []), list) else [],
+                    "tasks": loaded_tasks,
+                    "unassigned": loaded_unassigned,
                     "activity_merges": data.get("activity_merges", []) if isinstance(data.get("activity_merges", []), list) else [],
                 }
+            debug_email_review_flow(
+                "load_tasks_data invalid payload",
+                extra={"file": tasks_file_path, "payload_type": type(data).__name__},
+            )
             return empty_review_data()
-    except Exception:
+    except Exception as error:
+        debug_email_review_flow(
+            "load_tasks_data exception",
+            extra={"file": tasks_file_path, "error": str(error)},
+        )
         return empty_review_data()
 
 
@@ -1307,8 +1366,21 @@ def save_tasks_data(tasks, unassigned=None, activity_merges=None):
         "unassigned": normalize_unassigned_activities(unassigned or []),
         "activity_merges": normalize_activity_merges(activity_merges or []),
     }
-    with open(get_user_tasks_file(), "w", encoding="utf-8") as task_file:
+    tasks_file_path = get_user_tasks_file()
+    debug_email_review_flow(
+        "save_tasks_data before write",
+        tasks=payload["tasks"],
+        unassigned=payload["unassigned"],
+        extra={"file": tasks_file_path, "activity_merges": len(payload["activity_merges"])},
+    )
+    with open(tasks_file_path, "w", encoding="utf-8") as task_file:
         json.dump(payload, task_file, indent=2, ensure_ascii=False)
+    debug_email_review_flow(
+        "save_tasks_data after write",
+        tasks=payload["tasks"],
+        unassigned=payload["unassigned"],
+        extra={"file": tasks_file_path, "activity_merges": len(payload["activity_merges"])},
+    )
 
 
 def parse_review_duration(duration):
@@ -1406,7 +1478,10 @@ def load_data():
             include_all=is_manager_user(),
         )
         if db_df is not None:
-            return ensure_activity_category(db_df)
+            db_df = ensure_activity_category(db_df)
+            if not is_manager_user():
+                db_df = filter_activity_date(db_df)
+            return db_df
         return empty_activity_dataframe()
 
     if not os.path.exists(DATA_FILE):
@@ -1428,6 +1503,15 @@ def load_data():
     if {'Start Time', 'End Time'}.issubset(df.columns):
         calculated_duration = (df['End Time'] - df['Start Time']).dt.total_seconds()
         df['Duration'] = calculated_duration.where(calculated_duration > 0, df.get('Duration', 0)).fillna(0)
+    if "Duration" in df.columns:
+        project_names = df.get("Project Name", pd.Series("", index=df.index)).fillna("").astype(str).str.upper()
+        app_names = df.get("App Name", pd.Series("", index=df.index)).fillna("").astype(str).str.upper()
+        idle_mask = (
+            project_names.isin({"IDLE", "SYSTEM IDLE"})
+            | app_names.isin({"IDLE", "SYSTEM IDLE", "NO APPLICATION"})
+            | app_names.str.contains("SYSTEM IDLE", na=False)
+        )
+        df = df.loc[~(idle_mask & (pd.to_numeric(df["Duration"], errors="coerce").fillna(0) > MAX_RECORDED_IDLE_SECONDS))].copy()
     return df
 
 
@@ -1562,6 +1646,59 @@ def get_session_category_masks(df):
     return project_work_mask, idle_mask, unassigned_mask
 
 
+def filter_activity_date(df, target_date=None):
+    if df.empty or "Start Time" not in df.columns:
+        return df.copy()
+
+    target_date = target_date or datetime.now().date()
+    filtered = df.copy()
+    start_times = pd.to_datetime(filtered["Start Time"], errors="coerce")
+    return filtered.loc[start_times.dt.date == target_date].copy()
+
+
+def build_consistent_activity_summary(df):
+    if df.empty or "Duration" not in df.columns:
+        return {
+            "total_seconds": 0.0,
+            "productive_seconds": 0.0,
+            "idle_seconds": 0.0,
+            "project_work_seconds": 0.0,
+            "unassigned_seconds": 0.0,
+            "total_sessions": 0,
+            "productive_sessions": 0,
+            "idle_sessions": 0,
+            "unassigned_sessions": 0,
+            "productivity_score": 0.0,
+        }
+
+    project_work_mask, idle_mask, unassigned_mask = get_session_category_masks(df)
+    total_seconds = max(0, float(df["Duration"].sum() or 0))
+    idle_seconds = max(0, float(df.loc[idle_mask, "Duration"].sum() or 0))
+    project_work_seconds = max(0, float(df.loc[project_work_mask, "Duration"].sum() or 0))
+    unassigned_seconds = max(0, float(df.loc[unassigned_mask, "Duration"].sum() or 0))
+    productive_seconds = max(0, total_seconds - idle_seconds)
+
+    total_sessions = int(len(df))
+    idle_sessions = int(idle_mask.sum())
+    project_work_sessions = int(project_work_mask.sum())
+    unassigned_sessions = int(unassigned_mask.sum())
+    productive_sessions = max(0, total_sessions - idle_sessions)
+
+    return {
+        "total_seconds": total_seconds,
+        "productive_seconds": productive_seconds,
+        "idle_seconds": idle_seconds,
+        "project_work_seconds": project_work_seconds,
+        "unassigned_seconds": unassigned_seconds,
+        "total_sessions": total_sessions,
+        "productive_sessions": productive_sessions,
+        "project_work_sessions": project_work_sessions,
+        "idle_sessions": idle_sessions,
+        "unassigned_sessions": unassigned_sessions,
+        "productivity_score": round((productive_seconds / total_seconds) * 100, 2) if total_seconds else 0.0,
+    }
+
+
 def debug_overview_session_counts(user_id, total_count, productive_count, idle_count, unassigned_count):
     lines = [
         "",
@@ -1694,6 +1831,16 @@ def get_manager_activity_metrics(activity):
     return display_project, task_name, duration, is_idle, is_productive
 
 
+def is_reportable_manager_activity(activity):
+    project_name, _, duration, _, _ = get_manager_activity_metrics(activity)
+    return not should_ignore_idle_activity(
+        project_name,
+        activity.file_name,
+        activity.ai_task_name,
+        duration,
+    )
+
+
 def build_employee_metric_rows(db_session, args):
     employees = (
         db_session.query(User)
@@ -1718,6 +1865,8 @@ def build_employee_metric_rows(db_session, args):
     }
 
     for activity in activities:
+        if not is_reportable_manager_activity(activity):
+            continue
         totals = activity_totals.get(activity.user_id)
         if totals is None:
             continue
@@ -1857,6 +2006,8 @@ def api_manager_employee_options():
 def build_activity_record_rows(activities):
     grouped = {}
     for activity in activities:
+        if not is_reportable_manager_activity(activity):
+            continue
         if not activity.start_time:
             continue
 
@@ -1992,6 +2143,8 @@ def api_manager_activity_record_detail():
         project_totals = {}
         timeline = []
         for activity in activities:
+            if not is_reportable_manager_activity(activity):
+                continue
             project_name, task_name, duration, _, _ = get_manager_activity_metrics(activity)
             project_totals[project_name] = project_totals.get(project_name, 0) + duration
             timeline.append({
@@ -2074,6 +2227,8 @@ def api_manager_employee_details(user_id):
 
         timeline = []
         for activity in activities:
+            if not is_reportable_manager_activity(activity):
+                continue
             duration = int(activity.duration or 0)
             project_name = (
                 activity.project_name
@@ -2182,12 +2337,10 @@ def dashboard():
     df = load_data()
     print("Dataframe Exists:", 'df' in locals())
     project_work_mask, idle_mask, unassigned_mask = get_session_category_masks(df)
-    # Total work seconds (sum of all durations)
-    total_seconds = df['Duration'].sum()
-    # Idle seconds: sum durations where project is IDLE
-    explicit_idle_seconds = df.loc[idle_mask, 'Duration'].sum()
-    idle_seconds = max(0, float(explicit_idle_seconds or 0))
-    productive_seconds = max(0, float(total_seconds or 0) - idle_seconds)
+    summary = build_consistent_activity_summary(df)
+    total_seconds = summary["total_seconds"]
+    idle_seconds = summary["idle_seconds"]
+    productive_seconds = summary["productive_seconds"]
     # Debug prints (temporary)
     print('TOTAL:', total_seconds)
     print('IDLE:', idle_seconds)
@@ -2199,10 +2352,10 @@ def dashboard():
     # Productivity score
     productivity_score = round((productive_seconds / total_seconds) * 100, 2) if total_seconds else 0
     # Total sessions
-    total_sessions = len(df)
-    productive_sessions = int(project_work_mask.sum())
-    idle_sessions = int(idle_mask.sum())
-    unassigned_sessions = int(unassigned_mask.sum())
+    total_sessions = summary["total_sessions"]
+    productive_sessions = summary["productive_sessions"]
+    idle_sessions = summary["idle_sessions"]
+    unassigned_sessions = summary["unassigned_sessions"]
     debug_overview_session_counts(
         get_session_user_id(),
         total_sessions,
@@ -2287,13 +2440,11 @@ def activity_data():
     df = load_data()
     # Apply filtering & searching
     filtered_df = filter_dataframe(df, request.args)
-    filtered_idle_mask = get_idle_mask(filtered_df)
+    summary = build_consistent_activity_summary(filtered_df)
     total_records = len(filtered_df)
-    raw_total_work_time = filtered_df['Duration'].sum() if "Duration" in filtered_df.columns else 0
-    explicit_idle_time = filtered_df.loc[filtered_idle_mask, 'Duration'].sum() if not filtered_df.empty else 0
-    total_work_time = max(0, float(raw_total_work_time or 0))
-    idle_time = max(0, float(explicit_idle_time or 0))
-    productive_time = max(0, total_work_time - idle_time)
+    total_work_time = summary["total_seconds"]
+    idle_time = summary["idle_seconds"]
+    productive_time = summary["productive_seconds"]
     print('ACTIVITY TOTAL:', total_work_time)
     print('ACTIVITY IDLE:', idle_time)
     print('ACTIVITY PRODUCTIVE:', productive_time)
@@ -2363,25 +2514,20 @@ def productivity():
 @app.route('/api/productivity')
 def api_productivity():
     df = load_data()
-    idle_mask = get_idle_mask(df)
-    project_work_mask = get_project_work_mask(df)
-    unassigned_mask = get_unassigned_mask(df)
+    summary = build_consistent_activity_summary(df)
     # Summary calculations (seconds -> hours)
-    raw_total_work_seconds = df['Duration'].sum()
-    explicit_idle_seconds = df.loc[idle_mask, 'Duration'].sum()
-    unassigned_seconds = df.loc[unassigned_mask, 'Duration'].sum()
-    total_work_seconds = max(0, float(raw_total_work_seconds or 0))
-    idle_seconds = max(0, float(explicit_idle_seconds or 0))
-    productive_seconds = max(0, total_work_seconds - idle_seconds)
+    total_work_seconds = summary["total_seconds"]
+    idle_seconds = summary["idle_seconds"]
+    productive_seconds = summary["productive_seconds"]
     # Debug prints (to be removed after verification)
     print('Total seconds:', total_work_seconds)
     print('Idle seconds:', idle_seconds)
     print('Productive seconds:', productive_seconds)
     total_work_hours = total_work_seconds / 3600
     productive_hours = productive_seconds / 3600
-    unassigned_hours = unassigned_seconds / 3600
+    unassigned_hours = 0
     idle_hours = idle_seconds / 3600
-    productivity_score = round((productive_seconds / total_work_seconds) * 100, 2) if total_work_seconds else 0
+    productivity_score = summary["productivity_score"]
     # Project breakdown
     proj_group = df.groupby('Project Name')['Duration'].sum().reset_index()
     proj_group['Hours'] = proj_group['Duration'] / 3600
@@ -2406,27 +2552,17 @@ def api_productivity():
     })
 
 def get_current_report_data():
-    df = get_assigned_report_dataframe()
-    total_sessions = len(df)
-    project_work_mask = get_project_work_mask(df)
-    unassigned_mask = get_unassigned_mask(df)
-    idle_mask = get_idle_mask(df)
-    productive_sessions = int(project_work_mask.sum()) if not df.empty else 0
-    entertainment_sessions = int(unassigned_mask.sum()) if not df.empty else 0
-    idle_sessions = int(idle_mask.sum()) if not df.empty else 0
-    if total_sessions > 0:
-        productivity_score = round((productive_sessions / total_sessions) * 100, 2)
-    else:
-        productivity_score = 0.0
+    df = load_current_user_activity_dataframe()
+    summary = build_consistent_activity_summary(df)
         
     return {
         "summary": {
             "date": datetime.now().strftime("%Y-%m-%d"),
-            "total_sessions": total_sessions,
-            "productive_sessions": productive_sessions,
-            "entertainment_sessions": entertainment_sessions,
-            "idle_sessions": idle_sessions,
-            "productivity_score": productivity_score
+            "total_sessions": summary["total_sessions"],
+            "productive_sessions": summary["productive_sessions"],
+            "entertainment_sessions": summary["unassigned_sessions"],
+            "idle_sessions": summary["idle_sessions"],
+            "productivity_score": summary["productivity_score"]
         }
     }
 
@@ -2446,17 +2582,17 @@ def load_current_user_activity_dataframe():
     df = load_user_activities_dataframe(user_id=user_id, include_all=False, include_sent=False)
     if df is None:
         return empty_activity_dataframe()
-    return ensure_activity_category(df)
+    return filter_activity_date(ensure_activity_category(df))
 
 
 def load_current_user_all_activity_dataframe():
     user_id = get_session_user_id()
     if not user_id:
         return empty_activity_dataframe()
-    df = load_user_activities_dataframe(user_id=user_id, include_all=False, include_sent=True)
+    df = load_user_activities_dataframe(user_id=user_id, include_all=False, include_sent=False)
     if df is None:
         return empty_activity_dataframe()
-    return ensure_activity_category(df)
+    return filter_activity_date(ensure_activity_category(df))
 
 
 def get_assigned_report_dataframe(df=None):
@@ -2603,15 +2739,13 @@ def debug_email_report_inputs(raw_df, filtered_df, tasks):
 
 
 def build_user_report_text(df=None):
-    df = get_assigned_report_dataframe(df)
-    idle_mask = get_idle_mask(df)
-    unassigned_mask = get_unassigned_mask(df)
-    project_work_mask = get_project_work_mask(df)
-    total_seconds = float(df["Duration"].sum()) if not df.empty else 0
-    idle_seconds = float(df.loc[idle_mask, "Duration"].sum()) if not df.empty else 0
-    unassigned_seconds = float(df.loc[unassigned_mask, "Duration"].sum()) if not df.empty else 0
-    productive_seconds = float(df.loc[project_work_mask, "Duration"].sum()) if not df.empty else 0
-    productivity_score = round((productive_seconds / total_seconds) * 100, 2) if total_seconds else 0
+    df = load_current_user_activity_dataframe() if df is None else filter_activity_date(ensure_activity_category(df))
+    summary = build_consistent_activity_summary(df)
+    total_seconds = summary["total_seconds"]
+    idle_seconds = summary["idle_seconds"]
+    unassigned_seconds = summary["unassigned_seconds"]
+    productive_seconds = summary["productive_seconds"]
+    productivity_score = summary["productivity_score"]
 
     lines = [
         "================ DAILY PRODUCTIVITY REPORT ================",
@@ -2996,15 +3130,42 @@ def apply_saved_review_state(tasks, unassigned, saved_data):
 
 
 def build_email_review_rows(saved_data=None):
+    debug_email_review_flow(
+        "build_email_review_rows enter",
+        tasks=saved_data.get("tasks", []) if isinstance(saved_data, dict) else [],
+        unassigned=saved_data.get("unassigned", []) if isinstance(saved_data, dict) else [],
+        extra={"has_saved_data": bool(saved_data)},
+    )
     tasks = normalize_email_tasks(build_default_email_tasks())
     unassigned = normalize_unassigned_activities(build_default_unassigned_activities())
+    debug_email_review_flow(
+        "build_email_review_rows generated defaults",
+        tasks=tasks,
+        unassigned=unassigned,
+    )
     if saved_data:
         saved_tasks = normalize_email_tasks(saved_data.get("tasks", []))
         if saved_tasks:
             saved_unassigned = normalize_unassigned_activities(saved_data.get("unassigned", []))
+            debug_email_review_flow(
+                "build_email_review_rows returning saved rows",
+                tasks=saved_tasks,
+                unassigned=saved_unassigned,
+            )
             return sort_review_tasks_by_project(saved_tasks), saved_unassigned
         tasks, unassigned, _ = apply_saved_review_state(tasks, unassigned, saved_data)
-    return sort_review_tasks_by_project(tasks), unassigned
+        debug_email_review_flow(
+            "build_email_review_rows applied saved state",
+            tasks=tasks,
+            unassigned=unassigned,
+        )
+    sorted_tasks = sort_review_tasks_by_project(tasks)
+    debug_email_review_flow(
+        "build_email_review_rows return",
+        tasks=sorted_tasks,
+        unassigned=unassigned,
+    )
+    return sorted_tasks, unassigned
 
 
 def debug_email_task_rows(tasks, source):
@@ -3137,6 +3298,12 @@ def get_or_create_review_task(db_session, user_id, project_id, task_name, status
 
 def merge_activity_ids_into_task(activity_ids, target_project, target_task, status="In Progress"):
     user_id = get_session_user_id()
+    debug_email_review_flow(
+        "merge_activity_ids_into_task enter",
+        target_task=target_task,
+        activity_ids=activity_ids,
+        extra={"target_project": target_project, "status": status},
+    )
     if not user_id:
         raise ValueError("Login required.")
     if not activity_ids:
@@ -3151,26 +3318,74 @@ def merge_activity_ids_into_task(activity_ids, target_project, target_task, stat
             .filter(Activity.user_id == int(user_id), Activity.id.in_(activity_ids))
             .all()
         )
+        debug_email_review_flow(
+            "merge_activity_ids_into_task selected activities",
+            target_task=target_task,
+            activity_ids=[activity.id for activity in activities],
+            extra={
+                "activity_count": len(activities),
+                "durations": [int(activity.duration or 0) for activity in activities],
+            },
+        )
         project = get_existing_review_project(db_session, user_id, target_project)
         if not project:
             raise ValueError("Target project does not exist in the projects table.")
         target_project = project.project_name
         task = get_or_create_review_task(db_session, user_id, project.id, target_task, status)
         task.duration = int(task.duration or 0)
+        debug_email_review_flow(
+            "merge_activity_ids_into_task target before update",
+            target_task=f"{task.id}:{task.task_name}",
+            activity_ids=activity_ids,
+            extra={
+                "project_id": project.id,
+                "project_name": target_project,
+                "task_duration_before": task.duration,
+            },
+        )
 
         for activity in activities:
             if bool(getattr(activity, "is_assigned", False)):
+                debug_email_review_flow(
+                    "merge_activity_ids_into_task skip assigned activity",
+                    target_task=f"{task.id}:{task.task_name}",
+                    activity_ids=[activity.id],
+                    extra={"activity_duration": int(activity.duration or 0)},
+                )
                 continue
             duration = int(activity.duration or 0)
+            before_duration = task.duration
             activity.project_name = target_project
             activity.file_name = target_task
             activity.ai_task_name = target_task
             activity.status = status
             activity.is_assigned = True
             task.duration += duration
+            debug_email_review_flow(
+                "merge_activity_ids_into_task added activity",
+                target_task=f"{task.id}:{task.task_name}",
+                activity_ids=[activity.id],
+                extra={
+                    "activity_duration": duration,
+                    "task_duration_before": before_duration,
+                    "task_duration_after": task.duration,
+                },
+            )
             updated += 1
 
+        debug_email_review_flow(
+            "merge_activity_ids_into_task before commit",
+            target_task=f"{task.id}:{task.task_name}",
+            activity_ids=activity_ids,
+            extra={"updated_count": updated, "task_duration_before_commit": task.duration},
+        )
         db_session.commit()
+        debug_email_review_flow(
+            "merge_activity_ids_into_task after commit",
+            target_task=f"{task.id}:{task.task_name}",
+            activity_ids=activity_ids,
+            extra={"updated_count": updated, "task_duration_after_commit": task.duration},
+        )
 
     return updated
 
@@ -3179,8 +3394,22 @@ def merge_activity_ids_into_task(activity_ids, target_project, target_task, stat
 def api_email_tasks():
     try:
         use_saved = request.args.get("saved") == "1" and request.args.get("fresh") != "1"
+        debug_email_review_flow(
+            "api_email_tasks enter",
+            extra={
+                "use_saved": use_saved,
+                "fresh": request.args.get("fresh"),
+                "saved": request.args.get("saved"),
+            },
+        )
         saved_data = load_tasks_data() if use_saved else empty_review_data()
         tasks, unassigned = build_email_review_rows(saved_data if use_saved else None)
+        debug_email_review_flow(
+            "api_email_tasks return",
+            tasks=tasks,
+            unassigned=unassigned,
+            extra={"use_saved": use_saved},
+        )
         return jsonify({"success": True, "tasks": tasks, "unassigned": unassigned})
     except Exception as e:
         print("EMAIL TASKS ERROR:", str(e))
@@ -3194,11 +3423,28 @@ def api_save_tasks():
         saved_data = load_tasks_data()
         tasks = normalize_email_tasks(data.get("tasks", []))
         unassigned = normalize_unassigned_activities(data.get("unassigned", []))
+        debug_email_review_flow(
+            "api_save_tasks request",
+            tasks=tasks,
+            unassigned=unassigned,
+        )
         activity_merges = normalize_activity_merges(
             data.get("activity_merges", saved_data.get("activity_merges", []))
         )
         tasks = sort_review_tasks_by_project(tasks)
+        debug_email_review_flow(
+            "api_save_tasks before save_tasks_data",
+            tasks=tasks,
+            unassigned=unassigned,
+            extra={"activity_merges": len(activity_merges)},
+        )
         save_tasks_data(tasks, unassigned, activity_merges)
+        debug_email_review_flow(
+            "api_save_tasks response",
+            tasks=tasks,
+            unassigned=unassigned,
+            extra={"activity_merges": len(activity_merges)},
+        )
         return jsonify({"success": True, "tasks": tasks, "unassigned": unassigned})
     except Exception as e:
         print("SAVE TASKS ERROR:", str(e))
@@ -3209,10 +3455,25 @@ def api_save_tasks():
 def api_merge_unassigned():
     try:
         data = request.get_json(silent=True) or {}
-        saved_data = load_tasks_data()
         tasks = normalize_email_tasks(data.get("tasks", []))
         unassigned = normalize_unassigned_activities(data.get("unassigned", []))
-        selected_indexes = {int(index) for index in data.get("selected_indexes", [])}
+        debug_email_review_flow(
+            "api_merge_unassigned request",
+            tasks=tasks,
+            unassigned=unassigned,
+            target_task=data.get("target_task", ""),
+            activity_ids=data.get("activity_ids", []),
+            extra={
+                "selected_indexes": data.get("selected_indexes", []),
+                "target_project": data.get("target_project", ""),
+            },
+        )
+        selected_indexes = set()
+        for index in data.get("selected_indexes", []) if isinstance(data.get("selected_indexes", []), list) else []:
+            try:
+                selected_indexes.add(int(index))
+            except (TypeError, ValueError):
+                pass
         target_task = normalize_required_text(data.get("target_task", ""))
         target_project = normalize_required_text(data.get("target_project", ""))
 
@@ -3222,28 +3483,17 @@ def api_merge_unassigned():
                 for part in target_task.split("|||", 1)
             ]
 
-        if not selected_indexes:
-            return jsonify({"success": False, "error": "Select at least one activity."}), 400
-        if not target_task:
-            return jsonify({"success": False, "error": "Select a target task."}), 400
-
-        target = find_task_by_name(tasks, target_task)
-        if target is not None and not target_project:
-            target_project = normalize_required_text(target.get("project", ""))
-
         selected_items = [
             item for index, item in enumerate(unassigned)
             if index in selected_indexes
         ]
-        if not target_project and selected_items:
-            candidate = selected_items[0]
-            target_project = normalize_required_text(candidate.get("project", ""))
-            target_task = normalize_required_text(candidate.get("task", "") or candidate.get("app", ""))
-
-        if not is_meaningful_project_and_task(target_project, target_task):
-            return jsonify({"success": False, "error": "Target task was not found."}), 400
 
         activity_ids = []
+        for activity_id in data.get("activity_ids", []) if isinstance(data.get("activity_ids", []), list) else []:
+            try:
+                activity_ids.append(int(activity_id))
+            except (TypeError, ValueError):
+                pass
         for item in selected_items:
             activity_ids.extend(item.get("activity_ids", []))
         parsed_activity_ids = []
@@ -3253,6 +3503,47 @@ def api_merge_unassigned():
             except (TypeError, ValueError):
                 pass
         activity_ids = sorted(set(parsed_activity_ids))
+        debug_email_review_flow(
+            "api_merge_unassigned parsed selection",
+            tasks=tasks,
+            unassigned=unassigned,
+            target_task=target_task,
+            activity_ids=activity_ids,
+            extra={
+                "selected_indexes": sorted(selected_indexes),
+                "selected_items": len(selected_items),
+                "target_project": target_project,
+            },
+        )
+
+        if not selected_indexes and not activity_ids:
+            return jsonify({"success": False, "error": "Select at least one activity."}), 400
+        if not target_task:
+            return jsonify({"success": False, "error": "Select a target task."}), 400
+
+        target = find_task_by_name(tasks, target_task)
+        if target is not None and not target_project:
+            target_project = normalize_required_text(target.get("project", ""))
+        debug_email_review_flow(
+            "api_merge_unassigned target resolved",
+            tasks=tasks,
+            unassigned=unassigned,
+            target_task=target_task,
+            activity_ids=activity_ids,
+            extra={
+                "target_found": target is not None,
+                "target_project": target_project,
+                "target_row_duration": target.get("duration") if target else None,
+            },
+        )
+
+        if not target_project and selected_items:
+            candidate = selected_items[0]
+            target_project = normalize_required_text(candidate.get("project", ""))
+            target_task = normalize_required_text(candidate.get("task", "") or candidate.get("app", ""))
+
+        if not is_meaningful_project_and_task(target_project, target_task):
+            return jsonify({"success": False, "error": "Target task was not found."}), 400
 
         updated_count = merge_activity_ids_into_task(
             activity_ids,
@@ -3260,22 +3551,69 @@ def api_merge_unassigned():
             target_task,
             target.get("status", "In Progress") if target else "In Progress",
         )
+        debug_email_review_flow(
+            "api_merge_unassigned after db merge",
+            tasks=tasks,
+            unassigned=unassigned,
+            target_task=target_task,
+            activity_ids=activity_ids,
+            extra={"updated_count": updated_count},
+        )
         if updated_count <= 0:
             return jsonify({"success": False, "error": "No unassigned database records were updated."}), 400
 
-        tasks, remaining = build_email_review_rows(load_tasks_data())
-        save_tasks_data(tasks, remaining, [])
-        return jsonify({"success": True, "tasks": tasks, "unassigned": remaining})
+        regenerated_tasks, regenerated_remaining = build_email_review_rows()
+        debug_email_review_flow(
+            "api_merge_unassigned regenerated rows",
+            tasks=regenerated_tasks,
+            unassigned=regenerated_remaining,
+            target_task=target_task,
+            activity_ids=activity_ids,
+        )
+        response_tasks = regenerated_tasks if regenerated_tasks else tasks
+        response_unassigned = regenerated_remaining
+        if not regenerated_tasks:
+            selected_activity_ids = set(activity_ids)
+            response_unassigned = [
+                item for item in unassigned
+                if not selected_activity_ids.intersection(
+                    {
+                        int(activity_id)
+                        for activity_id in item.get("activity_ids", [])
+                        if str(activity_id).isdigit()
+                    }
+                )
+            ]
+        debug_email_review_flow(
+            "api_merge_unassigned before save_tasks_data",
+            tasks=response_tasks,
+            unassigned=response_unassigned,
+            target_task=target_task,
+            activity_ids=activity_ids,
+            extra={"used_regenerated_tasks": bool(regenerated_tasks)},
+        )
+        save_tasks_data(response_tasks, response_unassigned, [])
+        debug_email_review_flow(
+            "api_merge_unassigned response",
+            tasks=response_tasks,
+            unassigned=response_unassigned,
+            target_task=target_task,
+            activity_ids=activity_ids,
+        )
+        return jsonify({"success": True, "tasks": response_tasks, "unassigned": response_unassigned})
     except Exception as e:
         print("MERGE UNASSIGNED ERROR:", str(e))
         return jsonify({"success": False, "error": str(e)}), 500
+
+
 @app.route('/api/email-data')
 def api_email_data():
-    df = get_assigned_report_dataframe()
+    df = load_current_user_activity_dataframe()
+    summary = build_consistent_activity_summary(df)
     
     total_apps = int(df['App Name'].nunique()) if not df.empty else 0
     total_projects = int(df['Project Name'].nunique()) if not df.empty else 0
-    total_work_seconds = float(df['Duration'].sum()) if not df.empty else 0
+    total_work_seconds = summary["total_seconds"]
     
     hours = int(total_work_seconds // 3600)
     minutes = int((total_work_seconds % 3600) // 60)
@@ -3336,7 +3674,9 @@ def api_email_data():
 def api_email_content():
     """Return the auto-generated subject and body so the frontend can load them into the editor."""
     try:
-        subject = _repair_mojibake(f"Daily Productivity Report - {datetime.now().strftime('%Y-%m-%d')}")
+        employee_name = str(g.current_user.employee_name or "User").strip() or "User"
+        report_date = datetime.now().strftime("%d-%m-%Y")
+        subject = _repair_mojibake(f"{employee_name} - Daily Productivity Report - {report_date}")
         body = _repair_mojibake(build_user_email_body(employee_name=g.current_user.employee_name))
         return jsonify({"success": True, "subject": subject, "body": body})
     except Exception as e:
@@ -3354,7 +3694,9 @@ def trigger_send_email():
     try:
         # Accept JSON or form data
         data = request.get_json(silent=True) or {}
-        custom_subject = data.get('subject') or request.form.get('subject')
+        employee_name = str(g.current_user.employee_name or "User").strip() or "User"
+        report_date = datetime.now().strftime("%d-%m-%Y")
+        custom_subject = f"{employee_name} - Daily Productivity Report - {report_date}"
         request_tasks = normalize_email_tasks(data.get("tasks", []))
         email_tasks = request_tasks
         email_source = "Email Verification visible table"
@@ -3367,8 +3709,6 @@ def trigger_send_email():
             source=email_source,
         )
 
-        if not g.current_user.sender_gmail or not g.current_user.gmail_app_password:
-            return jsonify({"success": False, "error_message": "Sender Gmail settings are missing for this employee."}), 400
         if not g.current_user.manager_email:
             return jsonify({"success": False, "error_message": "Manager email is missing for this employee."}), 400
 
@@ -3378,12 +3718,22 @@ def trigger_send_email():
             body=custom_body,
             employee_name=g.current_user.employee_name,
             receiver_email=g.current_user.manager_email,
-            sender_email=g.current_user.sender_gmail,
-            app_password=g.current_user.gmail_app_password,
         )
         if success:
             archived_count = mark_current_user_today_activities_emailed() if email_tasks else 0
+            debug_email_review_flow(
+                "trigger_send_email before clearing saved review data",
+                tasks=[],
+                unassigned=[],
+                extra={"archived_count": archived_count},
+            )
             save_tasks_data([], [], [])
+            debug_email_review_flow(
+                "trigger_send_email after clearing saved review data",
+                tasks=[],
+                unassigned=[],
+                extra={"archived_count": archived_count},
+            )
             print(f"POST EMAIL ARCHIVE: archived {archived_count} activities for user {get_session_user_id()}")
             return jsonify({"success": True, "message": "Email Sent Successfully"})
         else:
@@ -3407,7 +3757,7 @@ def reports():
 
 @app.route('/download/excel')
 def download_excel():
-    df = get_assigned_report_dataframe()
+    df = get_all_history_report_dataframe()
     output = io.BytesIO()
     df.to_excel(output, index=False, engine='openpyxl')
     output.seek(0)
@@ -3491,14 +3841,15 @@ def api_reports_data():
     project_work_mask = get_project_work_mask(df)
     unassigned_mask = get_unassigned_mask(df)
     idle_mask = get_idle_mask(df)
-    productive_sessions = int(project_work_mask.sum())
-    unassigned_sessions = int(unassigned_mask.sum())
-    idle_sessions = int(idle_mask.sum())
-    total_secs = float(df['Duration'].sum())
-    prod_secs = float(df.loc[project_work_mask, 'Duration'].sum())
-    unassigned_secs = float(df.loc[unassigned_mask, 'Duration'].sum())
-    idle_secs = float(df.loc[idle_mask, 'Duration'].sum())
-    score = round((productive_sessions / total_sessions) * 100, 2) if total_sessions else 0
+    summary = build_consistent_activity_summary(df)
+    productive_sessions = summary["productive_sessions"]
+    unassigned_sessions = summary["unassigned_sessions"]
+    idle_sessions = summary["idle_sessions"]
+    total_secs = summary["total_seconds"]
+    prod_secs = summary["productive_seconds"]
+    unassigned_secs = summary["unassigned_seconds"]
+    idle_secs = summary["idle_seconds"]
+    score = summary["productivity_score"]
 
     # Daily productivity
     df['Date'] = df['Start Time'].dt.date.astype(str)

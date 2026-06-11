@@ -256,7 +256,12 @@ import csv
 import os
 import re
 import ctypes
-from activity_store import save_tracked_activity
+from activity_store import (
+    MAX_RECORDED_IDLE_SECONDS,
+    log_tracker_db,
+    save_tracked_activity,
+    should_ignore_idle_activity,
+)
 
 
 # ==========================================
@@ -527,6 +532,16 @@ def save_activity_to_database(project_name, window_title, start, end, duration):
     print(f"PostgreSQL activity insert: {'success' if db_saved else 'skipped/failed'}")
 
 
+def should_skip_tracked_session(project_name, window_title, duration):
+    if should_ignore_idle_activity(project_name, window_title, None, duration):
+        log_tracker_db(
+            f"Tracker skipped long idle duration: {duration.total_seconds()}s "
+            f"> {MAX_RECORDED_IDLE_SECONDS}s."
+        )
+        return True
+    return False
+
+
 # ==========================================
 # CREATE CSV FILE
 # ==========================================
@@ -604,6 +619,9 @@ while True:
                         current_window
                     )
 
+                    if should_skip_tracked_session(project_name, current_window, duration):
+                        continue
+
                     with open(
                         csv_file,
                         mode="a",
@@ -655,33 +673,34 @@ while True:
                 # User became active
 
                 # SAVE IDLE SESSION
-                with open(
-                    csv_file,
-                    mode="a",
-                    newline="",
-                    encoding="utf-8"
-                ) as file:
+                if not should_skip_tracked_session("IDLE", "No Application", idle_duration):
+                    with open(
+                        csv_file,
+                        mode="a",
+                        newline="",
+                        encoding="utf-8"
+                    ) as file:
 
-                    writer = csv.writer(
-                        file,
-                        quoting=csv.QUOTE_ALL
-                    )
+                        writer = csv.writer(
+                            file,
+                            quoting=csv.QUOTE_ALL
+                        )
 
-                    writer.writerow([
+                        writer.writerow([
+                            "IDLE",
+                            "No Application",
+                            idle_start_time.strftime("%H:%M:%S"),
+                            idle_end_time.strftime("%H:%M:%S"),
+                            str(idle_duration)
+                        ])
+
+                    save_activity_to_database(
                         "IDLE",
                         "No Application",
-                        idle_start_time.strftime("%H:%M:%S"),
-                        idle_end_time.strftime("%H:%M:%S"),
-                        str(idle_duration)
-                    ])
-
-                save_activity_to_database(
-                    "IDLE",
-                    "No Application",
-                    idle_start_time,
-                    idle_end_time,
-                    idle_duration
-                )
+                        idle_start_time,
+                        idle_end_time,
+                        idle_duration
+                    )
 
 
 
@@ -722,6 +741,11 @@ while True:
                 )
 
                 # Session window changed
+
+                if should_skip_tracked_session(project_name, current_window, duration):
+                    current_window = window_title
+                    start_time = datetime.now()
+                    continue
 
                 with open(
                     csv_file,
@@ -787,35 +811,36 @@ while True:
                 current_window
             )
 
-            with open(
-                csv_file,
-                mode="a",
-                newline="",
-                encoding="utf-8"
-            ) as file:
+            if not should_skip_tracked_session(project_name, current_window, duration):
+                with open(
+                    csv_file,
+                    mode="a",
+                    newline="",
+                    encoding="utf-8"
+                ) as file:
 
-                writer = csv.writer(
-                    file,
-                    quoting=csv.QUOTE_ALL
-                )
+                    writer = csv.writer(
+                        file,
+                        quoting=csv.QUOTE_ALL
+                    )
 
-                writer.writerow([
-                    project_name,
-                    current_window,
-                    start_time.strftime("%H:%M:%S"),
-                    end_time.strftime("%H:%M:%S"),
-                    str(duration)
-                ])
+                    writer.writerow([
+                        project_name,
+                        current_window,
+                        start_time.strftime("%H:%M:%S"),
+                        end_time.strftime("%H:%M:%S"),
+                        str(duration)
+                    ])
 
-                save_activity_to_database(
-                    project_name,
-                    current_window,
-                    start_time,
-                    end_time,
-                    duration
-                )
+                    save_activity_to_database(
+                        project_name,
+                        current_window,
+                        start_time,
+                        end_time,
+                        duration
+                    )
 
-                print("Final Session Saved")
+                    print("Final Session Saved")
 
         break
 

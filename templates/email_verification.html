@@ -514,7 +514,11 @@ $(document).ready(function () {
   }
 
   function addDurationToTask(row, duration) {
-    row.duration = formatReviewDuration(parseReviewDuration(row.duration) + parseReviewDuration(duration));
+    const currentSeconds = Number.isFinite(row._mergeDurationSeconds)
+      ? row._mergeDurationSeconds
+      : parseReviewDuration(row.duration);
+    row._mergeDurationSeconds = currentSeconds + parseReviewDuration(duration);
+    row.duration = formatReviewDuration(row._mergeDurationSeconds);
   }
 
   function defaultProjectName(row) {
@@ -781,6 +785,7 @@ $(document).ready(function () {
 
   function loadEmailTasks(fresh = false) {
     $('#taskReviewBody').html('<tr><td colspan="5" class="text-center text-muted py-4">Loading review rows...</td></tr>');
+    console.log('EMAIL REVIEW DEBUG loadEmailTasks enter', { fresh });
 
     $.ajax({
       url: '/api/email-tasks' + (fresh ? '?fresh=1' : ''),
@@ -788,6 +793,10 @@ $(document).ready(function () {
       success: function (resp) {
         if (resp.success) {
           console.log('EMAIL TASKS API RESPONSE', resp);
+          console.log('EMAIL REVIEW DEBUG loadEmailTasks response counts', {
+            taskRows: (resp.tasks || []).length,
+            unassignedRows: (resp.unassigned || []).length
+          });
           const processedPayload = ActivityProcessor.processEmailPayload(resp.tasks || [], resp.unassigned || []);
           taskRows = processedPayload.taskRows;
           unassignedRows = processedPayload.unassignedRows;
@@ -944,11 +953,20 @@ $(document).ready(function () {
       .map(index => ({ item: unassignedRows[index], index }))
       .filter(entry => entry.item);
     const remainingUnassigned = unassignedRows.filter((_, index) => !selectedIndexes.includes(index));
+    console.log('EMAIL REVIEW DEBUG merge click selection', {
+      taskRowsBefore: rows.length,
+      unassignedRowsBefore: unassignedRows.length,
+      selectedIndexes,
+      activityIds: selectedItems.flatMap(({ item }) => item.activity_ids || []),
+      targetTask
+    });
     let updatedRows = rows.slice();
+    let targetProject = '';
+    let targetName = '';
 
     if (targetTask && targetParts.length > 1) {
-      const targetProject = targetParts[0];
-      const targetName = targetParts.slice(1).join('|||');
+      targetProject = targetParts[0];
+      targetName = targetParts.slice(1).join('|||');
       let targetRow = updatedRows.find(row =>
         String(row.project || '').trim() === targetProject
         && String(row.task || '').trim() === targetName
@@ -997,20 +1015,33 @@ $(document).ready(function () {
     }
 
     $.ajax({
-      url: '/api/save-tasks',
+      url: '/api/merge-unassigned',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({
-        tasks: updatedRows,
-        unassigned: remainingUnassigned
+        tasks: updatedRows.map(({ _mergeDurationSeconds, ...row }) => row),
+        unassigned: unassignedRows,
+        selected_indexes: selectedIndexes,
+        activity_ids: selectedItems.flatMap(({ item }) => item.activity_ids || []),
+        target_project: targetProject,
+        target_task: targetTask || targetName
       }),
       success: function (resp) {
         if (resp.success) {
-          console.log('MERGE SAVE API RESPONSE', resp);
-          const processedPayload = ActivityProcessor.processEmailPayload(resp.tasks || updatedRows, resp.unassigned || remainingUnassigned);
+          console.log('MERGE API RESPONSE', resp);
+          console.log('EMAIL REVIEW DEBUG merge response counts', {
+            responseTaskRows: (resp.tasks || []).length,
+            responseUnassignedRows: (resp.unassigned || []).length,
+            fallbackTaskRows: updatedRows.length,
+            fallbackUnassignedRows: remainingUnassigned.length
+          });
+          const fallbackRows = updatedRows.map(({ _mergeDurationSeconds, ...row }) => row);
+          const responseTasks = Array.isArray(resp.tasks) && resp.tasks.length ? resp.tasks : fallbackRows;
+          const responseUnassigned = Array.isArray(resp.unassigned) ? resp.unassigned : remainingUnassigned;
+          const processedPayload = ActivityProcessor.processEmailPayload(responseTasks, responseUnassigned);
           taskRows = processedPayload.taskRows;
           unassignedRows = processedPayload.unassignedRows;
-          console.log('MERGE SAVE AFTER PROCESSOR', { taskRows, unassignedRows });
+          console.log('MERGE AFTER PROCESSOR', { taskRows, unassignedRows });
           renderTaskEditor();
           showStatus('success', '<i class="bi bi-check-circle-fill me-2"></i>Selected activities merged and saved.');
         } else {

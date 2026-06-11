@@ -173,6 +173,14 @@
     return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
   }
 
+  function formatDurationWithSeconds(seconds) {
+    const safeSeconds = Math.max(0, Math.round(seconds || 0));
+    const hours = Math.floor(safeSeconds / 3600);
+    const mins = Math.floor((safeSeconds % 3600) / 60);
+    const secs = safeSeconds % 60;
+    return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
   function deriveDisplayDate(row) {
     const directDate = clean(row.date || row.Date);
 
@@ -261,7 +269,7 @@
         date: deriveDisplayDate(row),
         app: displayName,
         task: displayName,
-        duration: formatDurationSeconds(parseDurationSeconds(row.duration || row.Duration)),
+        duration: formatDurationWithSeconds(parseDurationSeconds(row.duration || row.Duration)),
         raw_app: originalName
       };
     });
@@ -291,7 +299,7 @@
           date: deriveDisplayDate(row),
           app: originalName,
           task: originalName,
-          duration: formatDurationSeconds(parseDurationSeconds(row.duration || row.Duration)),
+          duration: formatDurationWithSeconds(parseDurationSeconds(row.duration || row.Duration)),
           raw_app: originalName
         });
       }

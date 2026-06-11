@@ -15,6 +15,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ACTIVE_TRACKER_USER_FILE = os.path.join(BASE_DIR, "active_tracker_user.json")
 TRACKER_DB_LOG_FILE = os.path.join(BASE_DIR, "tracker_activity_db.log")
 _DATABASE_IMPORT_LOGGED = False
+MAX_RECORDED_IDLE_SECONDS = 5 * 60
 
 ACTIVITY_COLUMNS = [
     "Activity ID",
@@ -282,6 +283,12 @@ def _seconds_from_duration(duration):
             return 0
 
 
+def should_ignore_idle_activity(project_name, file_name="", ai_task_name="", duration_seconds=0):
+    """Long idle sessions are not reportable work and should be ignored."""
+    normalized_project = normalize_project_name_for_storage(project_name, file_name, ai_task_name)
+    return normalized_project == "IDLE" and _seconds_from_duration(duration_seconds) > MAX_RECORDED_IDLE_SECONDS
+
+
 def _clean_name(value):
     return str(value or "").replace("\u200b", "").strip()
 
@@ -532,6 +539,12 @@ def save_tracked_activity(
     project_name = normalize_project_name_for_storage(project_name, file_name, ai_task_name)
     ai_task_name = normalize_task_name_for_storage(project_name, window_title, file_name, ai_task_name)
     status = _clean_name(status) or _status_for_project(project_name)
+    if should_ignore_idle_activity(project_name, file_name, ai_task_name, duration_seconds):
+        log_tracker_db(
+            f"Activity DB insert skipped: idle duration exceeds "
+            f"{MAX_RECORDED_IDLE_SECONDS}s ({duration_seconds}s) for user_id={resolved_user_id}."
+        )
+        return False
 
     try:
         log_tracker_db(
@@ -644,6 +657,8 @@ def load_user_activities_dataframe(user_id=None, include_all=False, include_sent
             activity.end_time,
             activity.duration,
         )
+        if should_ignore_idle_activity(project_name, activity.file_name, activity.ai_task_name, duration_seconds):
+            continue
         rows.append(
             {
                 "Activity ID": activity.id,
