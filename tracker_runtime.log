@@ -18319,4 +18319,513 @@ PostgreSQL activity insert: success
 [2026-06-13 12:36:13] Tracker save_session skipped short duration: 2.000894s, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.
 [2026-06-13 12:36:19] Active window detected: 'Auto-start Issue Debugging - Google Chrome'
 [2026-06-13 12:36:19] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='Windows PowerShell', start=2026-06-13 12:36:13.273333, end=2026-06-13 12:36:19.275242, duration=0:00:06.001909.
+Calling PostgreSQL activity insert function[2026-06-13 13:00:31] Tracker authenticated at startup: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+TRACKER STARTED
+CSV: C:\Users\KAVYA SRI K\OneDrive\Desktop\productivity Tracker\activity_log.csv
+[2026-06-13 13:00:31] Active window detected: 'System tray overflow window.'
+[2026-06-13 13:00:33] Active window detected: 'Productivity Dashboard and 4 more pages - Personal - Microsoft\u200b Edge'
+[2026-06-13 13:00:33] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='System tray overflow window.', start=2026-06-13 13:00:31.908188, end=2026-06-13 13:00:33.913931, duration=0:00:02.005743.
+[2026-06-13 13:00:33] Tracker save_session skipped short duration: 2.005743s, project='Unassigned Activities', window='System tray overflow window.'.
+[2026-06-13 13:00:35] Active window detected: 'Email Verification and 4 more pages - Personal - Microsoft\u200b Edge'
+[2026-06-13 13:00:35] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Productivity Dashboard and 4 more pages - Personal - Microsoft\u200b Edge', start=2026-06-13 13:00:33.918267, end=2026-06-13 13:00:35.919627, duration=0:00:02.001360.
+[2026-06-13 13:00:35] Tracker save_session skipped short duration: 2.00136s, project='Unassigned Activities', window='Productivity Dashboard and 4 more pages - Personal - Microsoft\u200b Edge'.
+[2026-06-13 13:00:37] Active window detected: 'Mail - DevopsTeam - Outlook - Google Chrome'
+[2026-06-13 13:00:37] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Email Verification and 4 more pages - Personal - Microsoft\u200b Edge', start=2026-06-13 13:00:35.922720, end=2026-06-13 13:00:37.924238, duration=0:00:02.001518.
+[2026-06-13 13:00:37] Tracker save_session skipped short duration: 2.001518s, project='Unassigned Activities', window='Email Verification and 4 more pages - Personal - Microsoft\u200b Edge'.
+[2026-06-13 13:00:41] Active window detected: 'activity_log.csv - productivity Tracker - Visual Studio Code'
+[2026-06-13 13:00:41] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Mail - DevopsTeam - Outlook - Google Chrome', start=2026-06-13 13:00:37.926931, end=2026-06-13 13:00:41.929521, duration=0:00:04.002590.
 Calling PostgreSQL activity insert function
+[2026-06-13 13:00:41] Tracker PostgreSQL module loaded: database.py=C:\Users\KAVYA SRI K\OneDrive\Desktop\productivity Tracker\database.py
+[2026-06-13 13:00:41] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:00:41] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='Mail - DevopsTeam - Outlook - Google Chrome', ai_task_name='Email Automation Module', status='In Progress', start_time=2026-06-13 13:00:37.926931, end_time=2026-06-13 13:00:41.929521, duration=4s.
+[2026-06-13 13:00:42] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:00:42] Activity inserted successfully: activity_id=2064, user_id=13, project='productivity Tracker', task='Email Automation Module', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:00:42] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Mail - DevopsTeam - Outlook - Google Chrome'.
+[2026-06-13 13:00:46] Active window detected: 'Auto-start Issue Debugging - Google Chrome'
+[2026-06-13 13:00:46] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='activity_log.csv - productivity Tracker - Visual Studio Code', start=2026-06-13 13:00:42.378622, end=2026-06-13 13:00:46.381994, duration=0:00:04.003372.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:00:46] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:00:46] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='activity_log.csv', ai_task_name='Activity Log Module', status='In Progress', start_time=2026-06-13 13:00:42.378622, end_time=2026-06-13 13:00:46.381994, duration=4s.
+[2026-06-13 13:00:46] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:00:46] Activity inserted successfully: activity_id=2065, user_id=13, project='productivity Tracker', task='Activity Log Module', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:00:46] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='activity_log.csv - productivity Tracker - Visual Studio Code'.
+[2026-06-13 13:00:58] Active window detected: Unknown Window (blank foreground title).
+[2026-06-13 13:00:58] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 13:00:46.418228, end=2026-06-13 13:00:58.438617, duration=0:00:12.020389.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:00:58] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:00:58] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Auto-start Issue Debugging - Google Chrome', ai_task_name='Auto-start Issue Debugging - Google Chrome', status='In Progress', start_time=2026-06-13 13:00:46.418228, end_time=2026-06-13 13:00:58.438617, duration=12s.
+[2026-06-13 13:00:58] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:00:58] Activity inserted successfully: activity_id=2066, user_id=13, project='Unassigned Activities', task='Auto-start Issue Debugging - Google Chrome', duration=12s.
+PostgreSQL activity insert: success
+[2026-06-13 13:00:58] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.
+[2026-06-13 13:01:00] Active window detected: 'Email Verification and 4 more pages - Personal - Microsoft\u200b Edge'
+[2026-06-13 13:01:00] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Unknown Window', start=2026-06-13 13:00:58.484588, end=2026-06-13 13:01:00.486587, duration=0:00:02.001999.
+[2026-06-13 13:01:00] Tracker save_session skipped short duration: 2.001999s, project='Unassigned Activities', window='Unknown Window'.
+[2026-06-13 13:01:08] Active window detected: 'Auto-start Issue Debugging - Google Chrome'
+[2026-06-13 13:01:08] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='Email Verification and 4 more pages - Personal - Microsoft\u200b Edge', start=2026-06-13 13:01:00.490529, end=2026-06-13 13:01:08.493578, duration=0:00:08.003049.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:01:08] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:01:08] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='activity_log.csv', ai_task_name='Email Verification Module', status='In Progress', start_time=2026-06-13 13:01:00.490529, end_time=2026-06-13 13:01:08.493578, duration=8s.
+[2026-06-13 13:01:08] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:01:08] Activity inserted successfully: activity_id=2067, user_id=13, project='productivity Tracker', task='Email Verification Module', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:01:08] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='Email Verification and 4 more pages - Personal - Microsoft\u200b Edge'.
+[2026-06-13 13:01:12] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:01:12] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 13:01:08.522025, end=2026-06-13 13:01:12.524261, duration=0:00:04.002236.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:01:12] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:01:12] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Auto-start Issue Debugging - Google Chrome', ai_task_name='Auto-start Issue Debugging - Google Chrome', status='In Progress', start_time=2026-06-13 13:01:08.522025, end_time=2026-06-13 13:01:12.524261, duration=4s.
+[2026-06-13 13:01:12] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:01:12] Activity inserted successfully: activity_id=2068, user_id=13, project='Unassigned Activities', task='Auto-start Issue Debugging - Google Chrome', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:01:12] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.
+[2026-06-13 13:01:58] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:01:58] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:01:12.548401, end=2026-06-13 13:01:58.563957, duration=0:00:46.015556.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:01:58] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:01:58] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:01:12.548401, end_time=2026-06-13 13:01:58.563957, duration=46s.
+[2026-06-13 13:01:58] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:01:58] Activity inserted successfully: activity_id=2069, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=46s.
+PostgreSQL activity insert: success
+[2026-06-13 13:01:58] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:02:36] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:02:36] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:01:58.604455, end=2026-06-13 13:02:36.617062, duration=0:00:38.012607.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:02:36] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:02:36] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:01:58.604455, end_time=2026-06-13 13:02:36.617062, duration=38s.
+[2026-06-13 13:02:36] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:02:36] Activity inserted successfully: activity_id=2070, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=38s.
+PostgreSQL activity insert: success
+[2026-06-13 13:02:36] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:02:50] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:02:50] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:02:36.642728, end=2026-06-13 13:02:50.647343, duration=0:00:14.004615.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:02:50] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:02:50] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:02:36.642728, end_time=2026-06-13 13:02:50.647343, duration=14s.
+[2026-06-13 13:02:50] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:02:50] Activity inserted successfully: activity_id=2071, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=14s.
+PostgreSQL activity insert: success
+[2026-06-13 13:02:50] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:03:04] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:03:04] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:02:50.669013, end=2026-06-13 13:03:04.674347, duration=0:00:14.005334.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:03:04] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:03:04] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:02:50.669013, end_time=2026-06-13 13:03:04.674347, duration=14s.
+[2026-06-13 13:03:04] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:03:04] Activity inserted successfully: activity_id=2072, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=14s.
+PostgreSQL activity insert: success
+[2026-06-13 13:03:04] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:03:32] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:03:32] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:03:04.699323, end=2026-06-13 13:03:32.709043, duration=0:00:28.009720.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:03:32] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:03:32] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:03:04.699323, end_time=2026-06-13 13:03:32.709043, duration=28s.
+[2026-06-13 13:03:32] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:03:32] Activity inserted successfully: activity_id=2073, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=28s.
+PostgreSQL activity insert: success
+[2026-06-13 13:03:32] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:03:40] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:03:40] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:03:32.747594, end=2026-06-13 13:03:40.751994, duration=0:00:08.004400.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:03:40] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:03:40] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:03:32.747594, end_time=2026-06-13 13:03:40.751994, duration=8s.
+[2026-06-13 13:03:40] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:03:40] Activity inserted successfully: activity_id=2074, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:03:40] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:03:44] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:03:44] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:03:40.775867, end=2026-06-13 13:03:44.780374, duration=0:00:04.004507.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:03:44] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:03:44] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:03:40.775867, end_time=2026-06-13 13:03:44.780374, duration=4s.
+[2026-06-13 13:03:44] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:03:44] Activity inserted successfully: activity_id=2075, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:03:44] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:03:52] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:03:52] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:03:44.802608, end=2026-06-13 13:03:52.805821, duration=0:00:08.003213.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:03:52] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:03:52] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:03:44.802608, end_time=2026-06-13 13:03:52.805821, duration=8s.
+[2026-06-13 13:03:52] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:03:52] Activity inserted successfully: activity_id=2076, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:03:52] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:03:54] Active window detected: 'Task Switching'
+[2026-06-13 13:03:54] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:03:52.833719, end=2026-06-13 13:03:54.836771, duration=0:00:02.003052.
+[2026-06-13 13:03:54] Tracker save_session skipped short duration: 2.003052s, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:03:56] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:03:56] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Task Switching', start=2026-06-13 13:03:54.840336, end=2026-06-13 13:03:56.841965, duration=0:00:02.001629.
+[2026-06-13 13:03:56] Tracker save_session skipped short duration: 2.001629s, project='Unassigned Activities', window='Task Switching'.
+[2026-06-13 13:04:08] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:04:08] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:03:56.844495, end=2026-06-13 13:04:08.848559, duration=0:00:12.004064.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:04:08] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:04:08] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:03:56.844495, end_time=2026-06-13 13:04:08.848559, duration=12s.
+[2026-06-13 13:04:08] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:04:08] Activity inserted successfully: activity_id=2077, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=12s.
+PostgreSQL activity insert: success
+[2026-06-13 13:04:08] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:04:10] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:04:10] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:04:08.867535, end=2026-06-13 13:04:10.868468, duration=0:00:02.000933.
+[2026-06-13 13:04:10] Tracker save_session skipped short duration: 2.000933s, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:04:30] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:04:30] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:04:10.871722, end=2026-06-13 13:04:30.877446, duration=0:00:20.005724.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:04:30] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:04:30] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:04:10.871722, end_time=2026-06-13 13:04:30.877446, duration=20s.
+[2026-06-13 13:04:30] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:04:30] Activity inserted successfully: activity_id=2078, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=20s.
+PostgreSQL activity insert: success
+[2026-06-13 13:04:30] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:04:48] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:04:48] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:04:30.900335, end=2026-06-13 13:04:48.906591, duration=0:00:18.006256.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:04:48] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:04:48] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:04:30.900335, end_time=2026-06-13 13:04:48.906591, duration=18s.
+[2026-06-13 13:04:48] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:04:48] Activity inserted successfully: activity_id=2079, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=18s.
+PostgreSQL activity insert: success
+[2026-06-13 13:04:48] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:04:50] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:04:50] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:04:48.930521, end=2026-06-13 13:04:50.931918, duration=0:00:02.001397.
+[2026-06-13 13:04:50] Tracker save_session skipped short duration: 2.001397s, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:05:16] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:05:16] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:04:50.936197, end=2026-06-13 13:05:16.945714, duration=0:00:26.009517.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:05:16] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:05:16] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:04:50.936197, end_time=2026-06-13 13:05:16.945714, duration=26s.
+[2026-06-13 13:05:16] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:05:16] Activity inserted successfully: activity_id=2080, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=26s.
+PostgreSQL activity insert: success
+[2026-06-13 13:05:16] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:06:12] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:06:12] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:05:16.969151, end=2026-06-13 13:06:12.988997, duration=0:00:56.019846.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:06:12] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:06:12] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:05:16.969151, end_time=2026-06-13 13:06:12.988997, duration=56s.
+[2026-06-13 13:06:12] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:06:13] Activity inserted successfully: activity_id=2081, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=56s.
+PostgreSQL activity insert: success
+[2026-06-13 13:06:13] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:06:15] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:06:15] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:06:13.010446, end=2026-06-13 13:06:15.012131, duration=0:00:02.001685.
+[2026-06-13 13:06:15] Tracker save_session skipped short duration: 2.001685s, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:06:57] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:06:57] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:06:15.015477, end=2026-06-13 13:06:57.033132, duration=0:00:42.017655.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:06:57] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:06:57] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:06:15.015477, end_time=2026-06-13 13:06:57.033132, duration=42s.
+[2026-06-13 13:06:57] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:06:57] Activity inserted successfully: activity_id=2082, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=42s.
+PostgreSQL activity insert: success
+[2026-06-13 13:06:57] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:07:09] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:07:09] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:06:57.058986, end=2026-06-13 13:07:09.064577, duration=0:00:12.005591.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:07:09] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:07:09] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:06:57.058986, end_time=2026-06-13 13:07:09.064577, duration=12s.
+[2026-06-13 13:07:09] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:07:09] Activity inserted successfully: activity_id=2083, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=12s.
+PostgreSQL activity insert: success
+[2026-06-13 13:07:09] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:07:23] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:07:23] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:07:09.117265, end=2026-06-13 13:07:23.123080, duration=0:00:14.005815.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:07:23] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:07:23] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:07:09.117265, end_time=2026-06-13 13:07:23.123080, duration=14s.
+[2026-06-13 13:07:23] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:07:23] Activity inserted successfully: activity_id=2084, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=14s.
+PostgreSQL activity insert: success
+[2026-06-13 13:07:23] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:07:35] Active window detected: 'Search'
+[2026-06-13 13:07:35] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:07:23.191274, end=2026-06-13 13:07:35.195443, duration=0:00:12.004169.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:07:35] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:07:35] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:07:23.191274, end_time=2026-06-13 13:07:35.195443, duration=12s.
+[2026-06-13 13:07:35] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:07:35] Activity inserted successfully: activity_id=2085, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=12s.
+PostgreSQL activity insert: success
+[2026-06-13 13:07:35] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:07:39] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:07:39] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Search', start=2026-06-13 13:07:35.217959, end=2026-06-13 13:07:39.220013, duration=0:00:04.002054.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:07:39] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:07:39] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Search', ai_task_name='Search', status='In Progress', start_time=2026-06-13 13:07:35.217959, end_time=2026-06-13 13:07:39.220013, duration=4s.
+[2026-06-13 13:07:39] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:07:39] Activity inserted successfully: activity_id=2086, user_id=13, project='Unassigned Activities', task='Search', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:07:39] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Search'.
+[2026-06-13 13:08:11] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:08:11] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:07:39.250822, end=2026-06-13 13:08:11.263321, duration=0:00:32.012499.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:08:11] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:08:11] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:07:39.250822, end_time=2026-06-13 13:08:11.263321, duration=32s.
+[2026-06-13 13:08:11] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:08:11] Activity inserted successfully: activity_id=2087, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=32s.
+PostgreSQL activity insert: success
+[2026-06-13 13:08:11] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:08:15] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:08:15] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:08:11.285736, end=2026-06-13 13:08:15.288333, duration=0:00:04.002597.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:08:15] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:08:15] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:08:11.285736, end_time=2026-06-13 13:08:15.288333, duration=4s.
+[2026-06-13 13:08:15] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:08:15] Activity inserted successfully: activity_id=2088, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:08:15] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:08:17] Active window detected: Unknown Window (blank foreground title).
+[2026-06-13 13:08:17] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:08:15.339653, end=2026-06-13 13:08:17.341639, duration=0:00:02.001986.
+[2026-06-13 13:08:17] Tracker save_session skipped short duration: 2.001986s, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:08:19] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:08:19] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Unknown Window', start=2026-06-13 13:08:17.344776, end=2026-06-13 13:08:19.348022, duration=0:00:02.003246.
+[2026-06-13 13:08:19] Tracker save_session skipped short duration: 2.003246s, project='Unassigned Activities', window='Unknown Window'.
+[2026-06-13 13:08:25] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:08:25] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:08:19.350446, end=2026-06-13 13:08:25.353735, duration=0:00:06.003289.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:08:25] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:08:25] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:08:19.350446, end_time=2026-06-13 13:08:25.353735, duration=6s.
+[2026-06-13 13:08:25] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:08:25] Activity inserted successfully: activity_id=2089, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=6s.
+PostgreSQL activity insert: success
+[2026-06-13 13:08:25] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:10:39] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:10:39] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:08:25.382023, end=2026-06-13 13:10:39.444580, duration=0:02:14.062557.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:10:39] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:10:39] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:08:25.382023, end_time=2026-06-13 13:10:39.444580, duration=134s.
+[2026-06-13 13:10:39] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:10:39] Activity inserted successfully: activity_id=2090, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=134s.
+PostgreSQL activity insert: success
+[2026-06-13 13:10:39] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:11:19] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:11:19] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:10:39.468954, end=2026-06-13 13:11:19.487072, duration=0:00:40.018118.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:11:19] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:11:19] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:10:39.468954, end_time=2026-06-13 13:11:19.487072, duration=40s.
+[2026-06-13 13:11:19] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:11:19] Activity inserted successfully: activity_id=2091, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=40s.
+PostgreSQL activity insert: success
+[2026-06-13 13:11:19] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:11:27] Active window detected: 'Email Verification and 4 more pages - Personal - Microsoft\u200b Edge'
+[2026-06-13 13:11:27] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:11:19.523464, end=2026-06-13 13:11:27.533754, duration=0:00:08.010290.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:11:27] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:11:27] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:11:19.523464, end_time=2026-06-13 13:11:27.533754, duration=8s.
+[2026-06-13 13:11:27] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:11:27] Activity inserted successfully: activity_id=2092, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:11:27] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:11:47] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:11:47] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='Email Verification and 4 more pages - Personal - Microsoft\u200b Edge', start=2026-06-13 13:11:27.561046, end=2026-06-13 13:11:47.570532, duration=0:00:20.009486.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:11:47] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:11:47] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='activity_log.csv', ai_task_name='Email Verification Module', status='In Progress', start_time=2026-06-13 13:11:27.561046, end_time=2026-06-13 13:11:47.570532, duration=20s.
+[2026-06-13 13:11:47] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:11:47] Activity inserted successfully: activity_id=2093, user_id=13, project='productivity Tracker', task='Email Verification Module', duration=20s.
+PostgreSQL activity insert: success
+[2026-06-13 13:11:47] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='Email Verification and 4 more pages - Personal - Microsoft\u200b Edge'.
+[2026-06-13 13:12:05] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:12:05] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:11:47.661422, end=2026-06-13 13:12:05.668741, duration=0:00:18.007319.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:12:05] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:12:05] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:11:47.661422, end_time=2026-06-13 13:12:05.668741, duration=18s.
+[2026-06-13 13:12:05] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:12:05] Activity inserted successfully: activity_id=2094, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=18s.
+PostgreSQL activity insert: success
+[2026-06-13 13:12:05] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:12:15] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:12:15] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:12:05.688097, end=2026-06-13 13:12:15.692571, duration=0:00:10.004474.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:12:15] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:12:15] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:12:05.688097, end_time=2026-06-13 13:12:15.692571, duration=10s.
+[2026-06-13 13:12:15] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:12:15] Activity inserted successfully: activity_id=2095, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=10s.
+PostgreSQL activity insert: success
+[2026-06-13 13:12:15] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:13:15] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:13:15] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:12:15.715126, end=2026-06-13 13:13:15.738705, duration=0:01:00.023579.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:13:15] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:13:15] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:12:15.715126, end_time=2026-06-13 13:13:15.738705, duration=60s.
+[2026-06-13 13:13:15] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:13:15] Activity inserted successfully: activity_id=2096, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=60s.
+PostgreSQL activity insert: success
+[2026-06-13 13:13:15] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:13:23] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:13:23] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:13:15.780229, end=2026-06-13 13:13:23.784441, duration=0:00:08.004212.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:13:23] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:13:23] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:13:15.780229, end_time=2026-06-13 13:13:23.784441, duration=8s.
+[2026-06-13 13:13:23] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:13:23] Activity inserted successfully: activity_id=2097, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:13:23] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:13:27] Active window detected: 'Task Switching'
+[2026-06-13 13:13:27] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:13:23.802378, end=2026-06-13 13:13:27.804713, duration=0:00:04.002335.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:13:27] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:13:27] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:13:23.802378, end_time=2026-06-13 13:13:27.804713, duration=4s.
+[2026-06-13 13:13:27] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:13:27] Activity inserted successfully: activity_id=2098, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=4s.
+PostgreSQL activity insert: success
+[2026-06-13 13:13:27] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:13:29] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:13:29] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Task Switching', start=2026-06-13 13:13:27.846708, end=2026-06-13 13:13:29.848371, duration=0:00:02.001663.
+[2026-06-13 13:13:29] Tracker save_session skipped short duration: 2.001663s, project='Unassigned Activities', window='Task Switching'.
+[2026-06-13 13:13:37] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:13:37] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:13:29.851786, end=2026-06-13 13:13:37.855319, duration=0:00:08.003533.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:13:37] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:13:37] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:13:29.851786, end_time=2026-06-13 13:13:37.855319, duration=8s.
+[2026-06-13 13:13:37] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:13:37] Activity inserted successfully: activity_id=2099, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:13:37] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:14:09] Active window detected: 'pgAdmin 4'
+[2026-06-13 13:14:09] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:13:37.875148, end=2026-06-13 13:14:09.888597, duration=0:00:32.013449.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:14:09] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:14:09] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:13:37.875148, end_time=2026-06-13 13:14:09.888597, duration=32s.
+[2026-06-13 13:14:09] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:14:09] Activity inserted successfully: activity_id=2100, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=32s.
+PostgreSQL activity insert: success
+[2026-06-13 13:14:09] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:14:23] Active window detected: 'Folder to ZIP Conversion - Google Chrome'
+[2026-06-13 13:14:23] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='pgAdmin 4', start=2026-06-13 13:14:09.958656, end=2026-06-13 13:14:23.964539, duration=0:00:14.005883.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:14:23] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:14:23] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='pgAdmin 4', ai_task_name='pgAdmin 4', status='In Progress', start_time=2026-06-13 13:14:09.958656, end_time=2026-06-13 13:14:23.964539, duration=14s.
+[2026-06-13 13:14:23] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:14:24] Activity inserted successfully: activity_id=2101, user_id=13, project='Unassigned Activities', task='pgAdmin 4', duration=14s.
+PostgreSQL activity insert: success
+[2026-06-13 13:14:24] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='pgAdmin 4'.
+[2026-06-13 13:14:40] Active window detected: 'Auto-start Issue Debugging - Google Chrome'
+[2026-06-13 13:14:40] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome', start=2026-06-13 13:14:24.005404, end=2026-06-13 13:14:40.011966, duration=0:00:16.006562.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:14:40] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:14:40] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Folder to ZIP Conversion - Google Chrome', ai_task_name='Folder to ZIP Conversion - Google Chrome', status='In Progress', start_time=2026-06-13 13:14:24.005404, end_time=2026-06-13 13:14:40.011966, duration=16s.
+[2026-06-13 13:14:40] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:14:40] Activity inserted successfully: activity_id=2102, user_id=13, project='Unassigned Activities', task='Folder to ZIP Conversion - Google Chrome', duration=16s.
+PostgreSQL activity insert: success
+[2026-06-13 13:14:40] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Folder to ZIP Conversion - Google Chrome'.
+[2026-06-13 13:15:00] Active window detected: 'activity_log.csv - productivity Tracker - Visual Studio Code'
+[2026-06-13 13:15:00] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 13:14:40.031208, end=2026-06-13 13:15:00.038305, duration=0:00:20.007097.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:15:00] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:15:00] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Auto-start Issue Debugging - Google Chrome', ai_task_name='Auto-start Issue Debugging - Google Chrome', status='In Progress', start_time=2026-06-13 13:14:40.031208, end_time=2026-06-13 13:15:00.038305, duration=20s.
+[2026-06-13 13:15:00] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:15:00] Activity inserted successfully: activity_id=2103, user_id=13, project='Unassigned Activities', task='Auto-start Issue Debugging - Google Chrome', duration=20s.
+PostgreSQL activity insert: success
+[2026-06-13 13:15:00] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.
+[2026-06-13 13:15:10] Active window detected: 'System tray overflow window.'
+[2026-06-13 13:15:10] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='activity_log.csv - productivity Tracker - Visual Studio Code', start=2026-06-13 13:15:00.061377, end=2026-06-13 13:15:10.073748, duration=0:00:10.012371.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:15:10] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:15:10] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='activity_log.csv', ai_task_name='Activity Log Module', status='In Progress', start_time=2026-06-13 13:15:00.061377, end_time=2026-06-13 13:15:10.073748, duration=10s.
+[2026-06-13 13:15:10] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:15:10] Activity inserted successfully: activity_id=2104, user_id=13, project='productivity Tracker', task='Activity Log Module', duration=10s.
+PostgreSQL activity insert: success
+[2026-06-13 13:15:10] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='activity_log.csv - productivity Tracker - Visual Studio Code'.
+[2026-06-13 13:15:24] Active window detected: 'activity_log.csv - productivity Tracker - Visual Studio Code'
+[2026-06-13 13:15:24] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='System tray overflow window.', start=2026-06-13 13:15:10.149068, end=2026-06-13 13:15:24.154115, duration=0:00:14.005047.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:15:24] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:15:24] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='System tray overflow window.', ai_task_name='System Tray Overflow Window', status='In Progress', start_time=2026-06-13 13:15:10.149068, end_time=2026-06-13 13:15:24.154115, duration=14s.
+[2026-06-13 13:15:24] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:15:24] Activity inserted successfully: activity_id=2105, user_id=13, project='Unassigned Activities', task='System Tray Overflow Window', duration=14s.
+PostgreSQL activity insert: success
+[2026-06-13 13:15:24] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='System tray overflow window.'.
+[2026-06-13 13:15:26] Active window detected: 'Auto-start Issue Debugging - Google Chrome'
+[2026-06-13 13:15:26] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='activity_log.csv - productivity Tracker - Visual Studio Code', start=2026-06-13 13:15:24.174266, end=2026-06-13 13:15:26.175787, duration=0:00:02.001521.
+[2026-06-13 13:15:26] Tracker save_session skipped short duration: 2.001521s, project='productivity Tracker', window='activity_log.csv - productivity Tracker - Visual Studio Code'.
+[2026-06-13 13:15:52] Active window detected: Unknown Window (blank foreground title).
+[2026-06-13 13:15:52] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 13:15:26.178906, end=2026-06-13 13:15:52.188073, duration=0:00:26.009167.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:15:52] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:15:52] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Auto-start Issue Debugging - Google Chrome', ai_task_name='Auto-start Issue Debugging - Google Chrome', status='In Progress', start_time=2026-06-13 13:15:26.178906, end_time=2026-06-13 13:15:52.188073, duration=26s.
+[2026-06-13 13:15:52] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:15:52] Activity inserted successfully: activity_id=2106, user_id=13, project='Unassigned Activities', task='Auto-start Issue Debugging - Google Chrome', duration=26s.
+PostgreSQL activity insert: success
+[2026-06-13 13:15:52] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.
+[2026-06-13 13:15:54] Active window detected: 'productivity Tracker - Antigravity IDE - Tracker Agent Architecture'
+[2026-06-13 13:15:54] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Unknown Window', start=2026-06-13 13:15:52.214889, end=2026-06-13 13:15:54.216560, duration=0:00:02.001671.
+[2026-06-13 13:15:54] Tracker save_session skipped short duration: 2.001671s, project='Unassigned Activities', window='Unknown Window'.
+[2026-06-13 13:16:02] Active window detected: 'Desktop - File Explorer'
+[2026-06-13 13:16:02] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='productivity Tracker - Antigravity IDE - Tracker Agent Architecture', start=2026-06-13 13:15:54.221133, end=2026-06-13 13:16:02.225159, duration=0:00:08.004026.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:16:02] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:16:02] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='productivity Tracker - Antigravity IDE - Tracker Agent Architecture', ai_task_name='Productivity Tracker Antigravity Ide Tracker Agent Architecture Module', status='In Progress', start_time=2026-06-13 13:15:54.221133, end_time=2026-06-13 13:16:02.225159, duration=8s.
+[2026-06-13 13:16:02] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:16:02] Activity inserted successfully: activity_id=2107, user_id=13, project='productivity Tracker', task='Productivity Tracker Antigravity Ide Tracker Agent Architecture Module', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:16:02] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='productivity Tracker - Antigravity IDE - Tracker Agent Architecture'.
+[2026-06-13 13:16:10] Active window detected: 'Discovered 1,401 items (183 MB)...'
+[2026-06-13 13:16:10] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Desktop - File Explorer', start=2026-06-13 13:16:02.259959, end=2026-06-13 13:16:10.275431, duration=0:00:08.015472.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:16:10] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:16:10] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Desktop - File Explorer', ai_task_name='Desktop - File Explorer', status='In Progress', start_time=2026-06-13 13:16:02.259959, end_time=2026-06-13 13:16:10.275431, duration=8s.
+[2026-06-13 13:16:10] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:16:10] Activity inserted successfully: activity_id=2108, user_id=13, project='Unassigned Activities', task='Desktop - File Explorer', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:16:10] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Desktop - File Explorer'.
+[2026-06-13 13:16:12] Active window detected: 'Discovered 6,150 items (373 MB)...'
+[2026-06-13 13:16:12] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Discovered 1,401 items (183 MB)...', start=2026-06-13 13:16:10.322161, end=2026-06-13 13:16:12.323968, duration=0:00:02.001807.
+[2026-06-13 13:16:12] Tracker save_session skipped short duration: 2.001807s, project='Unassigned Activities', window='Discovered 1,401 items (183 MB)...'.
+[2026-06-13 13:16:14] Active window detected: 'Discovered 13,470 items (406 MB)...'
+[2026-06-13 13:16:14] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Discovered 6,150 items (373 MB)...', start=2026-06-13 13:16:12.327198, end=2026-06-13 13:16:14.328673, duration=0:00:02.001475.
+[2026-06-13 13:16:14] Tracker save_session skipped short duration: 2.001475s, project='Unassigned Activities', window='Discovered 6,150 items (373 MB)...'.
+[2026-06-13 13:16:16] Active window detected: 'Discovered 22,279 items (481 MB)...'
+[2026-06-13 13:16:16] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Discovered 13,470 items (406 MB)...', start=2026-06-13 13:16:14.332528, end=2026-06-13 13:16:16.334604, duration=0:00:02.002076.
+[2026-06-13 13:16:16] Tracker save_session skipped short duration: 2.002076s, project='Unassigned Activities', window='Discovered 13,470 items (406 MB)...'.
+[2026-06-13 13:16:18] Active window detected: 'Discovered 29,213 items (700 MB)...'
+[2026-06-13 13:16:18] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Discovered 22,279 items (481 MB)...', start=2026-06-13 13:16:16.337073, end=2026-06-13 13:16:18.339030, duration=0:00:02.001957.
+[2026-06-13 13:16:18] Tracker save_session skipped short duration: 2.001957s, project='Unassigned Activities', window='Discovered 22,279 items (481 MB)...'.
+[2026-06-13 13:16:20] Active window detected: 'Discovered 38,577 items (953 MB)...'
+[2026-06-13 13:16:20] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Discovered 29,213 items (700 MB)...', start=2026-06-13 13:16:18.342087, end=2026-06-13 13:16:20.343202, duration=0:00:02.001115.
+[2026-06-13 13:16:20] Tracker save_session skipped short duration: 2.001115s, project='Unassigned Activities', window='Discovered 29,213 items (700 MB)...'.
+[2026-06-13 13:16:22] Active window detected: '0% complete'
+[2026-06-13 13:16:22] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Discovered 38,577 items (953 MB)...', start=2026-06-13 13:16:20.345350, end=2026-06-13 13:16:22.347005, duration=0:00:02.001655.
+[2026-06-13 13:16:22] Tracker save_session skipped short duration: 2.001655s, project='Unassigned Activities', window='Discovered 38,577 items (953 MB)...'.
+[2026-06-13 13:16:34] Active window detected: 'Desktop - File Explorer'
+[2026-06-13 13:16:34] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='0% complete', start=2026-06-13 13:16:22.350027, end=2026-06-13 13:16:34.354543, duration=0:00:12.004516.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:16:34] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:16:34] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='0% complete', ai_task_name='0% complete', status='In Progress', start_time=2026-06-13 13:16:22.350027, end_time=2026-06-13 13:16:34.354543, duration=12s.
+[2026-06-13 13:16:34] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:16:34] Activity inserted successfully: activity_id=2109, user_id=13, project='Unassigned Activities', task='0% complete', duration=12s.
+PostgreSQL activity insert: success
+[2026-06-13 13:16:34] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='0% complete'.
+[2026-06-13 13:16:42] Active window detected: 'productivity Tracker - Antigravity IDE - Tracker Agent Architecture'
+[2026-06-13 13:16:42] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Desktop - File Explorer', start=2026-06-13 13:16:34.379314, end=2026-06-13 13:16:42.382660, duration=0:00:08.003346.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:16:42] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:16:42] Attempting PostgreSQL activity insert: user_id=13, project_name='Unassigned Activities', file_name='Desktop - File Explorer', ai_task_name='Desktop - File Explorer', status='In Progress', start_time=2026-06-13 13:16:34.379314, end_time=2026-06-13 13:16:42.382660, duration=8s.
+[2026-06-13 13:16:42] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:16:42] Activity inserted successfully: activity_id=2110, user_id=13, project='Unassigned Activities', task='Desktop - File Explorer', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:16:42] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Desktop - File Explorer'.
+[2026-06-13 13:16:50] Active window detected: Unknown Window (blank foreground title).
+[2026-06-13 13:16:50] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='productivity Tracker - Antigravity IDE - Tracker Agent Architecture', start=2026-06-13 13:16:42.406044, end=2026-06-13 13:16:50.410511, duration=0:00:08.004467.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:16:50] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:16:50] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='productivity Tracker - Antigravity IDE - Tracker Agent Architecture', ai_task_name='Productivity Tracker Antigravity Ide Tracker Agent Architecture Module', status='In Progress', start_time=2026-06-13 13:16:42.406044, end_time=2026-06-13 13:16:50.410511, duration=8s.
+[2026-06-13 13:16:50] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:16:50] Activity inserted successfully: activity_id=2111, user_id=13, project='productivity Tracker', task='Productivity Tracker Antigravity Ide Tracker Agent Architecture Module', duration=8s.
+PostgreSQL activity insert: success
+[2026-06-13 13:16:50] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='productivity Tracker - Antigravity IDE - Tracker Agent Architecture'.
+[2026-06-13 13:16:52] Active window detected: 'productivity Tracker - Antigravity IDE - Tracker Agent Architecture'
+[2026-06-13 13:16:52] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='Unassigned Activities', window='Unknown Window', start=2026-06-13 13:16:50.434351, end=2026-06-13 13:16:52.436105, duration=0:00:02.001754.
+[2026-06-13 13:16:52] Tracker save_session skipped short duration: 2.001754s, project='Unassigned Activities', window='Unknown Window'.
+[2026-06-13 13:17:24] Active window detected: 'New notification'
+[2026-06-13 13:17:24] Tracker save_session requested: bridge_user_id=13, employee_id=2026INT1, project='productivity Tracker', window='productivity Tracker - Antigravity IDE - Tracker Agent Architecture', start=2026-06-13 13:16:52.438996, end=2026-06-13 13:17:24.451636, duration=0:00:32.012640.
+Calling PostgreSQL activity insert function
+[2026-06-13 13:17:24] Activity save resolved active bridge: user_id=13, employee_id=2026INT1, updated_at=2026-06-13T07:30:25.
+[2026-06-13 13:17:24] Attempting PostgreSQL activity insert: user_id=13, project_name='productivity Tracker', file_name='productivity Tracker - Antigravity IDE - Tracker Agent Architecture', ai_task_name='Productivity Tracker Antigravity Ide Tracker Agent Architecture Module', status='In Progress', start_time=2026-06-13 13:16:52.438996, end_time=2026-06-13 13:17:24.451636, duration=32s.
+[2026-06-13 13:17:24] PostgreSQL insert owner verified: user_id=13, employee_id=2026INT1, login_email=kks1@gmail.com.
+[2026-06-13 13:17:24] Activity inserted successfully: activity_id=2112, user_id=13, project='productivity Tracker', task='Productivity Tracker Antigravity Ide Tracker Agent Architecture Module', duration=32s.
+PostgreSQL activity insert: success
+[2026-06-13 13:17:24] Tracker PostgreSQL insert result: success, project='productivity Tracker', window='productivity Tracker - Antigravity IDE - Tracker Agent Architecture'.
+[2026-06-13 13:17:26] Active window detected: 'productivity Tracker - Antigravity IDE - Tracker Agent Architecture'

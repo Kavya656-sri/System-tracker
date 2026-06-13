@@ -260,3 +260,5 @@
 [2026-06-13 13:00:20] Login success: user_id=13, employee_id=2026INT1, email=kks1@gmail.com, role=employee.
 [2026-06-13 13:00:24] Tracker start requested: session_user_id=13, employee_id=2026INT1, active_bridge_user_id=12, tracker_pids=[].
 [2026-06-13 13:00:26] Tracker process started: pid=29164, user_id=13, employee_id=2026INT1.
+[2026-06-13 13:20:43] Active tracker bridge sync (api_login): 13 -> 14, employee_id=EMP_TEST_API.
+[2026-06-13 13:20:43] API Tracker Login success: user_id=14, employee_id=EMP_TEST_API, email=api_test_employee@company.com, role=employee.

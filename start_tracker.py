@@ -20,11 +20,14 @@ import threading
 # IMPORT MODULES
 # -----------------------------------------
 from tray_app import run_tray
+import requests
+from tkinter import simpledialog
+import json
+
 from activity_store import (
     MAX_RECORDED_IDLE_SECONDS,
     get_active_tracker_user,
     log_tracker_db,
-    save_tracked_activity,
     should_ignore_idle_activity,
 )
 
@@ -60,6 +63,158 @@ mouse_listener = None
 last_logged_active_window = None
 last_active_coding_task = None
 
+# -----------------------------------------
+# API CLIENT CONFIG & LOGIC
+# -----------------------------------------
+API_BASE_URL = "http://127.0.0.1:5000"
+SESSION_FILE = os.path.join(BASE_DIR, "tracker_session.json")
+api_session = requests.Session()
+api_authenticated = False
+last_heartbeat_time = None
+
+class LoginDialog(simpledialog.Dialog):
+    def body(self, master):
+        self.title("Productivity Tracker - Login")
+        tk.Label(master, text="Email:").grid(row=0, sticky="w")
+        tk.Label(master, text="Password:").grid(row=1, sticky="w")
+        
+        self.email_entry = tk.Entry(master, width=30)
+        self.pass_entry = tk.Entry(master, show="*", width=30)
+        
+        active_user = get_active_tracker_user()
+        if active_user and active_user.get("login_email"):
+            self.email_entry.insert(0, active_user.get("login_email"))
+            
+        self.email_entry.grid(row=0, column=1, padx=5, pady=5)
+        self.pass_entry.grid(row=1, column=1, padx=5, pady=5)
+        return self.email_entry
+
+    def apply(self):
+        self.email = self.email_entry.get().strip()
+        self.password = self.pass_entry.get()
+
+
+def prompt_credentials():
+    root = tk.Tk()
+    root.withdraw()
+    dialog = LoginDialog(root)
+    email = getattr(dialog, "email", None)
+    password = getattr(dialog, "password", None)
+    root.destroy()
+    return email, password
+
+
+def ensure_api_authenticated():
+    global api_authenticated, api_session
+    
+    if api_authenticated:
+        return True
+        
+    if os.path.exists(SESSION_FILE):
+        try:
+            with open(SESSION_FILE, "r") as f:
+                cookies_dict = json.load(f)
+            api_session.cookies.update(requests.utils.cookiejar_from_dict(cookies_dict))
+            
+            response = api_session.post(f"{API_BASE_URL}/api/tracker/heartbeat", json={"status": "verifying"}, timeout=3)
+            if response.status_code == 200 and response.json().get("success"):
+                api_authenticated = True
+                log_tracker_db("Authenticated using cached session cookies.")
+                return True
+        except Exception as e:
+            log_tracker_db(f"Failed to verify cached session: {e}")
+            
+    password = os.getenv("TRACKER_PASSWORD")
+    active_user = get_active_tracker_user()
+    email = active_user.get("login_email") if active_user else None
+    
+    if email and password:
+        try:
+            log_tracker_db(f"Attempting API login for {email} using environment credentials...")
+            response = api_session.post(f"{API_BASE_URL}/api/tracker/login", json={
+                "login_email": email,
+                "password": password
+            }, timeout=5)
+            if response.status_code == 200 and response.json().get("success"):
+                api_authenticated = True
+                cookies_dict = requests.utils.dict_from_cookiejar(api_session.cookies)
+                with open(SESSION_FILE, "w") as f:
+                    json.dump(cookies_dict, f)
+                log_tracker_db("API login successful using environment credentials.")
+                return True
+            else:
+                log_tracker_db(f"API login failed: {response.text}")
+        except Exception as e:
+            log_tracker_db(f"API login failed with exception: {e}")
+            
+    try:
+        email, password = prompt_credentials()
+        if email and password:
+            log_tracker_db(f"Attempting API login for {email} using prompted credentials...")
+            response = api_session.post(f"{API_BASE_URL}/api/tracker/login", json={
+                "login_email": email,
+                "password": password
+            }, timeout=5)
+            if response.status_code == 200 and response.json().get("success"):
+                api_authenticated = True
+                cookies_dict = requests.utils.dict_from_cookiejar(api_session.cookies)
+                with open(SESSION_FILE, "w") as f:
+                    json.dump(cookies_dict, f)
+                log_tracker_db("API login successful using prompted credentials.")
+                return True
+            else:
+                messagebox.showerror("Login Failed", "Invalid credentials or server error.")
+        else:
+            log_tracker_db("Login credentials prompt was cancelled.")
+    except Exception as e:
+        log_tracker_db(f"Prompt login failed with exception: {e}")
+        
+    return False
+
+
+def post_activity_to_api(project_name, window_title, file_name, start_time, end_time, duration):
+    duration_seconds = int(duration.total_seconds()) if hasattr(duration, "total_seconds") else int(duration)
+    
+    payload = {
+        "project_name": project_name,
+        "window_title": window_title,
+        "file_name": file_name or "",
+        "start_time": start_time.strftime("%Y-%m-%d %H:%M:%S") if hasattr(start_time, "strftime") else str(start_time),
+        "end_time": end_time.strftime("%Y-%m-%d %H:%M:%S") if hasattr(end_time, "strftime") else str(end_time),
+        "duration": duration_seconds
+    }
+    
+    try:
+        if not ensure_api_authenticated():
+            log_tracker_db("API activity post skipped: Not authenticated.")
+            return False
+            
+        url = f"{API_BASE_URL}/api/tracker/activity"
+        response = api_session.post(url, json=payload, timeout=5)
+        if response.status_code == 200:
+            return response.json().get("saved", False)
+        else:
+            log_tracker_db(f"API activity post failed: Status {response.status_code}")
+            return False
+    except Exception as e:
+        log_tracker_db(f"API activity post failed with exception: {e}")
+        return False
+
+
+def send_heartbeat():
+    global api_session
+    try:
+        url = f"{API_BASE_URL}/api/tracker/heartbeat"
+        response = api_session.post(url, json={"status": "tracking", "version": "1.0.0"}, timeout=3)
+        if response.status_code == 200:
+            log_tracker_db("Heartbeat acknowledged by server.")
+        else:
+            log_tracker_db(f"Heartbeat failed with status code: {response.status_code}")
+    except Exception as e:
+        log_tracker_db(f"Heartbeat failed: {e}")
+
+
+
 
 def write_tracker_pid():
     try:
@@ -83,23 +238,28 @@ def stop_requested():
 
 def require_authenticated_user():
     active_user = get_active_tracker_user()
-    if active_user:
-        role = str(active_user.get("role") or "").strip().lower()
-        if role != "employee":
-            log_tracker_db(
-                f"Tracker not started: active user role is not employee "
-                f"(user_id={active_user.get('user_id')}, role={role})."
-            )
-            return False
+    if not active_user:
+        print("Tracker not started: no authenticated dashboard session found.")
+        return False
+        
+    role = str(active_user.get("role") or "").strip().lower()
+    if role != "employee":
         log_tracker_db(
-            f"Tracker authenticated at startup: user_id={active_user.get('user_id')}, "
-            f"employee_id={active_user.get('employee_id')}, "
-            f"updated_at={active_user.get('updated_at')}."
+            f"Tracker not started: active user role is not employee "
+            f"(user_id={active_user.get('user_id')}, role={role})."
         )
-        return True
+        return False
 
-    print("Tracker not started: no authenticated dashboard session found.")
-    return False
+    if not ensure_api_authenticated():
+        log_tracker_db("Tracker not started: Failed to authenticate to API backend.")
+        return False
+
+    log_tracker_db(
+        f"Tracker authenticated at startup: user_id={active_user.get('user_id')}, "
+        f"employee_id={active_user.get('employee_id')}, "
+        f"updated_at={active_user.get('updated_at')}."
+    )
+    return True
 
 # -----------------------------------------
 # UPDATE USER ACTIVITY
@@ -545,8 +705,8 @@ def save_session(project, window, start, end):
         file.flush()
         os.fsync(file.fileno())
 
-    print("Calling PostgreSQL activity insert function")
-    db_saved = save_tracked_activity(
+    print("Calling central API activity insert function")
+    db_saved = post_activity_to_api(
         project_name=project,
         window_title=window,
         file_name=csv_file,
@@ -554,9 +714,9 @@ def save_session(project, window, start, end):
         end_time=end,
         duration=duration,
     )
-    print(f"PostgreSQL activity insert: {'success' if db_saved else 'skipped/failed'}")
+    print(f"Central API activity insert: {'success' if db_saved else 'skipped/failed'}")
     log_tracker_db(
-        f"Tracker PostgreSQL insert result: {'success' if db_saved else 'skipped/failed'}, "
+        f"Tracker API insert result: {'success' if db_saved else 'skipped/failed'}, "
         f"project={project!r}, window={window!r}."
     )
 
@@ -705,7 +865,16 @@ def start_tracking():
     # FIX: initialize loop timer
     last_loop_time = datetime.now()
 
+    global last_heartbeat_time
+    last_heartbeat_time = None
+
     while running and not stop_requested():
+        # Send heartbeat every 60 seconds
+        current_time = datetime.now()
+        if last_heartbeat_time is None or (current_time - last_heartbeat_time).total_seconds() >= 60:
+            send_heartbeat()
+            last_heartbeat_time = current_time
+
         if tracking_paused:
             last_loop_time = datetime.now()
             time.sleep(1)

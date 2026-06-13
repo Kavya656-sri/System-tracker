@@ -360,7 +360,7 @@ def start_manager_tray_for_user(user):
         return False
 
 
-def start_tracker_for_user(user):
+def start_tracker_for_user(user, password=None):
     global _tracker_process
 
     requested_user = user_to_session(user)
@@ -408,6 +408,8 @@ def start_tracker_for_user(user):
     clear_tracker_stop_request()
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
+    if password:
+        env["TRACKER_PASSWORD"] = password
     creationflags = subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0
 
     try:
@@ -752,7 +754,7 @@ def login():
                     log_auth_flow(f"Manager login: tracker auto-start skipped for user_id={user.id}.")
                     stop_tracker_safely()
                     start_manager_tray_for_user(user)
-                elif not start_tracker_for_user(user):
+                elif not start_tracker_for_user(user, password=password):
                     stop_manager_tray()
                     flash("Login succeeded, but the tracker could not be started automatically.", "error")
                 else:
