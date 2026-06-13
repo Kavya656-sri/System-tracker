@@ -52,7 +52,7 @@ last_loop_time = None
 
 last_activity_time = datetime.now()
 
-IDLE_THRESHOLD = 60  # seconds
+IDLE_THRESHOLD = 300  # seconds
 
 shutdown_done = False
 keyboard_listener = None

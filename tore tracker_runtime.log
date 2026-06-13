@@ -1,0 +1,55 @@
+[1mdiff --git a/tracker_runtime.log b/tracker_runtime.log[m
+[1mindex bae8cc1..7866cfe 100644[m
+[1m--- a/tracker_runtime.log[m
+[1m+++ b/tracker_runtime.log[m
+[36m@@ -16705,4 +16705,1618 @@[m [mCalling PostgreSQL activity insert function[m
+ PostgreSQL activity insert: success[m
+ [2026-06-13 10:26:37] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Mail - DevopsTeam - Outlook - Google Chrome'.[m
+ [2026-06-13 10:28:39] Active window detected: 'Codex'[m
+[31m-[2026-06-13 10:28:39] Tracker save_session requested: bridge_user_id=10, employee_id=2026INT03, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 10:26:37.922145, end=2026-06-13 10:28:39.972010, duration=0:02:02.049865.[m
+\ No newline at end of file[m
+[32m+[m[32m[2026-06-13 10:28:39] Tracker save_session requested: bridge_user_id=10, employee_id=2026INT03, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 10:26:37.922145, end=2026-06-13 10:28:39.972010, duration=0:02:02.049865.[2026-06-13 10:30:16] Tracker authenticated at startup: user_id=11, employee_id=096, updated_at=2026-06-13T05:00:13.[m
+[32m+[m[32mTRACKER STARTED[m
+[32m+[m[32mCSV: C:\Users\KAVYA SRI K\OneDrive\Desktop\productivity Tracker\activity_log.csv[m
+[32m+[m[32m[2026-06-13 10:30:16] Active window detected: 'System tray overflow window.'[m
+[32m+[m[32m[2026-06-13 10:30:18] Active window detected: Unknown Window (blank foreground title).[m
+[32m+[m[32m[2026-06-13 10:30:18] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='System tray overflow window.', start=2026-06-13 10:30:16.605085, end=2026-06-13 10:30:18.608353, duration=0:00:02.003268.[m
+[32m+[m[32m[2026-06-13 10:30:18] Tracker save_session skipped short duration: 2.003268s, project='Unassigned Activities', window='System tray overflow window.'.[m
+[32m+[m[32m[2026-06-13 10:30:20] Active window detected: 'System tray overflow window.'[m
+[32m+[m[32m[2026-06-13 10:30:20] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='Unknown Window', start=2026-06-13 10:30:18.610945, end=2026-06-13 10:30:20.613144, duration=0:00:02.002199.[m
+[32m+[m[32m[2026-06-13 10:30:20] Tracker save_session skipped short duration: 2.002199s, project='Unassigned Activities', window='Unknown Window'.[m
+[32m+[m[32m[2026-06-13 10:30:22] Active window detected: 'Auto-start Issue Debugging - Google Chrome'[m
+[32m+[m[32m[2026-06-13 10:30:22] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='System tray overflow window.', start=2026-06-13 10:30:20.615617, end=2026-06-13 10:30:22.617256, duration=0:00:02.001639.[m
+[32m+[m[32m[2026-06-13 10:30:22] Tracker save_session skipped short duration: 2.001639s, project='Unassigned Activities', window='System tray overflow window.'.[m
+[32m+[m[32m[2026-06-13 10:30:24] Active window detected: 'System tray overflow window.'[m
+[32m+[m[32m[2026-06-13 10:30:24] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 10:30:22.619572, end=2026-06-13 10:30:24.621407, duration=0:00:02.001835.[m
+[32m+[m[32m[2026-06-13 10:30:24] Tracker save_session skipped short duration: 2.001835s, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.[m
+[32m+[m[32m[2026-06-13 10:30:52] Active window detected: 'Codex'[m
+[32m+[m[32m[2026-06-13 10:30:52] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='System tray overflow window.', start=2026-06-13 10:30:24.625928, end=2026-06-13 10:30:52.635692, duration=0:00:28.009764.[m
+[32m+[m[32mCalling PostgreSQL activity insert function[m
+[32m+[m[32m[2026-06-13 10:30:52] Tracker PostgreSQL module loaded: database.py=C:\Users\KAVYA SRI K\OneDrive\Desktop\productivity Tracker\database.py[m
+[32m+[m[32m[2026-06-13 10:30:52] Activity save resolved active bridge: user_id=11, employee_id=096, updated_at=2026-06-13T05:00:13.[m
+[32m+[m[32m[2026-06-13 10:30:52] Attempting PostgreSQL activity insert: user_id=11, project_name='Unassigned Activities', file_name='System tray overflow window.', ai_task_name='System Tray Overflow Window', status='In Progress', start_time=2026-06-13 10:30:24.625928, end_time=2026-06-13 10:30:52.635692, duration=28s.[m
+[32m+[m[32m[2026-06-13 10:30:52] PostgreSQL insert owner verified: user_id=11, employee_id=096, login_email=saranakshaya359@gmail.com.[m
+[32m+[m[32m[2026-06-13 10:30:52] Activity inserted successfully: activity_id=1900, user_id=11, project='Unassigned Activities', task='System Tray Overflow Window', duration=28s.[m
+[32m+[m[32mPostgreSQL activity insert: success[m
+[32m+[m[32m[2026-06-13 10:30:52] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='System tray overflow window.'.[m
+[32m+[m[32m[2026-06-13 10:30:54] Active window detected: 'Auto-start Issue Debugging - Google Chrome'[m
+[32m+[m[32m[2026-06-13 10:30:54] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='Codex', start=2026-06-13 10:30:52.957499, end=2026-06-13 10:30:54.958770, duration=0:00:02.001271.[m
+[32m+[m[32m[2026-06-13 10:30:54] Tracker save_session skipped short duration: 2.001271s, project='Unassigned Activities', window='Codex'.[m
+[32m+[m[32m[2026-06-13 10:31:06] Active window detected: 'Search'[m
+[32m+[m[32m[2026-06-13 10:31:06] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome', start=2026-06-13 10:30:54.961132, end=2026-06-13 10:31:06.966636, duration=0:00:12.005504.[m
+[32m+[m[32mCalling PostgreSQL activity insert function[m
+[32m+[m[32m[2026-06-13 10:31:06] Activity save resolved active bridge: user_id=11, employee_id=096, updated_at=2026-06-13T05:00:13.[m
+[32m+[m[32m[2026-06-13 10:31:06] Attempting PostgreSQL activity insert: user_id=11, project_name='Unassigned Activities', file_name='Auto-start Issue Debugging - Google Chrome', ai_task_name='Auto-start Issue Debugging - Google Chrome', status='In Progress', start_time=2026-06-13 10:30:54.961132, end_time=2026-06-13 10:31:06.966636, duration=12s.[m
+[32m+[m[32m[2026-06-13 10:31:06] PostgreSQL insert owner verified: user_id=11, employee_id=096, login_email=saranakshaya359@gmail.com.[m
+[32m+[m[32m[2026-06-13 10:31:06] Activity inserted successfully: activity_id=1901, user_id=11, project='Unassigned Activities', task='Auto-start Issue Debugging - Google Chrome', duration=12s.[m
+[32m+[m[32mPostgreSQL activity insert: success[m
+[32m+[m[32m[2026-06-13 10:31:06] Tracker PostgreSQL insert result: success, project='Unassigned Activities', window='Auto-start Issue Debugging - Google Chrome'.[m
+[32m+[m[32m[2026-06-13 10:31:40] Active window detected: Unknown Window (blank foreground title).[m
+[32m+[m[32m[2026-06-13 10:31:41] Tracker save_session requested: bridge_user_id=11, employee_id=096, project='Unassigned Activities', window='Search', start=2026-06-13 10:31:06.984550, end=2026-06-13 10:31:41.000496, duration=0:00:34.015946.[m
+[32m+[m[32mCalling PostgreSQL activity insert function[m
+[32m+[m[32m[2026-06-13 10:31:41] Activity save resolved active bridge: user_id=11, employee_id=096, updated_at=2026-06-13T05:01:20.[m
+[32m+[m[32m[2026-06-13 10:31:41] Attempting PostgreSQL activity insert: user_id=11, project_name='Unassigned Activities', file_name='Search', ai_task_name='Search', status='In Progress', start_time=2026-06-13 10:31:06.984550, end_time=2026-06-13 10:31:41.000496, duration=34s.[m
+[32m+[m[32m[2026-06-13 10:31:41] PostgreSQL insert owner verified: user_id=11, employee_id=096, login_email=saranakshaya359@gmail.com.[m
+[32m+[m[32m[2026-06-13 10:31:41] Activity inserted successfully: activity_id=1902, user_id=11,

@@ -1,4 +1,4 @@
-﻿from flask import Flask, flash, g, jsonify, redirect, render_template, request, send_file, session, url_for
+from flask import Flask, flash, g, jsonify, redirect, render_template, request, send_file, session, url_for
 import bcrypt
 import html
 import pandas as pd
@@ -25,6 +25,7 @@ from activity_store import (
     load_user_activities_dataframe,
     normalize_existing_activity_projects,
     normalize_project_name_for_storage,
+    save_tracked_activity,
     set_active_tracker_user,
     should_ignore_idle_activity,
 )
@@ -155,6 +156,7 @@ AUTH_EXEMPT_ENDPOINTS = {
     "register",
     "health",
     "static",
+    "api_tracker_login",
 }
 
 
@@ -3898,6 +3900,159 @@ def api_reports_data():
         'projects': project_report,
         'apps': app_report
     })
+def parse_datetime(val):
+    if not val:
+        return None
+    if isinstance(val, datetime):
+        return val
+    clean_val = val.rstrip("Z")
+    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M:%S.%f", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%dT%H:%M:%S.%f"):
+        try:
+            return datetime.strptime(clean_val, fmt)
+        except ValueError:
+            continue
+    try:
+        dt = datetime.fromisoformat(val.replace("Z", "+00:00"))
+        if dt.tzinfo is not None:
+            dt = dt.replace(tzinfo=None)
+        return dt
+    except ValueError:
+        pass
+    return None
+
+
+@app.route("/api/tracker/login", methods=["POST"])
+def api_tracker_login():
+    try:
+        data = request.get_json(silent=True) or {}
+        login_email = normalize_login_email(data.get("login_email", ""))
+        password = str(data.get("password", ""))
+
+        if not login_email or not password:
+            return jsonify({"success": False, "error": "Login email and password are required."}), 400
+
+        with get_db_session() as db_session:
+            user = (
+                db_session.query(User)
+                .filter(User.login_email == login_email)
+                .first()
+            )
+
+            if not user:
+                return jsonify({"success": False, "error": "Invalid email."}), 401
+
+            if not verify_password(password, user.password_hash):
+                return jsonify({"success": False, "error": "Invalid password."}), 401
+
+            if str(user.role or "").strip().lower() != "employee":
+                return jsonify({"success": False, "error": "Access restricted to employees."}), 403
+
+            session.clear()
+            session.permanent = True
+            session["user_id"] = user.id
+            session["user_name"] = user.employee_name
+            session["employee_id"] = user.employee_id
+            session["employee_name"] = user.employee_name
+            session["login_email"] = user.login_email
+            session["role"] = user.role
+            
+            # Sync active tracker user info locally
+            sync_active_tracker_user(user, reason="api_login")
+
+            log_auth_flow(
+                f"API Tracker Login success: user_id={user.id}, employee_id={user.employee_id}, "
+                f"email={user.login_email}, role={user.role}."
+            )
+
+            return jsonify({
+                "success": True,
+                "user": {
+                    "id": user.id,
+                    "employee_name": user.employee_name,
+                    "employee_id": user.employee_id,
+                    "login_email": user.login_email,
+                    "role": user.role
+                }
+            })
+    except Exception as error:
+        print("API Tracker Login failed:", error)
+        return jsonify({"success": False, "error": "Server error during login."}), 500
+
+
+@app.route("/api/tracker/activity", methods=["POST"])
+@login_required
+def api_tracker_activity():
+    try:
+        # Enforce that logged in user is an employee
+        if str(g.current_user.role or "").strip().lower() != "employee":
+            return jsonify({"success": False, "error": "Access restricted to employees."}), 403
+
+        data = request.get_json(silent=True) or {}
+        project_name = data.get("project_name")
+        window_title = data.get("window_title")
+        file_name = data.get("file_name", "")
+        start_time_str = data.get("start_time")
+        end_time_str = data.get("end_time")
+        duration_val = data.get("duration")
+
+        if not project_name or not window_title:
+            return jsonify({"success": False, "error": "project_name and window_title are required."}), 400
+
+        start_time = parse_datetime(start_time_str)
+        end_time = parse_datetime(end_time_str)
+
+        if not start_time or not end_time:
+            return jsonify({"success": False, "error": "Invalid start_time or end_time format."}), 400
+
+        if duration_val is not None:
+            try:
+                duration = timedelta(seconds=float(duration_val))
+            except (ValueError, TypeError):
+                duration = end_time - start_time
+        else:
+            duration = end_time - start_time
+
+        db_saved = save_tracked_activity(
+            project_name=project_name,
+            window_title=window_title,
+            file_name=file_name,
+            start_time=start_time,
+            end_time=end_time,
+            duration=duration,
+            user_id=g.current_user.id
+        )
+
+        return jsonify({"success": True, "saved": db_saved})
+
+    except Exception as error:
+        print("API Tracker Activity save failed:", error)
+        return jsonify({"success": False, "error": "Server error during activity save."}), 500
+
+
+@app.route("/api/tracker/heartbeat", methods=["POST"])
+@login_required
+def api_tracker_heartbeat():
+    try:
+        # Enforce that logged in user is an employee
+        if str(g.current_user.role or "").strip().lower() != "employee":
+            return jsonify({"success": False, "error": "Access restricted to employees."}), 403
+
+        data = request.get_json(silent=True) or {}
+        client_status = data.get("status", "active")
+        client_version = data.get("version", "unknown")
+
+        print(f"Tracker heartbeat received: user_id={g.current_user.id}, status={client_status}, version={client_version}")
+
+        return jsonify({
+            "success": True,
+            "status": "active",
+            "server_time": datetime.utcnow().isoformat()
+        })
+    except Exception as error:
+        print("API Tracker Heartbeat failed:", error)
+        return jsonify({"success": False, "error": "Server error during heartbeat."}), 500
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000, host='0.0.0.0', use_reloader=False)
 
