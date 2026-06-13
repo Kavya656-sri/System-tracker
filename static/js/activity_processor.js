@@ -152,7 +152,8 @@
       return clean(task || sourceTask || app);
     }
 
-    return `${humanize(task || sourceTask || app)} Module`;
+    const normalizedTask = humanize(task || sourceTask || app).replace(/(?:\s+Module)+$/i, ' Module');
+    return normalizedTask.toLowerCase().endsWith(' module') ? normalizedTask : `${normalizedTask} Module`;
   }
 
   function parseDurationSeconds(value) {

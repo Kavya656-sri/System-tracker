@@ -169,3 +169,89 @@
 [2026-06-11 09:44:56] Login success: user_id=2, employee_id=INT202602, email=kavyakanagaraj2@gmail.com, role=employee.
 [2026-06-11 09:44:58] Tracker start requested: session_user_id=2, employee_id=INT202602, active_bridge_user_id=None, tracker_pids=[].
 [2026-06-11 09:45:03] Tracker process started: pid=23700, user_id=2, employee_id=INT202602.
+[2026-06-11 11:58:10] Logout requested: session_user_id=2, employee_id=INT202602, role=employee.
+[2026-06-11 11:58:12] Tracker stop requested: bridge_user_id=2, employee_id=INT202602, pid_file=13136, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-11 11:58:14] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-11 11:58:25] Login success: user_id=2, employee_id=INT202602, email=kavyakanagaraj2@gmail.com, role=employee.
+[2026-06-11 11:58:26] Tracker start requested: session_user_id=2, employee_id=INT202602, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-11 11:58:28] Tracker process started: pid=1028, user_id=2, employee_id=INT202602.
+[2026-06-11 13:06:20] Logout requested: session_user_id=2, employee_id=INT202602, role=employee.
+[2026-06-11 13:06:21] Tracker stop requested: bridge_user_id=2, employee_id=INT202602, pid_file=None, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-11 13:06:23] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-11 13:06:37] Login success: user_id=2, employee_id=INT202602, email=kavyakanagaraj2@gmail.com, role=employee.
+[2026-06-11 13:06:37] Tracker start requested: session_user_id=2, employee_id=INT202602, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-11 13:06:39] Tracker process started: pid=22620, user_id=2, employee_id=INT202602.
+[2026-06-11 14:46:35] Logout requested: session_user_id=2, employee_id=INT202602, role=employee.
+[2026-06-11 14:46:36] Tracker stop requested: bridge_user_id=2, employee_id=INT202602, pid_file=None, tracker_pids=[22620, 23776], clear_bridge=True, force_all=False.
+[2026-06-11 14:46:39] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-11 14:53:27] Login success: user_id=2, employee_id=INT202602, email=kavyakanagaraj2@gmail.com, role=employee.
+[2026-06-11 14:53:28] Tracker start requested: session_user_id=2, employee_id=INT202602, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-11 14:53:30] Tracker process started: pid=20684, user_id=2, employee_id=INT202602.
+[2026-06-11 15:19:05] Login success: user_id=7, employee_id=INT2026200, email=devopsteam@kambaa.in, role=employee.
+[2026-06-11 15:19:07] Tracker start requested: session_user_id=7, employee_id=INT2026200, active_bridge_user_id=2, tracker_pids=[20684, 20964].
+[2026-06-11 15:19:07] User switch detected. Stopping tracker for bridge user_id=2 before starting user_id=7.
+[2026-06-11 15:19:08] Tracker stop requested: bridge_user_id=2, employee_id=INT202602, pid_file=20964, tracker_pids=[20684, 20964], clear_bridge=False, force_all=False.
+[2026-06-11 15:19:12] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-11 15:19:13] Tracker process started: pid=24240, user_id=7, employee_id=INT2026200.
+[2026-06-11 15:23:01] Logout requested: session_user_id=7, employee_id=INT2026200, role=employee.
+[2026-06-11 15:23:02] Tracker stop requested: bridge_user_id=7, employee_id=INT2026200, pid_file=18140, tracker_pids=[18140, 24240], clear_bridge=True, force_all=False.
+[2026-06-11 15:23:06] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-11 15:23:25] Login success: user_id=7, employee_id=INT2026200, email=devopsteam@kambaa.in, role=employee.
+[2026-06-11 15:23:26] Tracker start requested: session_user_id=7, employee_id=INT2026200, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-11 15:23:28] Tracker process started: pid=13372, user_id=7, employee_id=INT2026200.
+[2026-06-11 15:39:19] Active tracker bridge sync (request): 7 -> 2, employee_id=INT202602.
+[2026-06-11 16:02:52] Logout requested: session_user_id=2, employee_id=INT202602, role=employee.
+[2026-06-11 16:02:53] Tracker stop requested: bridge_user_id=2, employee_id=INT202602, pid_file=5652, tracker_pids=[5652, 13372], clear_bridge=True, force_all=False.
+[2026-06-11 16:02:59] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-11 16:03:14] Login success: user_id=4, employee_id=INT202603, email=kavyakanagaraj3@gmail.com, role=employee.
+[2026-06-11 16:03:15] Tracker start requested: session_user_id=4, employee_id=INT202603, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-11 16:03:17] Tracker process started: pid=26412, user_id=4, employee_id=INT202603.
+[2026-06-11 18:19:52] Logout requested: session_user_id=4, employee_id=INT202603, role=employee.
+[2026-06-11 18:19:54] Tracker stop requested: bridge_user_id=4, employee_id=INT202603, pid_file=None, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-11 18:19:57] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 09:56:23] Login success: user_id=8, employee_id=2026INT01, email=kavyask@gmail.com, role=employee.
+[2026-06-13 09:56:25] Tracker start requested: session_user_id=8, employee_id=2026INT01, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-13 09:56:27] Tracker process started: pid=13128, user_id=8, employee_id=2026INT01.
+[2026-06-13 09:59:21] Logout requested: session_user_id=8, employee_id=2026INT01, role=employee.
+[2026-06-13 09:59:22] Tracker stop requested: bridge_user_id=8, employee_id=2026INT01, pid_file=12548, tracker_pids=[12548, 13128], clear_bridge=True, force_all=False.
+[2026-06-13 09:59:26] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 10:01:06] Login success: user_id=9, employee_id=2026INT02, email=kavyaks@gmail.com, role=employee.
+[2026-06-13 10:01:07] Tracker start requested: session_user_id=9, employee_id=2026INT02, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-13 10:01:10] Tracker process started: pid=10964, user_id=9, employee_id=2026INT02.
+[2026-06-13 10:08:17] Logout requested: session_user_id=9, employee_id=2026INT02, role=employee.
+[2026-06-13 10:08:18] Tracker stop requested: bridge_user_id=9, employee_id=2026INT02, pid_file=2788, tracker_pids=[2788, 10964], clear_bridge=True, force_all=False.
+[2026-06-13 10:08:24] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 10:09:53] Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 10:09:54] Tracker start requested: session_user_id=10, employee_id=2026INT03, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-13 10:09:56] Tracker process started: pid=22356, user_id=10, employee_id=2026INT03.
+[2026-06-13 10:23:16] Login success: user_id=11, employee_id=096, email=saranakshaya359@gmail.com, role=employee.
+[2026-06-13 10:23:18] Tracker start requested: session_user_id=11, employee_id=096, active_bridge_user_id=10, tracker_pids=[22356, 24004].
+[2026-06-13 10:23:18] User switch detected. Stopping tracker for bridge user_id=10 before starting user_id=11.
+[2026-06-13 10:23:19] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=24004, tracker_pids=[22356, 24004], clear_bridge=False, force_all=False.
+[2026-06-13 10:23:23] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 10:23:24] Tracker process started: pid=25356, user_id=11, employee_id=096.
+[2026-06-13 10:24:06] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 10:24:13] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 10:24:22] Logout requested: session_user_id=11, employee_id=096, role=employee.
+[2026-06-13 10:24:23] Tracker stop requested: bridge_user_id=11, employee_id=096, pid_file=324, tracker_pids=[324, 25356], clear_bridge=True, force_all=False.
+[2026-06-13 10:24:27] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 10:24:58] Login success: user_id=11, employee_id=096, email=saranakshaya359@gmail.com, role=employee.
+[2026-06-13 10:24:59] Tracker start requested: session_user_id=11, employee_id=096, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-13 10:25:01] Tracker process started: pid=11348, user_id=11, employee_id=096.
+[2026-06-13 10:25:07] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 10:25:16] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 10:26:08] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 10:26:09] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 10:27:09] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 10:27:11] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 10:28:10] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 10:29:58] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 10:30:02] Logout requested: session_user_id=11, employee_id=096, role=employee.
+[2026-06-13 10:30:03] Tracker stop requested: bridge_user_id=11, employee_id=096, pid_file=None, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-13 10:30:04] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 10:30:11] Login success: user_id=11, employee_id=096, email=saranakshaya359@gmail.com, role=employee.
+[2026-06-13 10:30:11] Tracker start requested: session_user_id=11, employee_id=096, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-13 10:30:12] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 10:30:13] Tracker process started: pid=12696, user_id=11, employee_id=096.
+[2026-06-13 10:31:13] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 10:31:20] Active tracker bridge sync (request): 10 -> 11, employee_id=096.

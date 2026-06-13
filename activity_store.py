@@ -137,6 +137,10 @@ MEANINGLESS_ACTIVITY_LABELS = {
     "search",
 }
 
+SYSTEM_PROJECT_LABELS = {
+    "system32",
+}
+
 INVALID_PROJECT_LABELS = MEANINGLESS_ACTIVITY_LABELS | {
     "browser work",
     "chrome",
@@ -170,7 +174,7 @@ INVALID_PROJECT_LABELS = MEANINGLESS_ACTIVITY_LABELS | {
     "system idle",
     "unassigned activities",
     "other",
-}
+} | SYSTEM_PROJECT_LABELS
 
 
 def log_tracker_db(message):
@@ -331,6 +335,8 @@ def normalize_project_name_for_storage(project_name, file_name="", ai_task_name=
         return os.path.basename(BASE_DIR) or "productivity Tracker"
     if project_name.upper() in {"IDLE", "SYSTEM IDLE"}:
         return "IDLE"
+    if _project_key(project_name) in SYSTEM_PROJECT_LABELS:
+        return "Unassigned Activities"
     if _is_unassigned_activity(project_name, file_name, ai_task_name):
         return "Unassigned Activities"
     if project_name.lower().strip(" .") in {"other", "sleep", "system sleep", "unknown", *MEANINGLESS_ACTIVITY_LABELS}:
@@ -570,13 +576,28 @@ def save_tracked_activity(
                 f"PostgreSQL insert owner verified: user_id={user.id}, "
                 f"employee_id={user.employee_id}, login_email={user.login_email}."
             )
+            is_project_activity = (
+                project_name not in {"IDLE", "Unassigned Activities"}
+                and is_valid_project_label(project_name)
+                and bool(_clean_name(ai_task_name))
+            )
+            if is_project_activity:
+                project = _get_or_create_project(db_session, resolved_user_id, project_name)
+                task = _get_or_create_task(
+                    db_session,
+                    resolved_user_id,
+                    project.id,
+                    ai_task_name,
+                    status,
+                )
+                task.duration = int(task.duration or 0) + duration_seconds
             activity = Activity(
                 user_id=int(resolved_user_id),
                 project_name=project_name,
                 file_name=file_name,
                 ai_task_name=ai_task_name,
                 status=status,
-                is_assigned=False,
+                is_assigned=is_project_activity,
                 start_time=start_time,
                 end_time=end_time,
                 duration=duration_seconds,
