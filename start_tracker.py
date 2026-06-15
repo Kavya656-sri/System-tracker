@@ -28,6 +28,7 @@ from activity_store import (
     MAX_RECORDED_IDLE_SECONDS,
     get_active_tracker_user,
     log_tracker_db,
+    set_active_tracker_user,
     should_ignore_idle_activity,
 )
 
@@ -66,7 +67,62 @@ last_active_coding_task = None
 # -----------------------------------------
 # API CLIENT CONFIG & LOGIC
 # -----------------------------------------
-API_BASE_URL = "http://127.0.0.1:5000"
+# -----------------------------------------
+# API CLIENT CONFIG & URL RESOLUTION
+# -----------------------------------------
+# Configuration file for storing the server URL
+CONFIG_FILE = os.path.join(BASE_DIR, "tracker_config.json")
+
+def _resolve_server_url():
+    """Determine the tracker server base URL.
+
+    Priority order:
+      1. Environment variable TRACKER_SERVER_URL
+      2. ``tracker_config.json`` file (key ``server_url``)
+      3. Prompt the user via a simple dialog (saved for next runs)
+    The returned URL must not end with a trailing slash.
+    """
+    # 1. Environment variable
+    env_url = os.getenv("TRACKER_SERVER_URL")
+    if env_url:
+        return env_url.rstrip('/')
+
+    # 2. Config file
+    if os.path.exists(CONFIG_FILE):
+        try:
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+            url = cfg.get("server_url")
+            if url:
+                return url.rstrip('/')
+        except Exception as e:
+            log_tracker_db(f"Failed to read tracker config: {e}")
+
+    # 3. Prompt the user – loop until a non‑empty value is supplied
+    while True:
+        root = tk.Tk()
+        root.withdraw()
+        prompt_url = simpledialog.askstring(
+            "Tracker Server URL",
+            "Enter the Tracker server base URL (e.g., https://abcd.ngrok.io):",
+        )
+        root.destroy()
+        if prompt_url:
+            prompt_url = prompt_url.strip().rstrip('/')
+            # Persist for future runs
+            try:
+                with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+                    json.dump({"server_url": prompt_url}, f, ensure_ascii=True, indent=2)
+            except Exception as e:
+                log_tracker_db(f"Failed to write tracker config: {e}")
+            return prompt_url
+        else:
+            messagebox.showerror("Invalid URL", "Server URL cannot be empty.")
+
+# Resolve once at import time – all later code uses this constant
+API_BASE_URL = _resolve_server_url()
+
+# Session handling files (cookies + user data)
 SESSION_FILE = os.path.join(BASE_DIR, "tracker_session.json")
 api_session = requests.Session()
 api_authenticated = False
@@ -104,72 +160,132 @@ def prompt_credentials():
     return email, password
 
 
+def _save_session_data(user_data):
+    """Persist cookies + user identity to tracker_session.json."""
+    try:
+        cookies_dict = requests.utils.dict_from_cookiejar(api_session.cookies)
+        session_data = {
+            "cookies": cookies_dict,
+            "user": user_data,
+        }
+        with open(SESSION_FILE, "w", encoding="utf-8") as f:
+            json.dump(session_data, f, ensure_ascii=True, indent=2)
+    except Exception as e:
+        log_tracker_db(f"Failed to save session data: {e}")
+
+
+def _load_session_data():
+    """Load cookies + user identity from tracker_session.json. Returns user dict or None."""
+    try:
+        with open(SESSION_FILE, "r", encoding="utf-8") as f:
+            session_data = json.load(f)
+        cookies_dict = session_data.get("cookies", {})
+        api_session.cookies.update(requests.utils.cookiejar_from_dict(cookies_dict))
+        return session_data.get("user")
+    except Exception as e:
+        log_tracker_db(f"Failed to load session data: {e}")
+        return None
+
+
 def ensure_api_authenticated():
+    """Authenticate against the central API.
+
+    Priority order:
+      1. Already authenticated in this process.
+      2. Valid cached session in tracker_session.json (verified via heartbeat).
+      3. TRACKER_PASSWORD environment variable + email from active_tracker_user.json.
+      4. Tkinter login dialog (always shown when standalone).
+
+    On every successful path, user identity is written to active_tracker_user.json
+    so that the role-check that follows can always find a valid user record.
+    """
     global api_authenticated, api_session
-    
+
     if api_authenticated:
         return True
-        
+
+    # ------------------------------------------------------------------
+    # Path 1: Restore cached session from tracker_session.json
+    # ------------------------------------------------------------------
     if os.path.exists(SESSION_FILE):
-        try:
-            with open(SESSION_FILE, "r") as f:
-                cookies_dict = json.load(f)
-            api_session.cookies.update(requests.utils.cookiejar_from_dict(cookies_dict))
-            
-            response = api_session.post(f"{API_BASE_URL}/api/tracker/heartbeat", json={"status": "verifying"}, timeout=3)
-            if response.status_code == 200 and response.json().get("success"):
-                api_authenticated = True
-                log_tracker_db("Authenticated using cached session cookies.")
-                return True
-        except Exception as e:
-            log_tracker_db(f"Failed to verify cached session: {e}")
-            
-    password = os.getenv("TRACKER_PASSWORD")
+        cached_user = _load_session_data()
+        if cached_user:
+            try:
+                response = api_session.post(
+                    f"{API_BASE_URL}/api/tracker/heartbeat",
+                    json={"status": "verifying"},
+                    timeout=3,
+                )
+                if response.status_code == 200 and response.json().get("success"):
+                    api_authenticated = True
+                    # Restore local identity so the role-check works
+                    set_active_tracker_user(cached_user)
+                    log_tracker_db("Authenticated using cached session cookies.")
+                    return True
+                else:
+                    log_tracker_db("Cached session rejected by server; will re-authenticate.")
+            except Exception as e:
+                log_tracker_db(f"Failed to verify cached session: {e}")
+
+    # ------------------------------------------------------------------
+    # Path 2: Environment variable credentials
+    # ------------------------------------------------------------------
+    env_password = os.getenv("TRACKER_PASSWORD")
     active_user = get_active_tracker_user()
-    email = active_user.get("login_email") if active_user else None
-    
-    if email and password:
+    env_email = active_user.get("login_email") if active_user else None
+
+    if env_email and env_password:
         try:
-            log_tracker_db(f"Attempting API login for {email} using environment credentials...")
-            response = api_session.post(f"{API_BASE_URL}/api/tracker/login", json={
-                "login_email": email,
-                "password": password
-            }, timeout=5)
+            log_tracker_db(f"Attempting API login for {env_email} using environment credentials...")
+            response = api_session.post(
+                f"{API_BASE_URL}/api/tracker/login",
+                json={"login_email": env_email, "password": env_password},
+                timeout=5,
+            )
             if response.status_code == 200 and response.json().get("success"):
+                user_data = response.json()["user"]
                 api_authenticated = True
-                cookies_dict = requests.utils.dict_from_cookiejar(api_session.cookies)
-                with open(SESSION_FILE, "w") as f:
-                    json.dump(cookies_dict, f)
+                set_active_tracker_user(user_data)
+                _save_session_data(user_data)
                 log_tracker_db("API login successful using environment credentials.")
                 return True
             else:
                 log_tracker_db(f"API login failed: {response.text}")
         except Exception as e:
             log_tracker_db(f"API login failed with exception: {e}")
-            
+
+    # ------------------------------------------------------------------
+    # Path 3: Tkinter login dialog (standalone / fallback)
+    # ------------------------------------------------------------------
     try:
-        email, password = prompt_credentials()
-        if email and password:
-            log_tracker_db(f"Attempting API login for {email} using prompted credentials...")
-            response = api_session.post(f"{API_BASE_URL}/api/tracker/login", json={
-                "login_email": email,
-                "password": password
-            }, timeout=5)
+        dialog_email, dialog_password = prompt_credentials()
+        if dialog_email and dialog_password:
+            log_tracker_db(f"Attempting API login for {dialog_email} using prompted credentials...")
+            response = api_session.post(
+                f"{API_BASE_URL}/api/tracker/login",
+                json={"login_email": dialog_email, "password": dialog_password},
+                timeout=5,
+            )
             if response.status_code == 200 and response.json().get("success"):
+                user_data = response.json()["user"]
                 api_authenticated = True
-                cookies_dict = requests.utils.dict_from_cookiejar(api_session.cookies)
-                with open(SESSION_FILE, "w") as f:
-                    json.dump(cookies_dict, f)
+                set_active_tracker_user(user_data)
+                _save_session_data(user_data)
                 log_tracker_db("API login successful using prompted credentials.")
                 return True
             else:
-                messagebox.showerror("Login Failed", "Invalid credentials or server error.")
+                messagebox.showerror(
+                    "Login Failed",
+                    "Invalid credentials. Please try again.",
+                )
+                log_tracker_db(f"API login failed for prompted credentials: {response.text}")
         else:
-            log_tracker_db("Login credentials prompt was cancelled.")
+            log_tracker_db("Login credentials prompt was cancelled by the user.")
     except Exception as e:
         log_tracker_db(f"Prompt login failed with exception: {e}")
-        
+
     return False
+
 
 
 def post_activity_to_api(project_name, window_title, file_name, start_time, end_time, duration):
@@ -237,21 +353,34 @@ def stop_requested():
 
 
 def require_authenticated_user():
+    """Gate that must pass before tracking starts.
+
+    New order (post-migration):
+      1. ensure_api_authenticated() — runs first, no JSON file required.
+         On success it writes active_tracker_user.json via set_active_tracker_user().
+      2. get_active_tracker_user() — reads the file just written to confirm role.
+
+    active_tracker_user.json is now a *result* of authentication, not a prerequisite.
+    """
+    # Step 1: authenticate against the central API (dialog shown if no session cached)
+    if not ensure_api_authenticated():
+        log_tracker_db("Tracker not started: Failed to authenticate to API backend.")
+        return False
+
+    # Step 2: read the identity that ensure_api_authenticated() just wrote
     active_user = get_active_tracker_user()
     if not active_user:
-        print("Tracker not started: no authenticated dashboard session found.")
-        return False
-        
-    role = str(active_user.get("role") or "").strip().lower()
-    if role != "employee":
         log_tracker_db(
-            f"Tracker not started: active user role is not employee "
-            f"(user_id={active_user.get('user_id')}, role={role})."
+            "Tracker not started: user identity unavailable after API authentication."
         )
         return False
 
-    if not ensure_api_authenticated():
-        log_tracker_db("Tracker not started: Failed to authenticate to API backend.")
+    role = str(active_user.get("role") or "").strip().lower()
+    if role != "employee":
+        log_tracker_db(
+            f"Tracker not started: authenticated user is not an employee "
+            f"(user_id={active_user.get('user_id')}, role={role})."
+        )
         return False
 
     log_tracker_db(
@@ -275,31 +404,47 @@ def update_activity(*args):
 # -----------------------------------------
 def get_active_window():
     global last_logged_active_window
+    window = ""
 
-    if win32gui:
+    try:
+        import pygetwindow as gw
+        window = gw.getActiveWindowTitle()
+    except Exception:
+        pass
 
-        window = win32gui.GetWindowText(
+    if not window or not str(window).strip():
+        if win32gui:
+            try:
+                hwnd = win32gui.GetForegroundWindow()
+                if hwnd:
+                    window = win32gui.GetWindowText(hwnd)
+            except Exception:
+                pass
 
-            win32gui.GetForegroundWindow()
+    if not window or not str(window).strip():
+        try:
+            import ctypes
+            hwnd = ctypes.windll.user32.GetForegroundWindow()
+            if hwnd:
+                length = ctypes.windll.user32.GetWindowTextLengthW(hwnd)
+                buf = ctypes.create_unicode_buffer(length + 1)
+                ctypes.windll.user32.GetWindowTextW(hwnd, buf, length + 1)
+                window = buf.value
+        except Exception:
+            pass
 
-        )
+    window = str(window).strip() if window else ""
 
-        if not window.strip():
+    if not window:
+        if last_logged_active_window != "Unknown Window":
+            log_tracker_db("Active window detected: Unknown Window (blank foreground title).")
+            last_logged_active_window = "Unknown Window"
+        return "Unknown Window"
 
-            if last_logged_active_window != "Unknown Window":
-                log_tracker_db("Active window detected: Unknown Window (blank foreground title).")
-                last_logged_active_window = "Unknown Window"
-            return "Unknown Window"
-
-        if last_logged_active_window != window:
-            log_tracker_db(f"Active window detected: {window!r}")
-            last_logged_active_window = window
-        return window
-
-    if last_logged_active_window != "Unknown Window":
-        log_tracker_db("Active window detected: Unknown Window (win32gui unavailable).")
-        last_logged_active_window = "Unknown Window"
-    return "Unknown Window"
+    if last_logged_active_window != window:
+        log_tracker_db(f"Active window detected: {window!r}")
+        last_logged_active_window = window
+    return window
 
 # -----------------------------------------
 # PROJECT CLASSIFICATION

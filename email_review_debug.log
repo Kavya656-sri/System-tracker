@@ -19043,3 +19043,3655 @@ Unassigned activities: 4
 Target task ID/name: None
 Activity IDs being merged: []
 ============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:57
+Step: api_email_tasks enter
+User ID: 13
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:57
+Step: build_email_review_rows enter
+User ID: 13
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:57
+Step: load_tasks_data missing file
+User ID: 13
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_13.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:57
+Step: build_email_review_rows enter
+User ID: 13
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:58
+Step: build_email_review_rows generated defaults
+User ID: 13
+Review task rows: 5
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:58
+Step: build_email_review_rows return
+User ID: 13
+Review task rows: 5
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:58
+Step: api_email_tasks return
+User ID: 13
+Review task rows: 5
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:58
+Step: build_email_review_rows generated defaults
+User ID: 13
+Review task rows: 5
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:58
+Step: build_email_review_rows applied saved state
+User ID: 13
+Review task rows: 5
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 14:10:58
+Step: build_email_review_rows return
+User ID: 13
+Review task rows: 5
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:27
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:27
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:27
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:27
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:28
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 3
+Unassigned activities: 9
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:28
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 3
+Unassigned activities: 9
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:28
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 3
+Unassigned activities: 9
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:28
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 3
+Unassigned activities: 9
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:12:28
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:43
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:43
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:44
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:44
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:45
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 3
+Unassigned activities: 11
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:45
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 3
+Unassigned activities: 11
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:45
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 3
+Unassigned activities: 11
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:45
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 3
+Unassigned activities: 11
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:19:45
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:08
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:09
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:09
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:10
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:11
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:11
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:11
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:11
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:31:11
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:54
+Step: api_email_tasks enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:54
+Step: build_email_review_rows enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:55
+Step: load_tasks_data missing file
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_11.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:55
+Step: build_email_review_rows enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:56
+Step: build_email_review_rows generated defaults
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:56
+Step: build_email_review_rows return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:57
+Step: api_email_tasks return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:57
+Step: build_email_review_rows generated defaults
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:57
+Step: build_email_review_rows applied saved state
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:42:57
+Step: build_email_review_rows return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:03
+Step: api_email_tasks enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:03
+Step: build_email_review_rows enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:04
+Step: load_tasks_data missing file
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_11.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:04
+Step: build_email_review_rows enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:05
+Step: build_email_review_rows generated defaults
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:05
+Step: build_email_review_rows return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:05
+Step: api_email_tasks return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:06
+Step: build_email_review_rows generated defaults
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:06
+Step: build_email_review_rows applied saved state
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:06
+Step: build_email_review_rows return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:48
+Step: api_email_tasks enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:48
+Step: build_email_review_rows enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:49
+Step: load_tasks_data missing file
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_11.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:49
+Step: build_email_review_rows enter
+User ID: 11
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:50
+Step: build_email_review_rows generated defaults
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:50
+Step: build_email_review_rows return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:50
+Step: api_email_tasks return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:51
+Step: build_email_review_rows generated defaults
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:51
+Step: build_email_review_rows applied saved state
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:43:51
+Step: build_email_review_rows return
+User ID: 11
+Review task rows: 4
+Unassigned activities: 31
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: api_email_tasks enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: load_tasks_data missing file
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_15.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: api_email_tasks return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows applied saved state
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:47:08
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: api_email_tasks enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: load_tasks_data missing file
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_15.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: api_email_tasks return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: build_email_review_rows applied saved state
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:15
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: api_email_tasks enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: load_tasks_data missing file
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_15.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: api_email_tasks return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows applied saved state
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:17
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: api_email_tasks enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: load_tasks_data missing file
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_15.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows enter
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: api_email_tasks return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows generated defaults
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows applied saved state
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 15:48:25
+Step: build_email_review_rows return
+User ID: 15
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:36
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:36
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:38
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:38
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:39
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 4
+Unassigned activities: 18
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:39
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 4
+Unassigned activities: 18
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:39
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 4
+Unassigned activities: 18
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:40
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 4
+Unassigned activities: 18
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 16:23:40
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: api_email_tasks enter
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows enter
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: load_tasks_data missing file
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_18.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows enter
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows generated defaults
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows generated defaults
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows return
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows applied saved state
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: api_email_tasks return
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-13 17:22:36
+Step: build_email_review_rows return
+User ID: 18
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:14
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:14
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:15
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:15
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:16
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:16
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:16
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:16
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:21:16
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:12
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:12
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:13
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:13
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:15
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:15
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:15
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:15
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:15
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:18
+Step: api_email_tasks enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:18
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:19
+Step: load_tasks_data loaded dict
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_10.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:19
+Step: build_email_review_rows enter
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:20
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:21
+Step: build_email_review_rows return
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:21
+Step: build_email_review_rows generated defaults
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:21
+Step: api_email_tasks return
+User ID: 10
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 10:23:21
+Step: build_email_review_rows returning saved rows
+User ID: 10
+Review task rows: 2
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 11:51:26
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:10
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:16
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:16
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:16
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:16
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:17
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:17
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:17
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:17
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:17
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:17
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:15:55
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:13
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:16:33
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:05
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:06
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:06
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:06
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:07
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 0
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:07
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:07
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 0
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:07
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 1
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:07
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 1
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:07
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 1
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:30
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:30
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:31
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:31
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:31
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:31
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 3
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:31
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:32
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:32
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:46:32
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 1
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:11
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:12
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:12
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:12
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:13
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 2
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:13
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 2
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:13
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 2
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:13
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 2
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:13
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 3
+Unassigned activities: 2
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:51:13
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 2
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:55
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:55
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:56
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:56
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:56
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:56
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:56
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:57
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:57
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 3
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 12:57:57
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:44
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:44
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:45
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:45
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:45
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:46
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:46
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:46
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 3
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:46
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 3
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:04:46
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 3
+Unassigned activities: 7
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:39
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:39
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:44:40
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 16
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:51
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:51
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:52
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:52
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:52
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 20
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:52
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 20
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:52
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 20
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:53
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 20
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:53
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 4
+Unassigned activities: 20
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 13:59:53
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 20
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:31
+Step: api_email_tasks enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:31
+Step: build_email_review_rows enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: load_tasks_data missing file
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: build_email_review_rows enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: build_email_review_rows generated defaults
+User ID: 21
+Review task rows: 1
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: build_email_review_rows return
+User ID: 21
+Review task rows: 1
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: api_email_tasks return
+User ID: 21
+Review task rows: 1
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: build_email_review_rows generated defaults
+User ID: 21
+Review task rows: 1
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: build_email_review_rows applied saved state
+User ID: 21
+Review task rows: 1
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:32
+Step: build_email_review_rows return
+User ID: 21
+Review task rows: 1
+Unassigned activities: 6
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:43
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:43
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:44
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:44
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:45
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 22
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:45
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 22
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:45
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 22
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:45
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 22
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:45
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 4
+Unassigned activities: 22
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:05:45
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 22
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:42
+Step: api_email_tasks enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:42
+Step: build_email_review_rows enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:43
+Step: load_tasks_data missing file
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:43
+Step: build_email_review_rows enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:44
+Step: build_email_review_rows generated defaults
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:44
+Step: build_email_review_rows return
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:44
+Step: api_email_tasks return
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:44
+Step: build_email_review_rows generated defaults
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:44
+Step: build_email_review_rows applied saved state
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:44
+Step: build_email_review_rows return
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:47
+Step: load_tasks_data missing file
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:47
+Step: api_save_tasks request
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:47
+Step: api_save_tasks before save_tasks_data
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'activity_merges': 0}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:47
+Step: save_tasks_data before write
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json', 'activity_merges': 0}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:47
+Step: save_tasks_data after write
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json', 'activity_merges': 0}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:47
+Step: api_save_tasks response
+User ID: 21
+Review task rows: 2
+Unassigned activities: 8
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'activity_merges': 0}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: trigger_send_email before clearing saved review data
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'archived_count': 16}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: save_tasks_data before write
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json', 'activity_merges': 0}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: save_tasks_data after write
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_21.json', 'activity_merges': 0}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: trigger_send_email after clearing saved review data
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'archived_count': 16}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: api_email_tasks enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: build_email_review_rows enter
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: build_email_review_rows generated defaults
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: build_email_review_rows return
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:06:51
+Step: api_email_tasks return
+User ID: 21
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:41
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:41
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:42
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:42
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:43
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 23
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:43
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 23
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:43
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 23
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:43
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 23
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:43
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 4
+Unassigned activities: 23
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:07:43
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 23
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:48
+Step: api_email_tasks enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False, 'fresh': '1', 'saved': None}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:48
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:49
+Step: load_tasks_data missing file
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'file': 'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\user_tasks\\tasks_user_20.json'}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:49
+Step: build_email_review_rows enter
+User ID: 20
+Review task rows: 0
+Unassigned activities: 0
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'has_saved_data': True}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:50
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 25
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:50
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 25
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:50
+Step: api_email_tasks return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 25
+Target task ID/name: None
+Activity IDs being merged: []
+Extra: {'use_saved': False}
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:50
+Step: build_email_review_rows generated defaults
+User ID: 20
+Review task rows: 4
+Unassigned activities: 25
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:50
+Step: build_email_review_rows applied saved state
+User ID: 20
+Review task rows: 4
+Unassigned activities: 25
+Target task ID/name: None
+Activity IDs being merged: []
+============================================
+
+========== EMAIL REVIEW FLOW DEBUG ==========
+Time: 2026-06-15 14:12:50
+Step: build_email_review_rows return
+User ID: 20
+Review task rows: 4
+Unassigned activities: 25
+Target task ID/name: None
+Activity IDs being merged: []
+============================================

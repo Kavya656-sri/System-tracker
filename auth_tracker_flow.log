@@ -262,3 +262,323 @@
 [2026-06-13 13:00:26] Tracker process started: pid=29164, user_id=13, employee_id=2026INT1.
 [2026-06-13 13:20:43] Active tracker bridge sync (api_login): 13 -> 14, employee_id=EMP_TEST_API.
 [2026-06-13 13:20:43] API Tracker Login success: user_id=14, employee_id=EMP_TEST_API, email=api_test_employee@company.com, role=employee.
+[2026-06-13 14:10:42] Active tracker bridge sync (request): 14 -> 13, employee_id=2026INT1.
+[2026-06-13 14:11:15] Logout requested: session_user_id=13, employee_id=2026INT1, role=employee.
+[2026-06-13 14:11:17] Tracker stop requested: bridge_user_id=13, employee_id=2026INT1, pid_file=None, tracker_pids=[2124, 29164], clear_bridge=True, force_all=False.
+[2026-06-13 14:11:22] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:11:14] Active tracker bridge sync (api_login): None -> 10, employee_id=2026INT03.
+[2026-06-13 15:11:14] API Tracker Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 15:12:12] Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 15:12:17] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:12:17] Tracker start requested: session_user_id=10, employee_id=2026INT03, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-13 15:12:20] Tracker process started: pid=21828, user_id=10, employee_id=2026INT03.
+[2026-06-13 15:12:29] API Tracker Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 15:27:09] Logout requested: session_user_id=10, employee_id=2026INT03, role=employee.
+[2026-06-13 15:27:20] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:27:20] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=21828, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-13 15:27:20] Logout requested: session_user_id=10, employee_id=2026INT03, role=employee.
+[2026-06-13 15:27:25] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:27:25] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=21828, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-13 15:27:29] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 15:27:34] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:27:34] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:27:34] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:27:42] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 15:27:42] Logout requested: session_user_id=10, employee_id=2026INT03, role=employee.
+[2026-06-13 15:27:44] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:27:45] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:27:47] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:27:47] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=None, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-13 15:27:54] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:28:30] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 15:29:57] Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 15:30:00] Tracker start requested: session_user_id=10, employee_id=2026INT03, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-13 15:30:02] Tracker process started: pid=29176, user_id=10, employee_id=2026INT03.
+[2026-06-13 15:30:36] Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 15:30:39] Tracker start requested: session_user_id=10, employee_id=2026INT03, active_bridge_user_id=10, tracker_pids=[29176].
+[2026-06-13 15:30:40] Tracker already running for user_id=10; not starting another instance.
+[2026-06-13 15:30:44] Logout requested: session_user_id=10, employee_id=2026INT03, role=employee.
+[2026-06-13 15:30:45] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=29176, tracker_pids=[29176], clear_bridge=True, force_all=False.
+[2026-06-13 15:30:56] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 15:30:58] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:33:51] Login success: user_id=2, employee_id=INT202602, email=kavyakanagaraj2@gmail.com, role=employee.
+[2026-06-13 15:33:56] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 15:33:56] Tracker start requested: session_user_id=2, employee_id=INT202602, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-13 15:34:01] Tracker process started: pid=30620, user_id=2, employee_id=INT202602.
+[2026-06-13 15:34:08] Active tracker bridge sync (request): 2 -> 10, employee_id=2026INT03.
+[2026-06-13 15:41:10] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:41:13] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:41:38] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:41:38] Logout requested: session_user_id=11, employee_id=096, role=employee.
+[2026-06-13 15:41:40] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:41:41] Tracker stop requested: bridge_user_id=11, employee_id=096, pid_file=30620, tracker_pids=[30620], clear_bridge=True, force_all=False.
+[2026-06-13 15:41:49] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:41:52] Login success: user_id=11, employee_id=096, email=saranakshaya359@gmail.com, role=employee.
+[2026-06-13 15:41:53] Tracker start requested: session_user_id=11, employee_id=096, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-13 15:41:55] Tracker process started: pid=31080, user_id=11, employee_id=096.
+[2026-06-13 15:42:07] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:42:21] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:42:40] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:42:41] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:43:07] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:43:11] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:43:15] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:43:41] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:44:07] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:44:11] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:44:16] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:44:17] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:44:40] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:44:46] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:45:07] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:45:11] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:45:11] Logout requested: session_user_id=11, employee_id=096, role=employee.
+[2026-06-13 15:45:12] Tracker stop requested: bridge_user_id=11, employee_id=096, pid_file=31080, tracker_pids=[31080], clear_bridge=True, force_all=False.
+[2026-06-13 15:45:13] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:45:15] Active tracker bridge sync (request): 10 -> 11, employee_id=096.
+[2026-06-13 15:45:17] Active tracker bridge sync (request): 11 -> 10, employee_id=2026INT03.
+[2026-06-13 15:45:18] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 15:45:40] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 15:46:22] Login success: user_id=15, employee_id=96, email=saran1@gmail.com, role=employee.
+[2026-06-13 15:46:23] Tracker start requested: session_user_id=15, employee_id=96, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-13 15:46:25] Tracker process started: pid=25192, user_id=15, employee_id=96.
+[2026-06-13 15:46:41] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:46:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:47:42] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:47:52] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:48:41] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:48:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:49:00] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:49:00] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:49:42] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:49:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:50:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:50:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:51:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:51:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:52:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:52:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:53:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:54:30] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:54:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:55:31] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:55:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:56:32] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:56:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:57:33] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:57:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:58:34] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:58:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 15:59:35] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 15:59:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:00:36] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:00:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:01:37] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:01:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:02:38] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:02:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:03:39] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:03:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:04:40] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:04:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:05:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:05:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:06:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:06:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:07:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:07:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:08:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:08:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:09:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:09:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:10:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:10:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:11:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:11:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:12:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:12:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:13:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:13:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:14:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:14:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:15:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:15:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:16:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:16:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:17:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:17:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:18:24] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:18:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:18:59] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:19:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:20:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:20:44] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:21:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:21:42] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:21:42] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:21:42] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:22:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:22:45] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:23:27] Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-13 16:23:30] Tracker start requested: session_user_id=10, employee_id=2026INT03, active_bridge_user_id=10, tracker_pids=[25192].
+[2026-06-13 16:23:30] Tracker already running for user_id=10; not starting another instance.
+[2026-06-13 16:23:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:23:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:23:43] Logout requested: session_user_id=10, employee_id=2026INT03, role=employee.
+[2026-06-13 16:23:44] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=25192, tracker_pids=[25192], clear_bridge=True, force_all=False.
+[2026-06-13 16:23:52] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-13 16:23:52] Active tracker bridge sync (request): None -> 10, employee_id=2026INT03.
+[2026-06-13 16:24:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:24:46] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:24:54] Login success: user_id=17, employee_id=2026INT22, email=23cb1@gmail.com, role=employee.
+[2026-06-13 16:24:55] Tracker start requested: session_user_id=17, employee_id=2026INT22, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-13 16:24:58] Tracker process started: pid=14944, user_id=17, employee_id=2026INT22.
+[2026-06-13 16:25:00] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 16:25:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:25:46] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:26:17] Active tracker bridge sync (request): 10 -> 17, employee_id=2026INT22.
+[2026-06-13 16:26:39] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 16:26:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:26:45] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:27:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:27:48] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:28:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:28:43] Active tracker bridge sync (request): 15 -> 17, employee_id=2026INT22.
+[2026-06-13 16:28:48] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 16:29:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:29:42] Active tracker bridge sync (request): 15 -> 17, employee_id=2026INT22.
+[2026-06-13 16:29:42] Active tracker bridge sync (request): 17 -> 15, employee_id=96.
+[2026-06-13 16:29:48] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:30:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:30:50] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:31:41] Active tracker bridge sync (request): 10 -> 15, employee_id=96.
+[2026-06-13 16:31:42] Active tracker bridge sync (request): 15 -> 17, employee_id=2026INT22.
+[2026-06-13 16:31:50] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 16:31:56] Active tracker bridge sync (request): 10 -> 17, employee_id=2026INT22.
+[2026-06-13 16:32:07] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 16:32:14] Active tracker bridge sync (request): 10 -> 17, employee_id=2026INT22.
+[2026-06-13 16:32:18] Active tracker bridge sync (request): 17 -> 15, employee_id=96.
+[2026-06-13 16:32:31] Active tracker bridge sync (request): 15 -> 17, employee_id=2026INT22.
+[2026-06-13 16:32:38] Active tracker bridge sync (request): 17 -> 15, employee_id=96.
+[2026-06-13 16:32:43] Active tracker bridge sync (request): 15 -> 10, employee_id=2026INT03.
+[2026-06-13 16:33:46] Active tracker bridge sync (request): 10 -> 17, employee_id=2026INT22.
+[2026-06-13 16:33:51] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 16:38:18] Active tracker bridge sync (request): 10 -> 17, employee_id=2026INT22.
+[2026-06-13 16:38:22] Active tracker bridge sync (request): 17 -> 10, employee_id=2026INT03.
+[2026-06-13 17:22:17] Login success: user_id=18, employee_id=kavya999, email=kamaleshtn2006@gmail.com, role=employee.
+[2026-06-13 17:22:20] Tracker start requested: session_user_id=18, employee_id=kavya999, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-13 17:22:23] Tracker process started: pid=31004, user_id=18, employee_id=kavya999.
+[2026-06-13 17:22:44] Logout requested: session_user_id=18, employee_id=kavya999, role=employee.
+[2026-06-13 17:22:50] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 17:22:50] Tracker stop requested: bridge_user_id=18, employee_id=kavya999, pid_file=31004, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-13 17:22:59] Active tracker bridge sync (request): None -> 18, employee_id=kavya999.
+[2026-06-13 17:23:04] Unable to inspect tracker processes: Command '['powershell', '-NoProfile', '-Command', '$script = \'C:\\Users\\KAVYA SRI K\\OneDrive\\Desktop\\productivity Tracker\\start_tracker.py\'; Get-CimInstance Win32_Process -Filter "Name = \'python.exe\'" | Where-Object { $_.CommandLine -like "*$script*" } | Select-Object -ExpandProperty ProcessId']' timed out after 5 seconds
+[2026-06-13 17:23:04] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-15 10:03:40] Active tracker bridge sync (api_login): 18 -> 10, employee_id=2026INT03.
+[2026-06-15 10:03:40] API Tracker Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-15 10:20:57] Login success: user_id=10, employee_id=2026INT03, email=kavyasri@gmail.com, role=employee.
+[2026-06-15 10:20:59] Tracker start requested: session_user_id=10, employee_id=2026INT03, active_bridge_user_id=10, tracker_pids=[].
+[2026-06-15 10:21:02] Tracker process started: pid=16140, user_id=10, employee_id=2026INT03.
+[2026-06-15 11:22:10] Logout requested: session_user_id=10, employee_id=2026INT03, role=employee.
+[2026-06-15 11:22:12] Tracker stop requested: bridge_user_id=10, employee_id=2026INT03, pid_file=16140, tracker_pids=[16140], clear_bridge=True, force_all=False.
+[2026-06-15 11:22:23] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-15 11:23:34] Active tracker bridge sync (api_login): None -> 19, employee_id=INT202622.
+[2026-06-15 11:23:34] API Tracker Login success: user_id=19, employee_id=INT202622, email=kavyakanagaraj22@gmail.com, role=employee.
+[2026-06-15 11:24:13] Login success: user_id=19, employee_id=INT202622, email=kavyakanagaraj22@gmail.com, role=employee.
+[2026-06-15 11:24:14] Tracker start requested: session_user_id=19, employee_id=INT202622, active_bridge_user_id=19, tracker_pids=[].
+[2026-06-15 11:24:17] Tracker process started: pid=18084, user_id=19, employee_id=INT202622.
+[2026-06-15 11:46:21] Logout requested: session_user_id=19, employee_id=INT202622, role=employee.
+[2026-06-15 11:46:23] Tracker stop requested: bridge_user_id=19, employee_id=INT202622, pid_file=None, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-15 11:46:27] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-15 11:47:30] Login success: user_id=20, employee_id=INT2026, email=23cb024@drngpit.ac.in, role=employee.
+[2026-06-15 11:47:31] Tracker start requested: session_user_id=20, employee_id=INT2026, active_bridge_user_id=None, tracker_pids=[].
+[2026-06-15 11:47:34] Tracker process started: pid=19644, user_id=20, employee_id=INT2026.
+[2026-06-15 11:47:42] API Tracker Login success: user_id=20, employee_id=INT2026, email=23cb024@drngpit.ac.in, role=employee.
+[2026-06-15 11:49:36] API Tracker Login success: user_id=20, employee_id=INT2026, email=23cb024@drngpit.ac.in, role=employee.
+[2026-06-15 12:14:41] API Tracker Login success: user_id=20, employee_id=INT2026, email=23cb024@drngpit.ac.in, role=employee.
+[2026-06-15 12:45:42] API Tracker Login success: user_id=20, employee_id=INT2026, email=23cb024@drngpit.ac.in, role=employee.
+[2026-06-15 14:03:20] Login success: user_id=21, employee_id=1, email=1@gmail.com, role=employee.
+[2026-06-15 14:03:24] Tracker start requested: session_user_id=21, employee_id=1, active_bridge_user_id=20, tracker_pids=[].
+[2026-06-15 14:03:27] Tracker process started: pid=31272, user_id=21, employee_id=1.
+[2026-06-15 14:03:31] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:03:44] Active tracker bridge sync (api_login): 20 -> 21, employee_id=1.
+[2026-06-15 14:03:44] API Tracker Login success: user_id=21, employee_id=1, email=1@gmail.com, role=employee.
+[2026-06-15 14:03:47] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:03:51] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:03:51] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:03:53] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:04:05] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:04:09] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:04:32] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:04:38] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:04:51] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:04:58] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:05:28] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:05:29] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:05:29] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:05:33] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:05:37] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:05:43] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:05:47] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:05:47] Logout requested: session_user_id=21, employee_id=1, role=employee.
+[2026-06-15 14:05:48] Tracker stop requested: bridge_user_id=21, employee_id=1, pid_file=None, tracker_pids=[], clear_bridge=True, force_all=False.
+[2026-06-15 14:05:51] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-15 14:05:51] Active tracker bridge sync (request): None -> 21, employee_id=1.
+[2026-06-15 14:06:07] Login success: user_id=11, employee_id=096, email=saranakshaya359@gmail.com, role=employee.
+[2026-06-15 14:06:08] Tracker start requested: session_user_id=11, employee_id=096, active_bridge_user_id=21, tracker_pids=[].
+[2026-06-15 14:06:10] Active tracker bridge sync (request): 11 -> 21, employee_id=1.
+[2026-06-15 14:06:10] Tracker process started: pid=11236, user_id=11, employee_id=096.
+[2026-06-15 14:06:16] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:06:24] Login success: user_id=21, employee_id=1, email=1@gmail.com, role=employee.
+[2026-06-15 14:06:25] Tracker start requested: session_user_id=21, employee_id=1, active_bridge_user_id=20, tracker_pids=[11236, 17300].
+[2026-06-15 14:06:25] User switch detected. Stopping tracker for bridge user_id=20 before starting user_id=21.
+[2026-06-15 14:06:26] Tracker stop requested: bridge_user_id=20, employee_id=INT2026, pid_file=11236, tracker_pids=[11236, 17300], clear_bridge=False, force_all=False.
+[2026-06-15 14:06:35] Tracker stop completed. Remaining tracker_pids=[].
+[2026-06-15 14:06:36] Tracker process started: pid=12808, user_id=21, employee_id=1.
+[2026-06-15 14:06:40] API Tracker Login success: user_id=21, employee_id=1, email=1@gmail.com, role=employee.
+[2026-06-15 14:06:43] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:06:43] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:06:57] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:07:02] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:07:25] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:07:29] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:07:29] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:07:41] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:07:42] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:07:42] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:07:48] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:07:49] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:07:51] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:08:16] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:08:23] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:08:34] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:12:26] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:12:27] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:12:28] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:12:42] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:12:48] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:12:50] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:12:54] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:12:56] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:13:02] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:13:02] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:13:03] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:13:24] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:13:32] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:13:43] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:14:02] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:14:41] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:15:02] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:15:25] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:15:32] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:15:45] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:16:02] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:16:05] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:16:48] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:16:48] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:16:49] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:16:54] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:17:48] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:17:49] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
+[2026-06-15 14:18:14] Active tracker bridge sync (request): 21 -> 20, employee_id=INT2026.
+[2026-06-15 14:18:15] Active tracker bridge sync (request): 20 -> 21, employee_id=1.
