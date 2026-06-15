@@ -14,3 +14,7 @@ reports/
 
 build/
 dist/
+*.zip
+dist/
+*.log
+.venv/
