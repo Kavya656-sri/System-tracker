@@ -18,3 +18,8 @@ dist/
 dist/
 *.log
 .venv/
+*.zip
+*.log
+tracker.pid
+tracker_session.json
+.venv/
